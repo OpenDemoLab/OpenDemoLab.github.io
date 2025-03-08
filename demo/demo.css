@@ -1,0 +1,2234 @@
+/* *** Algemene Stijlen *** */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #FFFFFF;
+    padding: 10px;
+    color: #333;
+    max-width: 400px;  /* Max breedte voor de mobiele weergave */
+    margin: 0 auto;    /* Centreer de wallet op bredere schermen */
+}
+
+p {
+    font-weight: normal; /* Zorg ervoor dat alle <p> tags een normaal gewicht hebben */
+}
+
+/* *** Header Stijlen *** */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+.menu-button {
+    color: #5D3EBC;
+    font-size: 18px;
+    border: none;
+    background-color: transparent;
+}
+
+.help-button {
+    background-color: transparent;
+    border-radius: 50%;
+    font-size: 18px;
+    color: #5D3EBC;
+    border: 2px solid #E0E7FF;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 20px;
+    right: 30px;
+}
+
+/* *** screen headers *** */
+.header-screen {
+    text-align: left; /* Centreer de tekst */
+    margin-bottom: 20px; /* Voeg wat ruimte toe onder de titel */
+}
+
+.header-screen h3{
+font-size: 20px; /* Grootte van de titel */
+color: #152A62;
+margin: 0;
+padding: 20px 0; /* Wat ruimte boven en onder de tekst */
+font-weight: bold; /* Maak de tekst vetgedrukt */
+}
+
+/* *** Wallet screen *** */
+#wallet-screen {
+    padding: 5px;
+    padding-bottom: 80px;
+}
+
+/* Sectie met de titel 'Mijn Digitale Bewijzen' */
+#wallet-header {
+   
+}
+
+#wallet-header h3 {
+}
+
+
+/* *** Scan Sectie Stijlen *** */
+.scan-section {
+    text-align: center;
+    margin-bottom: 40px;
+    width: 100%;
+}
+
+.scan-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    cursor: pointer;
+    padding: 20px;
+}
+
+.scan-btn-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.scan-btn {
+    background-color: #2681cc;
+    border-radius: 35px;
+    width: 120px;
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    border: none;
+    cursor: pointer;
+}
+
+.qr-logo {
+    font-size: 50px; /* Pas de grootte aan zoals gewenst */
+    color: #ffffff; /* Of een andere kleur */
+}
+.scan-text {
+    font-size: 16px;
+    color: #4e4e4e;
+    margin-top: 10px;
+    font-weight: bold;
+    color: #2681cc;
+}
+
+.close-scan-btn {
+    background-color: #2681cc;
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+    max-width: 300px;
+    margin: 20px auto;
+    display: none;
+    text-align: center;
+}
+
+/* *** Kaartjes Stijlen *** */
+.card-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.card, .default-card {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: -16px 20px 30px #bebebe, -15px -15px 30px #ffffff;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column; /* Maak de kaart horizontaal */
+    align-items: flex-start; /* Verticaal centreren van inhoud */
+    justify-content: flex-start;
+    width: calc(100% - 30px);
+    height: 180px;
+    margin: 10px auto;
+    cursor: pointer;
+}
+
+/* Schaduw voor een ingedrukt effect bij hover */
+.card:hover, .default-card:hover {
+    box-shadow: inset 15px 15px 30px #e7e7e7,
+                inset -15px -15px 30px #ffffff;
+}
+
+
+
+/* Iconen bovenaan in de kaart */
+.card i, .default-card i {
+    font-size: 30px;  /* Behoud de grootte van het icoon */
+    margin-right: 20px;
+    margin-bottom: 10px;  /* Behoud de ruimte onder het icoon */
+}
+
+/* Kaarttekst */
+.card-text h3 {
+    margin: 0;
+    font-size: 18px;  /* Behoud de tekstgrootte */
+    font-weight: normal;
+}
+
+.card-text p {
+    margin: 5px 0 0 0;
+    font-size: 14px;
+    color: #555;
+  }
+
+/* Media query voor schermen kleiner dan 370px */
+@media (max-width: 370px) {
+    .card, .default-card {
+        aspect-ratio: 16 / 9;
+        width: auto;
+        height: auto;
+        padding: 15px; /* Minder padding */
+    }
+
+    .card img {
+        width: 25px; /* Verkleinen van het logo */
+        height: 25px;
+        margin-bottom: 8px;
+    }
+
+    .card .card-text h3 {
+        font-size: 16px; /* Kleinere lettergrootte voor h3 */
+    }
+
+    .card .card-text p {
+        font-size: 12px; /* Kleinere lettergrootte voor p */
+    }
+}
+
+
+
+
+/* Wallet grid voor dynamische kaarten */
+.wallet-grid {
+    padding: 20px;
+}
+
+/* Dynamische Kaartjes Tekst */
+.card-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+
+/* *** Details Sectie Stijlen *** */
+#details, #personal-data-details, #address-details, #message-details-screen {
+    display: none;
+    position: fixed;
+    top: 0;
+    width: 100%; /* Behoud de breedte van het scherm */
+    max-width: 400px; /* Zorg ervoor dat het binnen de body blijft */
+    height: 100%;
+    background-color: white;
+    z-index: 100; /* Houd dit boven het wallet-scherm */
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-y: auto;
+    margin: 0 auto; /* Centreer binnen de beschikbare ruimte */
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#details h3, #personal-data-details h3, #address-details h3 {
+    margin-top: 40px;
+    color: #152A62;
+    margin-top: 60px;
+    color: #152A62;
+    margin-right: 15px;
+ 
+}
+
+.divider {
+    width: 100%;
+    height: 1px;
+    background-color: lightgrey;
+    margin: 20px 0;
+}
+
+#details-content {
+    /* margin-top: 20px; */
+}
+
+.details-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+
+#back-btn, #back-btn-address {
+    background: none; /* Geen achtergrondkleur */
+    border: none; /* Geen rand */
+    color: grey; /* Grijze kleur voor de pijl */
+    font-size: 24px; /* Grootte van de pijl */
+    cursor: pointer;
+    position: absolute; /* Plaats het in de linkerbovenhoek */
+
+}
+
+#back-btn i, #back-btn-address i {
+    font-size: 24px; /* Zorg ervoor dat de pijl groot genoeg is */
+    color: grey; /* Grijze kleur voor de pijl */
+}
+
+.details-header {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    right: 20px; /* Voeg dit toe om de header over de volledige breedte te laten strekken */
+    display: flex;
+    justify-content: space-between; /* Verdeel de knoppen naar links en rechts */
+    align-items: center; /* Lijn de knoppen verticaal uit */
+}
+  
+  .close-btn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #4a90e2;
+    cursor: pointer;
+  }
+  
+  .close-btn i {
+    font-size: 24px;
+    color: #4a90e2;
+  }
+
+  .orange-btn {
+    background-color: #FFA500;
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 45%;
+    text-align: center;
+}
+
+.delete-btn {
+    background: none;
+    border: none;
+    font-size: 18px;
+    color: #fd875c; /* Pas de kleur aan naar oranje voor het verwijdericoon */
+    cursor: pointer;
+}
+
+.delete-btn i {
+    font-size: 18px;
+    color: #ff7b4b; /* Icon kleur voor de verwijderknop */
+}
+
+/* *** Modal Stijlen *** */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;  
+    width: 100%; 
+    height: 100%;
+    background-color: white;
+    z-index: 1000;
+    box-sizing: border-box;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto;
+    margin-bottom: 20px;
+   
+}
+
+.modal-header p {
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 5px; 
+    border-radius: 10px;
+    text-align: left;
+    /* width: 90%;
+    max-height: 90%; */
+    height: auto;
+    box-sizing: border-box;
+    max-width: 400px;
+    display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+
+.modal-content h2{
+margin-bottom: 20px;
+  text-align: center;
+  color: #152A62;
+}
+
+h2, h3 {
+    color: #152A62;
+}
+
+p {
+    color: #152A62;
+}
+
+.modal .button-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    position: relative; /* Overschrijft de absolute positionering van de algemene stijl */
+    left: auto;         /* Overschrijft de algemene left-stijl */
+    transform: none;    /* Verwijder transform */
+    width: auto;        /* Pas de breedte aan indien nodig */
+    margin-top: 40px;
+}
+
+.stop-button {
+    background-color: white;
+    border: 2px solid #2681cc;
+    color: #2681cc;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.share-button {
+    background-color: #2681cc;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.share-button:hover {
+    background-color: #1e3a82;
+}
+
+#rdfcv-modal {
+    margin-bottom: 40px;
+}
+
+#rdfcv-question-text {
+font-weight: bold;
+}
+
+/* *** Welkomstscherm Stijlen *** */
+#welcome-screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 90vh;
+    justify-content: space-between;
+    box-sizing: border-box;
+    position: relative;
+    padding: 0;
+    overflow: hidden;
+}
+
+.welcome-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+
+}
+
+.welcome-text {
+    padding: 20px 0;
+    text-align: center;
+    color: #152A62;
+}
+
+.welcome-text h1 {
+    margin-bottom: 10px;
+    text-align: center;
+    color: #152A62;
+}
+
+.welcome-background {
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex-grow: 0.5;
+}
+
+.welcome-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* .welcome-image img {
+    max-width: 80%;
+    height: auto;
+}
+ */
+ .responsive-svg {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+ .welcome-image {
+    /* background-image: url('welcome.svg'); */
+    background-size: cover; /* Zorgt ervoor dat de afbeelding de hele div vult */
+    background-position: center; /* Centreert de afbeelding binnen de div */
+    width: 100%;   /* Vul de volledige breedte van de container */
+    height: 300px; /* Of pas de hoogte aan zoals gewenst */
+  }
+
+  #welcome-screen a {
+    display: block; /* Maak de knop een blok-element */
+    background-color: #2681cc;
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 300px; /* Bepaal de breedte van de knop */
+    margin: 0 auto; /* Centreer de knop */
+    text-decoration: none;
+    font-size: medium;
+    font-weight: bolder;
+    text-align: center; /* Zorg ervoor dat de tekst in het midden van de knop staat */
+}
+
+/* *** Pincode-inlogscherm Stijlen *** */
+#pin-inlog-screen {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100%;
+    padding: 10px;
+    width: 100%;
+    background-color: white;
+    z-index: 1000;
+}
+
+#pin-inlog-screen h2 {
+    text-align: center;
+    max-width: 100%;
+    margin-bottom: 20px;
+    font-weight: bold; /* Alleen h2 is bold */
+}
+
+#pin-inlog-screen p {
+    text-align: center;
+    max-width: 100%;
+    margin-bottom: 20px;
+    font-weight: normal; /* p heeft een normaal lettergewicht */
+}
+
+/* *** Pincode Bevestiging-scherm Stijlen *** */
+
+#pin-confirmation-screen-verifier {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    z-index: 1000;
+    padding: 20px;
+}
+
+#pin-confirmation-screen-verifier p {
+    text-align: center;
+    max-width: 100%;
+    margin-bottom: 20px;
+    font-weight: normal; /* p heeft een normaal lettergewicht */
+}
+
+
+
+#pin-confirmation-screen-issuer {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    z-index: 1000;
+    padding: 20px;
+}
+
+#pin-confirmation-screen-issuer p {
+    text-align: center;
+    max-width: 100%;
+    margin-bottom: 20px;
+    font-weight: bold; /* p heeft een normaal lettergewicht */
+}
+
+
+
+
+
+
+#pin-confirmation-screen {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    z-index: 1000;
+    padding: 20px;
+}
+
+/* Gemeenschappelijke .pin-input stijl voor beide schermen */
+.pin-input {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    justify-content: center;
+}
+
+.pin-input input {
+    text-align: center;
+    font-size: 24px;
+    padding: 10px;
+    width: 45px;
+    height: 50px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Knopstijlen voor beide schermen */
+#submit-pin,
+.confirm-pin {
+    background-color: #2681cc;
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    min-width: 250px;
+    text-align: center;
+    margin: 0 auto;
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+
+
+/* *** Menu en Activiteiten Stijlen *** */
+.menu-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    z-index: 900;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.menu-list {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.menu-list li {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    border-bottom: 1px solid #ccc;
+    cursor: pointer;
+    color: #152A62;
+    font-size: 18px;
+}
+
+.menu-list li span {
+    color: #152A62;
+}
+
+.menu-logout {
+    background: none;
+    border: 1px solid #5A50ED;
+    color: #5A50ED;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.back-btn {
+    background-color: #5A50ED;
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 60%;
+    max-width: 200px;
+    text-align: center;
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.activities-section {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    z-index: 900;
+    padding: 5px;
+    box-sizing: border-box;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Voeg deze regel toe om de sectie uit te breiden */
+    margin-bottom: 80px;
+}
+
+.activities-section h3 {
+
+}
+
+.activities-section .title-divider {
+    width: 100%;
+    height: 1px;
+    background-color: #152A62;
+    margin-bottom: 25px;
+}
+
+.activities-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.activity-divider {
+    width: 100%;
+    height: 1px;
+    background-color: lightgrey;
+    margin: 10px 0;
+}
+
+.activities-section li {
+    padding: 10px;
+    color: #152A62;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.activities-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* *** Machtiging sectie stijlen *** */
+
+.title-divider {
+    width: 100%;
+    height: 1px;
+    background-color: #152A62;
+    margin-bottom: 25px;
+}
+
+.machtiging-section {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    z-index: 900;
+    padding: 5px;
+    box-sizing: border-box;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    margin-bottom: 80px;
+}
+
+.machtiging-section h3 {
+}
+
+/* *** Instellingen sectie stijlen *** */
+.instellingen-section {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    z-index: 900;
+    padding: 5px;
+    box-sizing: border-box;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    margin-bottom: 80px;
+    position: relative;
+}
+
+.instellingen-section h3 {
+    margin-top: 60px;
+    margin-bottom: 20px;
+    color: #152A62;
+}
+
+.instellingen-section .details-header {
+    left: 10px;
+}
+
+/* Zoekbalk styling */
+.search-bar {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+/* *** Success-scherm Stijlen *** */
+#verifier-success-screen {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+}
+
+#verifier-success-screen h2 {
+    margin-bottom: 20px;
+}
+
+#verifier-success-screen .modal-content{
+    width: 100%;
+}
+
+#issuer-success-screen .modal-content {
+    width: 100%;
+}
+
+
+
+.button-container {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#see-activity-btn {
+    background-color: white;
+    border: 2px solid #2681cc;
+    color: #2681cc;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#close-success-btn {
+    background-color: #2681cc;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* *** Issuer Success-scherm Stijlen *** */
+#issuer-success-screen {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    z-index: 1000;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+
+#issuer-success-screen h2 {
+    margin-bottom: 10px;
+   
+    text-align: left;
+}
+
+#issuer-success-screen p {
+    text-align: left;
+    margin: 5px 0;
+}
+
+#issuer-success-card {
+    margin-bottom: 30px;
+    align-self: center;
+    width: calc(100% - 10px);
+}
+
+#issuer-success-screen .button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+#issuer-multiple-success-screen .button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+#signdoc-success-screen .button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+#signfromstorage-success-screen .button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+
+#rdfcf-success-screen .button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+
+.extra-space {
+    margin-bottom: 15px; /* Voeg witruimte toe onder deze paragrafen */
+  }
+
+
+  .file-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.fake-file-btn {
+    padding: 10px;
+    background-color: #e0e0e0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: left;
+    font-size: 1em;
+    transition: background-color 0.3s;
+}
+
+.fake-file-btn:hover {
+    background-color: #d5d5d5;
+}
+
+
+
+#close-issuer-success-btn {
+    width: 150px;
+    background-color:#2681cc;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#close-rdfci-success-btn {
+    width: 150px;
+    background-color:#2681cc;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+
+
+#close-issuer-success-btn:hover {
+    background-color: #2681cc;
+    color: white;
+}
+
+
+/* *** RDFCI Modal Stijlen *** */
+#rdfci-modal #rdfcv-modal{
+    display: none;
+    position: fixed;
+    display: flex;
+    justify-content: flex-start;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    z-index: 1000;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+
+#rdfci-modal h2 {
+    margin-bottom: 20px;
+}
+
+#rdfci-modal .button-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+}
+
+#rdfci-modal p strong {
+    font-weight: bold;
+}
+
+#rdfcf-modal h4 {
+    margin-bottom: 20px;
+    color: #152a62;
+}
+
+.card-container {
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 16px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.card-header {
+    height: 40px;
+    width: 100%;
+    background-color: #B5DEF4; /* Nieuwe achtergrondkleur */
+    color: #152A62; /* Nieuwe tekstkleur */
+    font-weight: bold; /* Vetgedrukte tekst */
+    padding: 10px; /* Ruimte rond de tekst */
+    text-align: center; /* Centreer de tekst */
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.card-content {
+    padding: 56px 16px 16px 16px;
+}
+
+.card-title {
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.card-details p {
+    margin: 4px 0;
+}
+
+
+/* Container voor elke rij */
+.details-row {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 10px;
+  }
+  
+/* Linker kolom voor de labels */
+.details-label {
+    flex: 0 0 auto;      /* Zorg dat de breedte automatisch wordt aangepast */
+    min-width: 180px;    /* Minimale breedte voor de labelkolom */
+    max-width: 180px;    /* Maximale breedte voor de labelkolom */
+    font-weight: bold;
+    color: #333;
+    padding-right: 10px;
+    text-align: left;
+    word-wrap: break-word; 
+    overflow: hidden;
+    text-overflow: ellipsis; /* Voeg ellipsis toe als de tekst te lang is */
+    font-size: 14px;
+  }
+
+  /* Rechter kolom voor de waarden */
+  .details-value {
+    flex: 1;  /* Deze kolom neemt de resterende ruimte in */
+    color: #555;
+    text-align: left; /* Zorg dat de waarden links worden uitgelijnd */
+    word-wrap: break-word; 
+  }
+
+/* *** Navigatiebalk Stijlen *** */
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 400px; /* Terug naar maximale breedte van 400px */
+    height: 60px;
+    background-color: #FFFFFF;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    border-top: 1px solid #e0e0e0;
+    z-index: 1000;
+}
+
+.nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #888;
+    text-decoration: none;
+    font-size: 12px;
+    transition: color 0.3s ease;
+    flex: 1; /* Deze regel zorgt ervoor dat alle knoppen dezelfde breedte krijgen */
+}
+
+.nav-item i {
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.nav-item.active {
+    color: #5f5f5f;
+}
+
+.nav-item.active i {
+    color: #4A90E2;
+}
+
+.nav-item.active span {
+    color: #4A90E2; /* Maak de tekst blauw als de knop actief is */
+}
+
+.nav-item:hover {
+    color: #646464;
+}
+
+
+
+/* CSS weergave kaartjes velden in vraagscherm rdfci rdfcv */
+.detail-row {
+    display: grid;
+    grid-template-columns: 150px 1fr; /* Eerste kolom (labels) krijgt vaste breedte, tweede kolom (waarden) neemt de rest */
+    grid-gap: 10px; /* Ruimte tussen de kolommen */
+    margin-bottom: 10px; /* Ruimte tussen de rijen */
+    font-size: small;
+  }
+  
+  .label {
+    font-weight: bold; /* Labels vetgedrukt */
+    text-align: left; /* links uitlijnen zodat ze netjes naast de waarden staan */
+    padding-right: 10px; /* Wat ruimte tussen het label en de waarde */
+  }
+  
+  .value {
+    text-align: left; /* Waarden links uitlijnen */
+  }
+
+
+
+
+
+
+/* CSS voor de zwevende QR-code knop */
+.floating-qr-button {
+    position: fixed;
+    bottom: 80px; /* 100px van de onderkant om ruimte te houden voor de navbar */
+    right: calc((100% - 400px) / 2 + 20px); /* Positioneer binnen de containerbreedte */
+    width: 110px;
+    height: 60px;
+    background-color: #2681cc; /* Kleur van de knop */
+    color: white;
+    border: none;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    font-size: 14px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Verhoogde schaduw voor duidelijk zwevend effect */
+    cursor: pointer;
+    z-index: 1000; /* Zorg ervoor dat de knop boven alles ligt */
+    
+}
+
+.floating-qr-button i {
+    font-size: 20px; /* Grootte van het QR-code icoon */
+}
+
+/* Stijl voor het scan-scherm */
+.add-card-screen {
+    top: 0;
+    position: fixed;
+    max-width: 400px;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    z-index: 900;
+    padding: 5px;
+    box-sizing: border-box;
+    overflow-y: auto;
+    display: none; /* Het scherm wordt pas getoond bij activatie */
+    flex-direction: column;
+    flex-grow: 1; /* Zorg dat de sectie zich uitbreidt */
+    overflow-y: auto;
+    margin: 0 auto;
+}
+
+
+
+/* Stijl voor individuele knoppen */
+.card-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: calc(100% - 10px); /* Houd rekening met padding/marge */
+    max-width: 400px; /* Optionele maximale breedte */
+    height: 60px;
+    background-color: #fff;
+    border: none;
+    border-radius: 8px;
+    margin-bottom: 15px; /* Witruimte tussen de knoppen */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+  }
+  
+  /* Stijl voor de groene achtergrond bij geselecteerde knoppen */
+  .card-button.checked {
+    background-color: #E6F4EA; /* Zeer lichte groene achtergrond */
+  }
+  
+  /* Stijl voor de inhoud binnen de knop */
+  .button-content {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 0 15px;
+  }
+  
+/* Stijl voor het linker icoon */
+.icon-left {
+    font-size: 24px; /* Zorg ervoor dat elk icoon dezelfde grootte heeft */
+    color: #919191;
+    width: 40px; /* Voeg een vaste breedte toe om consistentie te garanderen */
+    height: 40px; /* Voeg een vaste hoogte toe voor consistentie */
+    text-align: center; /* Zorg ervoor dat het icoon gecentreerd is binnen de ruimte */
+    line-height: 40px; /* Zorg ervoor dat het icoon verticaal gecentreerd is */
+  }
+  
+  /* Stijl voor de knoptekst */
+  .button-text {
+    flex: 1;
+    margin-left: 15px;
+    font-size: 18px;
+    text-align: left;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Stijl voor het rechter icoon */
+  .icon-right {
+    font-size: 20px;
+    color: #333;
+  }
+  
+  /* Kleur aanpassingen voor vinkje en plusje */
+  .card-button.checked .icon-right {
+    color: green; /* Kleur voor het vinkje */
+  }
+  
+  .card-button .icon-right {
+    color: #2681cc; /* Kleur voor het plusje */
+  }
+/* Stijl voor de subtekst van de knoppen */
+.button-text-sub {
+    font-size: 14px; /* Pas de font-size aan naar wens */
+    color: #777; /* Kleur van de subtekst voor onderscheid */
+  }
+
+
+
+/* *** Header Balk voor Belastingdienst *** */
+.header-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f5f5f5; /* Zelfde achtergrondkleur als de andere knoppen */
+    padding: 5px; /* Zelfde padding als de andere knoppen zoals "Rijbewijs" */
+    color: #474747; /* Zelfde tekstkleur als de knoppen */
+    width: calc(100% - 10px); /* Zelfde breedte als de andere knoppen */
+    box-sizing: border-box;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px; /* Border-radius zoals de knoppen "Rijbewijs" */
+    margin: 20px auto; /* Centreer de balk en voeg ruimte toe */
+    height: 60px; /* Zelfde hoogte als de knoppen zoals "Rijbewijs" */
+    flex-direction:row ;
+    padding: 0 15px;
+}
+
+.header-left {
+    display: flex;
+    align-items: center; /* Verticale uitlijning van logo en tekst */
+}
+
+.header-logo {
+    width: 40px; /* Breedte van het logo */
+    height: 40px; /* Hoogte van het logo */
+    margin-left: 10px; 
+    margin-right: 20px; /* Witruimte tussen het logo en de tekst */
+}
+
+.header-title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* *** Formulier Knoppen *** */
+.form-buttons {
+    margin-left: 20px; /* Consistente indent ten opzichte van de header */
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Ruimte tussen de knoppen */
+}
+
+.form-button {
+    background-color: #ffffff; /* Zelfde achtergrondkleur als de andere knoppen */
+    color: #152A62; /* Zelfde tekstkleur als de knoppen */
+    padding: 10px; /* Zelfde padding als de knoppen zoals "Rijbewijs" */
+    border: none;
+    border-radius: 15px; /* Border-radius zoals de knoppen "Rijbewijs" */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+    cursor: pointer;
+    text-align: left; /* Linker uitlijning van de tekst */
+    width: calc(100% - 20px); /* Zelfde breedte als de andere knoppen */
+    margin: 0 auto; /* Centreer de knop */
+    height: 60px; /* Zelfde hoogte als de knoppen zoals "Rijbewijs" */
+}
+
+.form-button:hover {
+    box-shadow: inset 15px 15px 30px #e7e7e7, inset -15px -15px 30px #ffffff; /* Schaduw bij hover zoals bij de andere knoppen */
+}
+
+
+/* Stijl voor de weergave-wisselknop */
+.toggle-view-button {
+    background-color: #4a90e2;;
+    color: white;
+    border: none;
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 20px auto;
+    display: block;
+    width: calc(100% - 40px);
+  }
+  
+  .toggle-view-button:hover {
+    background-color: #0056b3;
+  }
+
+  .toggle-view-button i {
+    margin-right: 8px; /* Voeg ruimte toe tussen icoon en tekst */
+}
+
+  .get-direct-attribute-title {
+    font-size: 15px;
+    margin: 20px auto;
+   
+    color: #878787;
+  }
+
+
+  /* *** CSAS Modal Scherm Stijlen (CSAS) *** */
+#csas-modal {
+    display: none;
+    position: fixed;
+ /*    top: 0;
+    left: 0;
+    width: 100%;  */
+    height: 100%; 
+    background-color: white;
+    z-index: 1000;
+    display: flex;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+
+#csas-modal h2 {
+    margin-bottom: 20px;
+    text-align: left;
+    color: #152A62;
+}
+
+#csas-modal p {
+    text-align: left;
+    font-size: 16px;
+    color: #152A62;
+}
+
+
+
+#csas-details-container {
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+#csas-agreement {
+    color: #555;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+#csas-modal .button-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    width: 100%;
+}
+
+#csas-stop-button {
+    background-color: white;
+    border: 2px solid #2681cc;
+    color: #2681cc;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#csas-accept-button {
+    background-color: #4a90e2;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* *** CSAS Pincode Bevestigingsscherm Stijlen (CSAS) *** */
+#csas-pin-confirmation-screen {
+    display: none;
+    position: fixed;
+  /*   top: 0;
+    left: 0;
+    width: 100%;  */
+    height: 100%; 
+    background-color: white;
+    z-index: 1000;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+
+#csas-pin-confirmation-screen h2 {
+    margin-bottom: 20px;
+    text-align: center;
+    color: #152A62;
+}
+
+.pin-input {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    justify-content: center;
+}
+
+.pin-input input {
+    text-align: center;
+    font-size: 24px;
+    padding: 10px;
+    width: 45px;
+    height: 50px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#confirm-pin-csas {
+    background-color: #2681cc;
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    min-width: 250px;
+    text-align: center;
+    margin: 0 auto;
+    display: block;
+}
+
+/* *** CSAS Success-scherm Stijlen (CSAS) *** */
+#csas-success-screen {
+    display: none;
+    position: fixed;
+   /*  top: 0;
+    left: 0;
+    width: 100%;  */
+    height: 100%; 
+    background-color: white;
+    z-index: 1000;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+
+#csas-success-screen h2 {
+    margin-bottom: 20px;
+    text-align: center;
+    color: #152A62;
+}
+
+#csas-success-card-container {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+#close-csas-success-btn {
+    background-color: #2681cc;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+    align-self: center;
+}
+
+
+/* *** Mandate Modal Stijlen *** */
+#mandate-modal .modal-content {
+    /* Hergebruik bestaande modal-content stijlen */
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 500px;
+    width: 90%;
+    max-width: 400px;
+}
+
+#mandate-modal h2 {
+    font-size: 24px;
+    color: #152A62;
+    margin-bottom: 10px;
+}
+
+#mandate-modal .mandate-content p {
+    font-size: 16px;
+    color: #152A62;
+}
+
+#mandate-modal .mandate-content .divider {
+    margin: 10px 0;
+    border-top: 1px solid #ccc;
+}
+
+#mandate-modal .button-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+}
+
+#mandate-modal .stop-button {
+    background-color: white;
+    border: 2px solid #2681cc;
+    color: #2681cc;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 45%;
+}
+
+#mandate-modal .stop-button:hover {
+    background-color: #f0f0f0;
+}
+
+#mandate-modal .share-button {
+    background-color: #2681cc;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    width: 45%;
+}
+
+#mandate-modal .share-button:hover {
+    background-color: #1e3a82;
+}
+
+/* *** Mandate Pin Confirmation Screen Stijlen *** */
+#mandate-pin-confirmation-screen {
+
+    position: fixed;
+    /* top: 0;
+    left: 0;
+    width: 100%;  */
+    height: 100%; 
+    padding-top: 20px;
+    background-color: white;
+    z-index: 1000;
+    box-sizing: border-box;
+    justify-content: flex-start;
+    align-items: center;
+    overflow-y: auto;
+    flex-direction: column;
+}
+
+
+#mandate-pin-confirmation-screen h2 {
+    font-size: 24px;
+    color: #152A62;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+#mandate-pin-confirmation-screen .pin-input {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+#mandate-pin-confirmation-screen .pin-input input {
+    text-align: center;
+    font-size: 24px;
+    padding: 10px;
+    width: 45px;
+    height: 50px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#confirm-pin-mandate {
+    background-color: #2681cc; /* Oranje kleur zoals .orange-btn */
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    min-width: 250px;
+    text-align: center;
+    margin: 0 auto;
+    display: block;
+}
+
+#confirm-pin-mandate:hover {
+    background-color: #2681cc;
+}
+
+/* *** Mandate Success Screen Stijlen *** */
+#mandate-success-screen {
+    flex-direction: column;
+    justify-content: start;
+    padding: 10px;
+    align-items: center;
+}
+
+
+#mandate-success-screen h2 {
+    font-size: 24px;
+    color: #152A62;
+    margin-bottom: 10px;
+    text-align: center;
+    margin-top: 30px;
+}
+
+#mandate-success-screen p {
+    font-size: 16px;
+    color: #152A62;
+    text-align: center;
+}
+
+#mandate-success-screen .button-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+}
+
+#mandate-success-screen .stop-button {
+    background-color: #2681cc;
+    color: white;
+    padding: 9px 6px;
+    border-radius: 5px;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+    width: 45%;
+}
+
+#mandate-success-screen .stop-button:hover {
+    background-color: #1e3a82;
+}
+
+#mandate-success-screen .share-button {
+    background-color: #2681cc;
+    color: white;
+    padding: 12px 15px;
+    border-radius: 5px;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    width: 45%;
+}
+
+#mandate-success-screen .share-button:hover {
+    background-color: #1e3a82;
+}
+
+/* *** Mandate Content Stijlen *** */
+.mandate-content p strong {
+    color: #152A62;
+}
+
+#mandate-data-container p {
+    font-size: 14px;
+    color: #555;
+    margin: 5px 0;
+}
+
+#mandate-agreement {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+#mandate-requester-agreement {
+    color: #152A62;
+}
+
+
+/* *** Machtiging Sectie Stijlen *** */
+#machtiging-section h3 {
+}
+
+#machtiging-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+}
+
+#machtiging-section .card {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    aspect-ratio: 16 / 9;
+    width: 100%;
+}
+
+#machtiging-section .card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+/* *** Mandate details *** */
+#mandate-details{
+    padding: 5px;
+
+}
+
+.details-mandate-header {
+    
+    margin-bottom: 10px;
+}
+
+#mandate-details-content hr{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/* *** Trusted Contacts Stijlen *** */
+
+#trusted-contacts-section{
+    padding: 5px;
+    margin-bottom: 80px;
+}
+
+.trusted-contacts-header {
+    text-align: left;
+    
+  }
+
+  .trusted-contacts-header h3 {
+    text-align: left;
+   /*  margin-top: 20px;
+    margin-bottom: 20px; */
+  }
+
+  #trusted-contacts-title {
+    margin-top: 35px;
+    margin-right: 15px;
+    margin-left: 15px;
+  }
+  .messages-grid {
+    list-style: none;
+    padding: 5px;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .messages-grid li {
+    padding: 21px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+    color: #333;
+  }
+
+
+#message-details-screen h3 {
+    margin-top: 40px;
+    color: #152A62;
+}
+
+#message-datetime {
+    font-size: 12px;
+    color: grey;
+    margin-top: 5px;
+}
+
+#contacts-navbar-item{
+    position: relative;
+}
+
+.notification-badge {
+    position: relative;
+    margin-left: 20px;
+    background-color: #ff3b30; /* Rood voor notificaties */
+    color: white;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 10px;
+    font-weight: bold;
+    z-index: 10; /* Zorg dat het bolletje boven de andere elementen staat */
+}
+
+.nav-item.active .notification-badge {
+    color: white; /* Behoud de oorspronkelijke kleur */
+}
+
+/* .settings-button {
+    position: absolute;
+    right: calc((100% - 400px) / 2 + 20px);
+    top: 10px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: grey;
+    cursor: pointer;
+    z-index: 100;
+} */
+
+.demo-button {
+    background-color: #2681cc;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    text-decoration: none;
+}
+
+
+
+
+
+
+.message-item {
+    display: flex;
+    align-items: flex-start;
+    padding: 10px;
+    border-bottom: 1px solid #ccc; /* Scheiding tussen berichten */
+    cursor: pointer;
+}
+
+.message-item-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.message-logo {
+    flex: 0 0 50px; /* Zorg dat het logo een vaste breedte heeft */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.message-logo img {
+    width: 50px; /* Zorg dat de afbeelding zich aanpast aan de containergrootte */
+    height: 50px;
+    margin-right: 5px; /* Voeg ruimte toe tussen het logo en de tekst */
+}
+
+.icon-circle {
+    width: 50px; /* Pas deze aan naar gewenste grootte */
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%; /* Zorgt voor een cirkelvorm */
+    font-size: 20px; /* Grootte van het FA-icoon */
+    color: white; /* Kleur van het FA-icoon */
+}
+
+
+.message-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 10px;
+}
+
+.message-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.message-sender {
+    font-weight: bold;
+    color: #152A62;
+}
+
+.message-datetime {
+    font-size: 12px;
+    color: grey;
+}
+
+.message-body {
+    margin-top: 5px;
+    font-size: 14px;
+    color: #555;
+}
+
+#card-catalogue {
+top: 0;
+  position: fixed;
+  max-width: 400px;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  z-index: 900;
+  padding: 5px;
+  box-sizing: border-box;
+  overflow-y: auto;
+  display: none;
+  flex-direction: column;
+  flex-grow: 1;
+  overflow-y: auto;
+  margin: 0 auto;
+  left: 50%;
+  transform: translateX(-50%);
+}
+#catalogue-title {
+    margin-top: 60px;
+    margin-bottom: 10px;
+    margin-left: 10px; 
+    margin-right: 10px; 
+}
+
+#catalogue-title h3 {
+   
+    margin-bottom: 10px;
+}
+
+.button-list {
+    margin-top: 40px;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+}
+#section-organisation-headers {
+margin-top: 40px;
+}
+
+
+/* Container voor knoppen naast elkaar in het startscherm */
+.top-button-container-start-screen {
+    display: flex;
+    justify-content: flex-start; /* Lijn de knoppen links uit */
+    gap: 35px; /* Voeg ruimte tussen de knoppen toe */
+    margin-top: 20px; /* Optioneel: Voeg marge boven de knoppen toe */
+  }
+  
+  /* Stijl voor de catalogus-knop */
+  .catalogue-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centreer de tekst en knop verticaal */
+    text-decoration: none;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  /* Cirkelvormige knop */
+  .circle-btn {
+    background-color:  #4a90e2; /* Groene kleur */
+    color: #fff; /* Witte kleur voor het icoon */
+    width: 48px; /* Breedte van de knop */
+    height: 48px; /* Hoogte van de knop */
+    border-radius: 50%; /* Cirkelvorm */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 5px; /* Ruimte tussen knop en tekst */
+    font-size: 20px; /* Grootte van het icoon */
+    transition: background-color 0.3s ease;
+  }
+  
+
+#open-card-catalogue .circle-btn {
+    background-color: #01089F; 
+}
+
+/* Stijl voor de tekst onder de knop */
+.catalogue-text {
+    font-size: 14px;
+    color:  #494949; 
+    text-align: center; /* Tekst gecentreerd onder de knop */
+   
+  }
+
+
+/* Hover-effect voor de gehele sectie, zodat zowel de cirkel als de tekst reageren op hover */
+#open-card-catalogue:hover .circle-btn {
+    background-color: #000ac5; 
+}
+
+/* Zorg ervoor dat het icoon wit blijft bij hover */
+#open-card-catalogue:hover .circle-btn i {
+    color: white; /* Icoon blijft wit */
+}
+
+#open-card-catalogue:hover .catalogue-text {
+    color:  #494949; 
+}
+
+
+/*QR-scan text */
+ #qr-scan-button .qr-scan-button-text {
+    color:  #494949; 
+    font-size: 14px;
+}
+
+/* Hover-effect voor de gehele QR-scan sectie */
+#qr-scan-button:hover .circle-btn {
+    background-color: #508fee; 
+}
+
+#qr-scan-button:hover .qr-scan-button-text {
+    color:  #494949; 
+}
+
+/* Zorg ervoor dat het QR-icoon wit blijft bij hover */
+#qr-scan-button:hover .circle-btn i {
+    color: white; /* Icoon blijft wit */
+}
+
+#sign-button .circle-btn{
+    background-color: #87c59b;
+}
+
+#sign-button .sign-button-text{
+    color:  #494949; 
+    font-size: 14px;
+    font-size: 12px;
+  width: 52px;
+  text-align: center;
+}
+
+.background-clickable-sections {
+    margin-top: 40px;
+    
+}
+
+  /* Stijl voor de klikbare sectie 'Mijn digitale bewijzen' */
+.clickable-section {
+    padding: 15px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 10px;
+    border: 1px solid lightgray;
+    
+  }
+  
+  .clickable-section i {
+    font-size: 20px; /* Grootte van het icoon */
+    color: #545557; /* Kleur van het icoon */
+    margin-right: 20px;
+  }
+
+  .clickable-section p {
+    color: #545557;
+    padding: 20px 0;
+    font-weight: bold;
+  }
+
+
+  .clickable-section h3 {
+    color: #545557;
+    font-size: 16px;
+    padding: 20px 0;
+  }
+
+  #current-cards {
+    top: 0;
+    position: fixed;
+    max-width: 400px;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    z-index: 900;
+    padding: 5px;
+    box-sizing: border-box;
+    overflow-y: auto;
+    display: none;
+    flex-direction: column;
+    flex-grow: 1;
+    overflow-y: auto;
+    margin: 0 auto;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  #current-cards-title {
+    
+        margin-top: 35px;
+        margin-right: 15px;
+        margin-left: 15px;
+
+  }
+
+#ppop-download-button {
+
+    background-color: green;
+  }
+
+
+
+#ppop-success-screen .button-container {
+        display: flex;
+        justify-content: center;
+        margin-top: 40px;
+}
+
+#ppop-modal .modal-content {
+    width: 90%;
+}

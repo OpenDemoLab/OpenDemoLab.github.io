@@ -1,0 +1,90 @@
+/* Algemene stijl */
+body {
+    background-color: white;
+  }
+  
+  /* Logo en welkomsttekst */
+  .rotterdam-logo-container {
+    text-align: center;
+    margin-top: 150px;
+  }
+  
+  .rotterdam-logo {
+    width: 500px;
+  }
+  
+  .welkom-tekst {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: black;
+    margin-top: 40px;
+  }
+  
+  /* Groene scheidingslijn */
+  .rotterdam-divider {
+    border: none;
+    height: 2px;
+    background-color: #02801f;
+    margin: 3rem auto;
+    width: 80%;
+  }
+  
+  /* Klikbare demo-balk */
+  .demo-balk {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 80%;
+    max-width: 800px;
+    margin: 2rem auto;
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 5px;
+    overflow: hidden;
+    padding: 15px;
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  /* Hover effect */
+  .demo-balk:hover {
+    transform: scale(1.02);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Tekstblok aan de linkerkant */
+  .demo-text {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+    font-size: 1.2rem;
+    color: black;
+  }
+  
+  /* Titel van de demo */
+  .demo-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: black;
+    margin-bottom: 5px;
+  }
+  
+  /* Versienummer */
+  .demo-version {
+    font-size: 1rem;
+    color: #555;
+  }
+  
+  /* Afbeelding rechts */
+  .demo-image {
+    flex: 0 0 20%;
+  }
+  
+  .demo-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  

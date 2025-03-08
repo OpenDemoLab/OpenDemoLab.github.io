@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Open Demo Lab – Inloggen voor organisaties</title>
+  <!-- FontAwesome via CDN -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+  />
+  <!-- Verwijst naar je bestaande styles.css in de hoofdmap -->
+  <link rel="stylesheet" href="/styles.css" />
+  <!-- Je lettertypebestand -->
+  <link rel="stylesheet" href="/fonts/inter.css" />
+</head>
+<body>
+  <!-- Navigatie (zelfde structuur als in de hoofdsite) -->
+  <nav>
+    <div class="container nav-container">
+      <a href="/" class="logo">Open <span>Demo Lab</span></a>
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Fullscreen Menu (zelfde markup als op de hoofdsite) -->
+  <div class="fullscreen-menu">
+    <div class="menu-links">
+      <a href="/">Home</a>
+      <a href="/organisaties/inloggen/">Inloggen voor organisaties</a>
+    </div>
+  </div>
+
+  <!-- Inlogsectie -->
+  <section class="contact" style="min-height: 100vh;" id="org-login">
+    <div class="container" style="max-width: 400px; margin: 0 auto;">
+      <h2 class="contact-title" style="margin-bottom: 30px;">Inloggen</h2>
+
+      <form id="loginForm" style="text-align: left;">
+        <div style="margin-bottom: 20px;">
+          <label for="username" style="display: block; margin-bottom: 8px;">
+            Gebruikersnaam:
+          </label>
+          <input
+            type="text"
+            id="username"
+            name="username"
+            style="width: 100%; padding: 10px; font-size: 1rem;"
+            required
+          />
+        </div>
+
+        <div style="margin-bottom: 20px;">
+          <label for="password" style="display: block; margin-bottom: 8px;">
+            Wachtwoord:
+          </label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            style="width: 100%; padding: 10px; font-size: 1rem;"
+            required
+          />
+        </div>
+
+        <button
+          type="submit"
+          class="contact-btn"
+          style="margin-top: 10px; cursor: pointer;"
+        >
+          Inloggen
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer (optioneel hergebruiken) -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Open Demo Lab – Samen bouwen aan de toekomst van dienstverlening</p>
+    </div>
+  </footer>
+
+  <!-- JavaScript voor het hamburger-menu -->
+  <script src="/menu.js"></script>
+
+  
+  <script>
+ 
+
+    const STORED_HASH = 69782; 
+
+    function checkPassword(pwd) {
+      let sum = 0;
+      for (let i = 0; i < pwd.length; i++) {
+        sum += pwd.charCodeAt(i) * (i + 1);
+      }
+      return sum;
+    }
+
+    document.getElementById("loginForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const username = document.getElementById("username").value.trim();
+      const password = document.getElementById("password").value.trim();
+
+      const userHash = checkPassword(password);
+      if (userHash === STORED_HASH) {
+        window.location.href = "/organisations/rotterdam";
+      } else {
+        alert("Ongeldige gebruikersnaam of wachtwoord.");
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bijstandsuitkering aanvragen</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Verwijzing naar het nieuwe CSS-bestand -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+</head>
+<body>
+
+    <section id="step-1" class="step">
+        <!-- Rotterdam demo screen container met fullscreen achtergrond -->
+        <div class="rotterdamDemo-screen">
+            <!-- Header met logo en demo titel -->
+            <div class="rotterdamDemo-header">
+                <div class="rotterdamDemo-logo">
+                    <img src="https://www.rotterdam.nl/images/logo-base.svg" alt="Logo gemeente Rotterdam">
+                </div>
+                <div class="rotterdamDemo-title">DEMO</div>
+            </div>
+            
+            <!-- Centrale content container -->
+            <div class="rotterdamDemo-container">
+                <div class="rotterdamDemo-box">
+                    <h1>Een bijstandsuitkering aanvragen met behulp van een wallet</h1>
+                    <p>Willeke woont in Rotterdam en wil een bijstandsuitkering aanvragen. Ze logt in op de website van de gemeente Rotterdam.</p>
+                    
+                    <div class="rotterdamDemo-steps">
+                        <h2>Stappen in deze demo</h2>
+                        <ol>
+                            <li>Willeke gaat naar de website van de gemeente Rotterdam</li>
+                            <li>Zij kiest voor inloggen met de wallet</li>
+                            <li>Ze scant de QR-code met haar wallet</li>
+                            <li>Na authenticatie kan zij haar aanvraag indienen</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Demo navigatie knoppen -->
+        <div class="button-container">
+            <button class="next">Volgende</button>
+        </div>
+    </section>
+
+    <section id="step-2" class="step">
+        <!-- Rotterdam screen container with background -->
+        <div class="rotterdam-screen">
+            <div class="subsection">
+                <h1>Mijn werk en inkomen</h1>
+                <hr>
+                <a href="#digid-login" class="login-card">
+                    <div class="login-option">
+                        <div class="icon-container">
+                            <img src="https://portaalthomas.rotterdam.nl/img/ThomasCommons$Images_DigiD$digid_eo_rgb_100px.png" alt="DigiD-logo">
+                        </div>
+                        <div class="login-text">
+                            <h3>Inloggen met DigiD</h3>
+                            <p>U verlaat even de website van de gemeente, en komt terecht op de website van DigiD. Na het inloggen met uw persoonlijke DigiD komt u vanzelf weer terug bij de website van de gemeente.</p>
+                        </div>
+                    </div>
+                </a>
+                
+                <a href="#bewindvoerder-login" class="login-card">
+                    <div class="login-option">
+                        <div class="icon-container">
+                            <img src="https://portaalthomas.rotterdam.nl/img/ThomasCommons$Images$LogoRotterdam.png" alt="Logo gemeente Rotterdam">
+                        </div>
+                        <div class="login-text">
+                            <h3>Inloggen als bewindvoerder</h3>
+                            <p>Bewindvoerders kunnen via deze knop inloggen.</p>
+                        </div>
+                    </div>
+                </a>
+                
+                <a href="#wallet-login" class="login-card">
+                    <div class="login-option">
+                        <div class="icon-container">
+                            <img src="eudiw-logo.jpg" alt="Logo wallet">
+                        </div>
+                        <div class="login-text">
+                            <h3>Inloggen met wallet</h3>
+                            <p>Log in met uw wallet om snel en veilig toegang te krijgen.</p>
+                        </div>
+                    </div>
+                </a>
+                
+                <div class="login-card info-card">
+                    <div class="login-note">
+                        <p>Als u problemen ervaart met inloggen, neem dan contact op met de Gemeente Rotterdam via 14010 dan helpen wij u verder.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Demo navigation buttons outside the Rotterdam screen -->
+        <div class="button-container">
+            <button class="prev">Terug</button>
+            <button class="next">Volgende</button>
+        </div>
+    </section>
+
+    <section id="step-3" class="step">
+        <!-- Rotterdam login screen container (met unieke classes) -->
+        <div class="rotterdamLogin-screen">
+            <div class="rotterdamLogin-header">
+                <a class="rotterdamLogin-logo" href="#">
+                    <img src="https://www.rotterdam.nl/images/logo-base.svg" alt="Logo Rotterdam">
+                </a>
+                <div class="rotterdamLogin-navbar">
+                    <a href="#">Bewoners</a>
+                    <a href="#">Bestuur en organisatie</a>
+                    <a href="#">Ondernemers</a>
+                    <a href="#">Bezoekers</a>
+                </div>
+            </div>
+            
+            <div class="rotterdamLogin-container">
+                <div class="rotterdamLogin-box">
+                    <div class="rotterdamLogin-header-box">
+                        <div class="rotterdamLogin-header-content">
+                            <div class="rotterdamLogin-icon">
+                                <img src="eudiw-logo.jpg" alt="EU Digital Wallet logo">
+                            </div>
+                            <div class="rotterdamLogin-text">
+                                <h1>Inloggen</h1>
+                                <p>Log in met uw Europese wallet door onderstaande QR code te scannen om uw zaken online te regelen.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="qr-code">
+                        <img 
+                            src="https://api.qrserver.com/v1/create-qr-code/?data=%7B%22type%22%3A%22verifier%22%2C%22requester%22%3A%22Gemeente%20Rotterdam%22%2C%22reason%22%3A%22Inloggen%20Mijn%20Portaal%22%2C%22rdfcv%22%3A%5B%22bsn%22%5D%2C%22a%22%3A%22w%22%2C%22t%22%3A%22w%22%7D&size=300x300"
+                            alt="QR Code voor Inloggen Mijn Portaal">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="rotterdamLogin-footer">
+                <span>© 2025</span>
+                <a href="#">Reactie</a>
+                <a href="#">Toegankelijkheid</a>
+                <a href="#">Privacy</a>
+                <a href="#">Rotterdam.nl</a>
+            </div>
+        </div>
+        
+        <!-- Demo navigation buttons outside the Rotterdam screen -->
+        <div class="button-container">
+            <button class="prev">Terug</button>
+            <button class="next">Volgende</button>
+        </div>
+    </section>
+
+    <section id="step-4" class="step">
+        <!-- Rotterdam burgerportaal container met fullscreen achtergrond -->
+        <div class="burgerportaal-screen">
+            <!-- Uitloggen balk bovenin -->
+            <div class="burgerportaal-logout-bar">
+                <div class="burgerportaal-container">
+                    <a href="#" class="burgerportaal-logout-link">
+                        <span class="burgerportaal-logout-icon"></span>
+                        Uitloggen
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Header met logo -->
+            <div class="burgerportaal-header">
+                <div class="burgerportaal-container">
+                    <div class="burgerportaal-logo">
+                        <img src="https://www.rotterdam.nl/images/logo-base.svg" alt="Logo gemeente Rotterdam">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Hoofdinhoud van het burgerportaal -->
+            <div class="burgerportaal-content">
+                <div class="burgerportaal-container">
+                    <div class="burgerportaal-main-row">
+                        <div class="burgerportaal-title-section">
+                            <h1 class="burgerportaal-title">Welkom op het Burgerportaal</h1>
+                            <p class="burgerportaal-subtitle">Op het Burgerportaal kunt u eenvoudig een nieuwe aanvraag indienen, of uw lopende en afgesloten aanvragen terugvinden. Voordat u een aanvraag kunt starten moet u eerst een korte vragenlijst invullen om te zien welke regeling op uw situatie van toepassing is.</p>
+                        </div>
+                        
+                        <div class="burgerportaal-contact-box">
+                            <div class="burgerportaal-contact-header">
+                                <div class="burgerportaal-contact-title">
+                                    <h3>Hulp nodig?</h3>
+                                    <p>We helpen u graag verder.</p>
+                                </div>
+                                <div class="burgerportaal-contact-image">
+                                    <img src="https://portaalthomas.rotterdam.nl/img/RotterdamProjectContent$Icons$Poppetjes.svg" alt="Contact iconen">
+                                </div>
+                            </div>
+                            <p class="burgerportaal-contact-info">U kunt op telefoonnummer 14 010 terecht met vragen.</p>
+                        </div>
+                    </div>
+                    
+                    <hr class="burgerportaal-divider">
+                    
+                    <div class="burgerportaal-options">
+                        <div class="burgerportaal-option-block">
+                            <a href="#" class="burgerportaal-option-link">Weten of u recht heeft</a>
+                            <p>Hier kunt u kijken of u recht zou kunnen hebben op een uitkering en daarna direct een aanvraag voor een bijstandsuitkering doen.</p>
+                        </div>
+                        
+                        <div class="burgerportaal-option-categories">
+                            <div class="burgerportaal-option-item">
+                                <a href="#" class="burgerportaal-option-link">Bijstandsuitkering</a>
+                                <p>Weet u al of u recht heeft op een bijstandsuitkering? Dan kunt u hier beginnen met de aanvraag. Als u nog niet weet of u recht heeft op een uitkering, begin dan bij het kopje <strong>Weten of u recht heeft</strong>. Dit kan u tijd besparen.</p>
+                            </div>
+                            
+                            <div class="burgerportaal-option-item">
+                                <a href="#" class="burgerportaal-option-link">IOAW</a>
+                                <p>Weet u al of u recht heeft op een IOAW-uitkering? Dan kunt u hier beginnen met de aanvraag. Als u nog niet weet of u recht heeft op een IOAW-uitkering, begin dan bij het kopje <strong>Weten of u recht heeft</strong>. Dit kan u tijd besparen.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Footer -->
+            <div class="burgerportaal-footer">
+                <div class="burgerportaal-container">
+                    <div class="burgerportaal-footer-content">
+                        <div class="burgerportaal-footer-links">
+                            <a href="#">© Gemeente Rotterdam 2025</a>
+                            <a href="#">Vacatures</a>
+                            <a href="#">Cookies</a>
+                            <a href="#">Proclaimer</a>
+                            <a href="#">Privacy</a>
+                            <a href="#">Toegankelijkheid</a>
+                        </div>
+                        <div class="burgerportaal-footer-logo">
+                            <img src="https://www.rotterdam.nl/images/logo-base.svg" alt="Gemeente Rotterdam">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Demo navigatie knoppen -->
+        <div class="button-container">
+            <button class="prev">Terug</button>
+            <button class="next">Volgende</button>
+        </div>
+    </section>
+
+    <section id="step-5" class="step">
+        <!-- Rotterdam bijstandsaanvraag container met fullscreen achtergrond -->
+        <div class="bijstandsaanvraag-screen">
+            <!-- Uitloggen balk bovenin -->
+            <div class="bijstandsaanvraag-logout-bar">
+                <div class="bijstandsaanvraag-container">
+                    <a href="#" class="bijstandsaanvraag-logout-link">
+                        <span class="bijstandsaanvraag-logout-icon"></span>
+                        Uitloggen
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Header met logo en navigatie -->
+            <div class="bijstandsaanvraag-header">
+                <div class="bijstandsaanvraag-container">
+                    <div class="bijstandsaanvraag-logo">
+                        <img src="https://www.rotterdam.nl/images/logo-base.svg" alt="Logo gemeente Rotterdam">
+                    </div>
+                    <div class="bijstandsaanvraag-nav">
+                        <a href="#" class="bijstandsaanvraag-nav-link">Home</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Hoofdinhoud van de bijstandsaanvraag -->
+            <div class="bijstandsaanvraag-content">
+                <div class="bijstandsaanvraag-container">
+                    <!-- Breadcrumb navigatie -->
+                    <div class="bijstandsaanvraag-breadcrumb">
+                        <a href="#">Startpagina</a>
+                        <span class="bijstandsaanvraag-breadcrumb-separator">›</span>
+                        <a href="#">Advies aanvraag</a>
+                        <span class="bijstandsaanvraag-breadcrumb-separator">›</span>
+                        <span class="bijstandsaanvraag-breadcrumb-current">Bijstandsuitkering aanvragen</span>
+                    </div>
+                    
+                    <!-- Titel van de pagina -->
+                    <h1 class="bijstandsaanvraag-title">Bijstandsuitkering aanvragen</h1>
+                    
+                    <!-- Stappen navigatie -->
+                    <div class="bijstandsaanvraag-steps">
+                        <div class="bijstandsaanvraag-step active">
+                            <span class="bijstandsaanvraag-step-icon">✓</span>
+                            <span class="bijstandsaanvraag-step-text">Persoonlijke informatie</span>
+                        </div>
+                        <div class="bijstandsaanvraag-step">
+                            <span class="bijstandsaanvraag-step-icon">2</span>
+                            <span class="bijstandsaanvraag-step-text">Woon- en leefsituatie</span>
+                        </div>
+                        <div class="bijstandsaanvraag-step">
+                            <span class="bijstandsaanvraag-step-icon">3</span>
+                            <span class="bijstandsaanvraag-step-text">Inkomen</span>
+                        </div>
+                        <div class="bijstandsaanvraag-step">
+                            <span class="bijstandsaanvraag-step-icon">4</span>
+                            <span class="bijstandsaanvraag-step-text">Vermogen</span>
+                        </div>
+                        <div class="bijstandsaanvraag-step">
+                            <span class="bijstandsaanvraag-step-icon">5</span>
+                            <span class="bijstandsaanvraag-step-text">Aanvullende gegevens</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Formulier content -->
+                    <div class="bijstandsaanvraag-form">
+                        <h2 class="bijstandsaanvraag-form-title">Persoonlijke informatie W.L de Bruijn</h2>
+                        
+                        <!-- Persoonsgegevens sectie -->
+                        <div class="bijstandsaanvraag-section">
+                            <div class="bijstandsaanvraag-section-header">
+                                <h3 class="bijstandsaanvraag-section-title">Persoonsgegevens</h3>
+                                <a href="#" class="bijstandsaanvraag-edit-link">Wijzigen</a>
+                            </div>
+                            
+                            <div class="bijstandsaanvraag-info-box">
+                                <div class="bijstandsaanvraag-info-icon">ⓘ</div>
+                                <p class="bijstandsaanvraag-info-text">U kunt hier de persoonsgegevens aanvullen die niet vanuit de basisregistratie personen (BRP) ingevuld zijn.</p>
+                            </div>
+                            
+                            <div class="bijstandsaanvraag-form-data">
+                                <div class="bijstandsaanvraag-form-row">
+                                    <div class="bijstandsaanvraag-form-label">BSN</div>
+                                    <div class="bijstandsaanvraag-form-value">000000000</div>
+                                </div>
+                                <div class="bijstandsaanvraag-form-row">
+                                    <div class="bijstandsaanvraag-form-label">Voorletters</div>
+                                    <div class="bijstandsaanvraag-form-value">W.L.</div>
+                                </div>
+                                <div class="bijstandsaanvraag-form-row">
+                                    <div class="bijstandsaanvraag-form-label">Voornamen (zoals in paspoort)</div>
+                                    <div class="bijstandsaanvraag-form-value">Willeke Liselotte</div>
+                                </div>
+                                <div class="bijstandsaanvraag-form-row">
+                                    <div class="bijstandsaanvraag-form-label">Tussenvoegsel</div>
+                                    <div class="bijstandsaanvraag-form-value">de</div>
+                                </div>
+                                <div class="bijstandsaanvraag-form-row">
+                                    <div class="bijstandsaanvraag-form-label">Achternaam</div>
+                                    <div class="bijstandsaanvraag-form-value">Bruijn</div>
+                                </div>
+                                <div class="bijstandsaanvraag-form-row">
+                                    <div class="bijstandsaanvraag-form-label">Geboortedatum</div>
+                                    <div class="bijstandsaanvraag-form-value">07-03-1995</div>
+                                </div>
+                                <div class="bijstandsaanvraag-form-row">
+                                    <div class="bijstandsaanvraag-form-label">Nationaliteit(en)</div>
+                                    <div class="bijstandsaanvraag-form-value">Nederlandse</div>
+                                </div>
+                                <div class="bijstandsaanvraag-form-row">
+                                    <div class="bijstandsaanvraag-form-label">Burgerlijke staat</div>
+                                    <div class="bijstandsaanvraag-form-value">Ongehuwd</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Contactgegevens sectie -->
+                        <div class="bijstandsaanvraag-section">
+                            <div class="bijstandsaanvraag-section-header">
+                                <h3 class="bijstandsaanvraag-section-title">Contactgegevens</h3>
+                                <a href="#" class="bijstandsaanvraag-edit-link">Wijzigen</a>
+                            </div>
+                            
+                            <div class="bijstandsaanvraag-form-data">
+                                <div class="bijstandsaanvraag-form-row">
+                                    <div class="bijstandsaanvraag-form-label">Type telefoon</div>
+                                    <div class="bijstandsaanvraag-form-value">Mobiel</div>
+                                </div>
+                                <div class="bijstandsaanvraag-form-row">
+                                    <div class="bijstandsaanvraag-form-label">Telefoonnummer</div>
+                                    <div class="bijstandsaanvraag-form-value">31 0612345678</div>
+                                </div>
+                                <div class="bijstandsaanvraag-form-row">
+                                    <div class="bijstandsaanvraag-form-label">Geheim nummer</div>
+                                    <div class="bijstandsaanvraag-form-value">Ja</div>
+                                </div>
+                                <div class="bijstandsaanvraag-form-row">
+                                    <div class="bijstandsaanvraag-form-label">Is dit uw voorkeursnummer?</div>
+                                    <div class="bijstandsaanvraag-form-value">Ja</div>
+                                </div>
+                                <div class="bijstandsaanvraag-form-row">
+                                    <div class="bijstandsaanvraag-form-label">E-mailadres</div>
+                                    <div class="bijstandsaanvraag-form-value">naam@domein.nl</div>
+                                </div>
+                                <div class="bijstandsaanvraag-form-row">
+                                    <div class="bijstandsaanvraag-form-label">Is dit uw voorkeuradres?</div>
+                                    <div class="bijstandsaanvraag-form-value">Ja</div>
+                                </div>
+                                <div class="bijstandsaanvraag-form-row">
+                                    <div class="bijstandsaanvraag-form-label">Roepnaam <span class="bijstandsaanvraag-small">(niet verplicht)</span></div>
+                                    <div class="bijstandsaanvraag-form-value">Willeke</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Actie knoppen -->
+                        <div class="bijstandsaanvraag-actions">
+                            <button class="bijstandsaanvraag-btn-secondary">Opslaan en later verdergaan</button>
+                            <button class="bijstandsaanvraag-btn-primary">Volgende stap <span class="bijstandsaanvraag-btn-arrow">→</span></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Footer -->
+            <div class="bijstandsaanvraag-footer">
+                <div class="bijstandsaanvraag-container">
+                    <div class="bijstandsaanvraag-footer-content">
+                        <div class="bijstandsaanvraag-footer-links">
+                            <a href="#">© Gemeente Rotterdam 2025</a>
+                            <a href="#">Vacatures</a>
+                            <a href="#">Cookies</a>
+                            <a href="#">Proclaimer</a>
+                            <a href="#">Privacy</a>
+                            <a href="#">Toegankelijkheid</a>
+                        </div>
+                        <div class="bijstandsaanvraag-footer-logo">
+                            <img src="https://www.rotterdam.nl/images/logo-base.svg" alt="Gemeente Rotterdam">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Demo navigatie knoppen -->
+        <div class="button-container">
+            <button class="prev">Terug</button>
+            <button class="next">Volgende</button>
+        </div>
+    </section>
+
+    <section id="step-6" class="step">
+        <!-- Rotterdam bijstandsaanvraag container met fullscreen achtergrond -->
+        <div class="bijstandsaanvraag-screen">
+            <!-- Uitloggen balk bovenin -->
+            <div class="bijstandsaanvraag-logout-bar">
+                <div class="bijstandsaanvraag-container">
+                    <a href="#" class="bijstandsaanvraag-logout-link">
+                        <span class="bijstandsaanvraag-logout-icon"></span>
+                        Uitloggen
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Header met logo en navigatie -->
+            <div class="bijstandsaanvraag-header">
+                <div class="bijstandsaanvraag-container">
+                    <div class="bijstandsaanvraag-logo">
+                        <img src="https://www.rotterdam.nl/images/logo-base.svg" alt="Logo gemeente Rotterdam">
+                    </div>
+                    <div class="bijstandsaanvraag-nav">
+                        <a href="#" class="bijstandsaanvraag-nav-link">Home</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Hoofdinhoud van de bijstandsaanvraag -->
+            <div class="bijstandsaanvraag-content">
+                <div class="bijstandsaanvraag-container">
+                    <!-- Breadcrumb navigatie -->
+                    <div class="bijstandsaanvraag-breadcrumb">
+                        <a href="#">Startpagina</a>
+                        <span class="bijstandsaanvraag-breadcrumb-separator">›</span>
+                        <a href="#">Advies aanvraag</a>
+                        <span class="bijstandsaanvraag-breadcrumb-separator">›</span>
+                        <span class="bijstandsaanvraag-breadcrumb-current">Bijstandsuitkering aanvragen</span>
+                    </div>
+                    
+                    <!-- Titel van de pagina -->
+                    <h1 class="bijstandsaanvraag-title">Bijstandsuitkering aanvragen</h1>
+                    
+                    <!-- Stappen navigatie -->
+                    <div class="bijstandsaanvraag-steps">
+                        <div class="bijstandsaanvraag-step completed">
+                            <span class="bijstandsaanvraag-step-icon">✓</span>
+                            <span class="bijstandsaanvraag-step-text">Persoonlijke informatie</span>
+                        </div>
+                        <div class="bijstandsaanvraag-step active">
+                            <span class="bijstandsaanvraag-step-icon">2</span>
+                            <span class="bijstandsaanvraag-step-text">Woon- en leefsituatie</span>
+                        </div>
+                        <div class="bijstandsaanvraag-step">
+                            <span class="bijstandsaanvraag-step-icon">3</span>
+                            <span class="bijstandsaanvraag-step-text">Inkomen</span>
+                        </div>
+                        <div class="bijstandsaanvraag-step">
+                            <span class="bijstandsaanvraag-step-icon">4</span>
+                            <span class="bijstandsaanvraag-step-text">Vermogen</span>
+                        </div>
+                        <div class="bijstandsaanvraag-step">
+                            <span class="bijstandsaanvraag-step-icon">5</span>
+                            <span class="bijstandsaanvraag-step-text">Aanvullende gegevens</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Formulier content -->
+                    <div class="bijstandsaanvraag-form">
+                        <h2 class="bijstandsaanvraag-form-title">Woon- en leefsituatie</h2>
+                        
+                        <!-- Adresgegevens sectie -->
+                        <div class="bijstandsaanvraag-section">
+                            <h3 class="bijstandsaanvraag-section-title">Adresgegevens</h3>
+                            
+                            <div class="bijstandsaanvraag-info-box">
+                                <div class="bijstandsaanvraag-info-icon">ⓘ</div>
+                                <p class="bijstandsaanvraag-info-text">Wij kunnen geen adres uit onze bestanden voor u invullen; vul daarom uw woonadres in of indien u dakloos bent kies dan de optie "Ik ben dakloos" bij de vraag: "Woont u op dit adres?".</p>
+                            </div>
+                            
+                            <div class="bijstandsaanvraag-section-title-secondary">Woonadres</div>
+                            
+                            <div class="bijstandsaanvraag-form-data">
+                                <div class="bijstandsaanvraag-form-row">
+                                    <div class="bijstandsaanvraag-form-label">Straat</div>
+                                    <div class="bijstandsaanvraag-form-value">
+                                        <input type="text" id="straat" class="bijstandsaanvraag-input" value="1">
+                                    </div>
+                                </div>
+                                
+                                <div class="bijstandsaanvraag-form-row">
+                                    <div class="bijstandsaanvraag-form-label">Huisnummer</div>
+                                    <div class="bijstandsaanvraag-form-value">
+                                        <input type="text" id="huisnummer" class="bijstandsaanvraag-input" value="1">
+                                    </div>
+                                </div>
+                                
+                                <div class="bijstandsaanvraag-form-row">
+                                    <div class="bijstandsaanvraag-form-label">Huisletter <span class="bijstandsaanvraag-small">(Niet verplicht)</span></div>
+                                    <div class="bijstandsaanvraag-form-value">
+                                        <input type="text" id="huisletter" class="bijstandsaanvraag-input">
+                                    </div>
+                                </div>
+                                
+                                <div class="bijstandsaanvraag-form-row">
+                                    <div class="bijstandsaanvraag-form-label">Huisnummertoevoeging <span class="bijstandsaanvraag-small">(Niet verplicht)</span></div>
+                                    <div class="bijstandsaanvraag-form-value">
+                                        <input type="text" id="huisnummertoevoeging" class="bijstandsaanvraag-input">
+                                    </div>
+                                </div>
+                                
+                                <div class="bijstandsaanvraag-form-row">
+                                    <div class="bijstandsaanvraag-form-label">Postcode</div>
+                                    <div class="bijstandsaanvraag-form-value">
+                                        <input type="text" id="postcode" class="bijstandsaanvraag-input" value="3823DK">
+                                    </div>
+                                </div>
+                                
+                                <div class="bijstandsaanvraag-form-row">
+                                    <div class="bijstandsaanvraag-form-label">Woonplaats</div>
+                                    <div class="bijstandsaanvraag-form-value">
+                                        <input type="text" id="woonplaats" class="bijstandsaanvraag-input" value="Amersfoort">
+                                    </div>
+                                </div>
+                                
+                                <div class="bijstandsaanvraag-form-row">
+                                    <div class="bijstandsaanvraag-form-label">Woont u op dit adres?</div>
+                                    <div class="bijstandsaanvraag-form-value">
+                                        <div class="bijstandsaanvraag-radio-group">
+                                            <label class="bijstandsaanvraag-radio">
+                                                <input type="radio" name="woont_op_adres" checked>
+                                                <span class="bijstandsaanvraag-radio-button"></span>
+                                                Ja
+                                            </label>
+                                            <label class="bijstandsaanvraag-radio">
+                                                <input type="radio" name="woont_op_adres">
+                                                <span class="bijstandsaanvraag-radio-button"></span>
+                                                Nee
+                                            </label>
+                                            <label class="bijstandsaanvraag-radio">
+                                                <input type="radio" name="woont_op_adres">
+                                                <span class="bijstandsaanvraag-radio-button"></span>
+                                                Ik ben dakloos
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="bijstandsaanvraag-form-row">
+                                    <div class="bijstandsaanvraag-form-label">Waar woont u in?</div>
+                                    <div class="bijstandsaanvraag-form-value">
+                                        <div class="bijstandsaanvraag-select-wrapper">
+                                            <select id="waar_woont_u" class="bijstandsaanvraag-select">
+                                                <option value="huis" selected>Huis</option>
+                                                <option value="appartement">Appartement</option>
+                                                <option value="anders">Anders</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="bijstandsaanvraag-form-row">
+                                    <div class="bijstandsaanvraag-form-label">Hoe woont u?</div>
+                                    <div class="bijstandsaanvraag-form-value">
+                                        <div class="bijstandsaanvraag-select-wrapper">
+                                            <select id="hoe_woont_u" class="bijstandsaanvraag-select">
+                                                <option value="zelfstandige_huurwoning" selected>Ik woon in een zelfstandige huurwoning (dit kan ook een boot of caravan zijn)</option>
+                                                <option value="huur_kamer">Ik huur een kamer</option>
+                                                <option value="bij_ouders">Ik woon in bij mijn ouders</option>
+                                                <option value="bij_familie">Ik woon in bij familie, vrienden of kennissen</option>
+                                                <option value="koopwoning">Ik woon in een koopwoning / woonboot in eigendom</option>
+                                                <option value="zorginstelling">Ik verblijf in een zorginstelling</option>
+                                                <option value="maatschappelijke_opvang">Ik woon in een instelling voor maatschappelijke opvang</option>
+                                                <option value="detentie">Detentie</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="bijstandsaanvraag-form-row">
+                                    <div class="bijstandsaanvraag-form-label">Is dit uw postadres?</div>
+                                    <div class="bijstandsaanvraag-form-value">
+                                        <div class="bijstandsaanvraag-radio-group">
+                                            <label class="bijstandsaanvraag-radio">
+                                                <input type="radio" name="is_postadres" checked>
+                                                <span class="bijstandsaanvraag-radio-button"></span>
+                                                Ja
+                                            </label>
+                                            <label class="bijstandsaanvraag-radio">
+                                                <input type="radio" name="is_postadres">
+                                                <span class="bijstandsaanvraag-radio-button"></span>
+                                                Nee
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Zelfstandige huurwoning sectie -->
+                        <div class="bijstandsaanvraag-section">
+                            <h3 class="bijstandsaanvraag-section-title">Zelfstandige huurwoning</h3>
+                            
+                            <div class="bijstandsaanvraag-form-data">
+                                <div class="bijstandsaanvraag-form-row">
+                                    <div class="bijstandsaanvraag-form-label">Heeft u een huurcontract?</div>
+                                    <div class="bijstandsaanvraag-form-value">
+                                        <div class="bijstandsaanvraag-radio-group">
+                                            <label class="bijstandsaanvraag-radio">
+                                                <input type="radio" name="heeft_huurcontract" checked>
+                                                <span class="bijstandsaanvraag-radio-button"></span>
+                                                Ja
+                                            </label>
+                                            <label class="bijstandsaanvraag-radio">
+                                                <input type="radio" name="heeft_huurcontract">
+                                                <span class="bijstandsaanvraag-radio-button"></span>
+                                                Nee
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="bijstandsaanvraag-form-row">
+                                    <div class="bijstandsaanvraag-form-label">Staat het huurcontract op uw naam?</div>
+                                    <div class="bijstandsaanvraag-form-value">
+                                        <div class="bijstandsaanvraag-radio-group">
+                                            <label class="bijstandsaanvraag-radio">
+                                                <input type="radio" name="contract_op_naam" checked>
+                                                <span class="bijstandsaanvraag-radio-button"></span>
+                                                Ja
+                                            </label>
+                                            <label class="bijstandsaanvraag-radio">
+                                                <input type="radio" name="contract_op_naam">
+                                                <span class="bijstandsaanvraag-radio-button"></span>
+                                                Nee
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="bijstandsaanvraag-form-row">
+                                    <div class="bijstandsaanvraag-form-label">Wat is de naam van de verhuurder?</div>
+                                    <div class="bijstandsaanvraag-form-value">
+                                        <input type="text" id="verhuurder_naam" class="bijstandsaanvraag-input" value="test">
+                                    </div>
+                                </div>
+                                
+                                <div class="bijstandsaanvraag-form-row">
+                                    <div class="bijstandsaanvraag-form-label">Hoeveel bedraagt de huur inclusief servicekosten per maand?</div>
+                                    <div class="bijstandsaanvraag-form-value">
+                                        <input type="text" id="huur_bedrag" class="bijstandsaanvraag-input" value="350,00">
+                                    </div>
+                                </div>
+                                
+                                <div class="bijstandsaanvraag-form-row">
+                                    <div class="bijstandsaanvraag-form-label">Hoeveel huurtoeslag ontvangt u per maand?</div>
+                                    <div class="bijstandsaanvraag-form-value">
+                                        <input type="text" id="huurtoeslag" class="bijstandsaanvraag-input" value="12,00">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Huishouden sectie (samengeklapt) -->
+                        <div class="bijstandsaanvraag-section">
+                            <div class="bijstandsaanvraag-section-header">
+                                <h3 class="bijstandsaanvraag-section-title">Huishouden</h3>
+                                <span class="bijstandsaanvraag-section-status">Nog in te vullen</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Actie knoppen -->
+                        <div class="bijstandsaanvraag-actions">
+                            <button class="bijstandsaanvraag-btn-secondary">Opslaan en later verdergaan</button>
+                            <button class="bijstandsaanvraag-btn-primary">Volgende stap <span class="bijstandsaanvraag-btn-arrow">→</span></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Footer -->
+            <div class="bijstandsaanvraag-footer">
+                <div class="bijstandsaanvraag-container">
+                    <div class="bijstandsaanvraag-footer-content">
+                        <div class="bijstandsaanvraag-footer-links">
+                            <a href="#">© Gemeente Rotterdam 2025</a>
+                            <a href="#">Vacatures</a>
+                            <a href="#">Cookies</a>
+                            <a href="#">Proclaimer</a>
+                            <a href="#">Privacy</a>
+                            <a href="#">Toegankelijkheid</a>
+                        </div>
+                        <div class="bijstandsaanvraag-footer-logo">
+                            <img src="https://www.rotterdam.nl/images/logo-base.svg" alt="Gemeente Rotterdam">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Demo navigatie knoppen -->
+        <div class="button-container">
+            <button class="prev">Terug</button>
+            <button class="next">Volgende</button>
+        </div>
+    </section>
+
+    <section id="step-7" class="step">
+        <div class="subsection">
+            <h1>test</h1>
+            <hr>
+            <h4><strong>test</strong></h4>
+            <p>test tekst</p>
+        </div>
+        <div class="button-container">
+            <button class="prev">Terug</button>
+            <button class="next">Volgende</button>
+        </div>
+    </section>
+
+    <section id="step-8" class="step">
+        <div class="subsection">
+            <h1>test</h1>
+            <hr>
+            <h4><strong>test</strong></h4>
+            <p>test tekst</p>
+        </div>
+        <div class="button-container">
+            <button class="prev">Terug</button>
+            <!-- Geen volgende knop in de laatste stap -->
+        </div>
+    </section>
+
+    <!-- Voeg het script hier toe zodat de DOM volledig is geladen -->
+    <script src="demo.js"></script>
+
+</body>
+</html>

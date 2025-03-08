@@ -11,7 +11,7 @@ body {
     margin: 0;
     padding: 0; /* Verwijder padding helemaal */
     line-height: 1.6;
-    max-width: 800px;
+   /*  max-width: 800px; */
     margin: 0 auto;
     text-align: left;
     overflow-x: hidden;
@@ -643,14 +643,14 @@ a.login-card:hover {
 .burgerportaal-screen {
     width: 100vw !important;
     max-width: 100vw !important;
-    margin-left: calc(-50vw + 50%) !important;
-    margin-right: calc(-50vw + 50%) !important;
+   /*  margin-left: calc(-50vw + 50%) !important;
+    margin-right: calc(-50vw + 50%) !important; */
     margin-top: 0 !important;
     padding: 0 !important;
     position: relative;
     
     background-color: #fff;
-    min-height: 85vh !important;
+    min-height: 85% !important;
     display: flex;
     flex-direction: column;
 }

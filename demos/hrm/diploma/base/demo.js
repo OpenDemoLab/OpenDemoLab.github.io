@@ -82,17 +82,23 @@ function toggleButtons() {
 
         // Controleer of de knoppen al bestaan voordat je ze toevoegt
         if (!document.querySelector('.go-example') && !document.querySelector('.go-home')) {
-            // Voeg de 'Sluiten tabblad'-knop toe met Font Awesome icoon
-            const exampleButton = document.createElement('button');
-            exampleButton.innerHTML = '<i class="fas fa-lightbulb"></i> Naar voorbeelden';
-            exampleButton.className = 'go-example';
-            exampleButton.onclick = ()=> window.location.href = 'https://www.tipdemo.nl/examples/eo'; // 
+// Voeg de 'Sluiten tabblad'-knop toe met Font Awesome icoon
+const exampleButton = document.createElement('button');
+exampleButton.innerHTML = '<i class="fas fa-lightbulb"></i> Naar voorbeelden';
+exampleButton.className = 'go-example';
+exampleButton.onclick = () => {
+    // Gebruik window.top om naar het hoogste niveau te gaan (buiten de iframe)
+    window.top.location.href = 'https://www.opendemolab.eu/demos';
+};
 
-            // Voeg de 'Terug naar hoofdwebsite'-knop toe met Font Awesome icoon
-            const homeButton = document.createElement('button');
-            homeButton.innerHTML = '<i class="fas fa-home"></i> Terug naar hoofdwebsite';
-            homeButton.className = 'go-home';
-            homeButton.onclick = () => window.location.href = 'https://www.tipdemo.nl'; // 
+// Voeg de 'Terug naar hoofdwebsite'-knop toe met Font Awesome icoon
+const homeButton = document.createElement('button');
+homeButton.innerHTML = '<i class="fas fa-home"></i> Terug naar hoofdwebsite';
+homeButton.className = 'go-home';
+homeButton.onclick = () => {
+    // Gebruik window.top om naar het hoogste niveau te gaan (buiten de iframe)
+    window.top.location.href = 'https://www.opendemolab.eu';
+};
 
             // Voeg de knoppen toe aan de button-container
             buttonContainer.appendChild(exampleButton);

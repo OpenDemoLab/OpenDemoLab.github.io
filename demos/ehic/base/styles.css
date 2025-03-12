@@ -1,0 +1,214 @@
+body {
+    font-family: 'Helvetica', sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+h1 {
+    font-size: 28px;
+    color: #004B87; /* EHIC blue */
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background: #ccc;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 10px;
+    margin-top: 0px;
+}
+
+h4 {
+    margin-bottom: 0px;
+    color: #004B87;
+}
+
+.step {
+    display: none; /* Standaard zijn alle secties verborgen */
+}
+
+.active {
+    display: block; /* Alleen de actieve sectie wordt getoond */
+}
+
+.button-container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center; /* Zorgt ervoor dat de knoppen horizontaal gecentreerd zijn */
+    margin-bottom: 40px;
+}
+
+button.prev, button.next {
+    font-size: 16px;
+    color: #ffffff;
+    text-decoration: none;
+    background-color: #004B87; /* EHIC blue button */
+    padding: 12px 20px;
+    border-radius: 8px;
+    display: inline-block;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    margin: 0 10px;
+    border: none;
+    cursor: pointer;
+}
+
+button.prev:hover, button.next:hover {
+    background-color: #003D6F; /* Donkerdere tint bij hover */
+    transform: translateY(-2px);
+}
+
+.highlight-link {
+    font-weight: bold;
+    background-color: #D9F2FF;
+    padding: 5px;
+    color: #004B87;
+}
+
+.qr-code {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+#logo-container-insurer {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    background-color: #f8f8f8;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#logo-container-insurer .header-logo {
+    background-color: #004B87; /* EHIC blue */
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+    border-radius: 50%;
+}
+
+#logo-container-insurer .header-text {
+    font-size: 18px;
+    color: #004B87;
+    font-weight: bold;
+    margin: 0;
+}
+
+#logo-container-doctor {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    background-color: #f8f8f8;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#logo-container-doctor h1 {
+    font-size: 24px;
+    color: #004B87;
+    margin: 0;
+}
+
+/* EHIC Card styling */
+.ehic-card {
+    background: linear-gradient(135deg, #004B87 0%, #0066B3 100%);
+    color: white;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.ehic-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    padding-bottom: 10px;
+}
+
+.ehic-header img {
+    margin-right: 15px;
+    background: white;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.ehic-header h3 {
+    margin: 0 0 5px 0;
+    font-size: 18px;
+}
+
+.ehic-header p {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 14px;
+}
+
+.ehic-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.ehic-details p {
+    margin: 5px 0;
+    color: white;
+}
+
+/* Doctor scene styling */
+.doctor-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.doctor-qr {
+    max-width: 200px;
+}
+
+.doctor-image {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+button.go-example, button.go-home {
+    font-size: 16px;
+    color: #ffffff;
+    text-decoration: none;
+    background-color: #004B87;
+    padding: 12px 20px;
+    border-radius: 8px;
+    display: inline-block;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    margin: 0 10px;
+    border: none;
+    cursor: pointer;
+}
+
+button.go-example:hover, button.go-home:hover {
+    background-color: #003D6F;
+    transform: translateY(-2px);
+}
+
+button.go-example i, button.go-home i {
+    margin-right: 8px;
+}

@@ -777,7 +777,7 @@ function loadDefaultCredentials() {
 
 // Functie om opgeslagen kaartjes te laden
 function loadCredentials() {
-  const storedCredentials = localStorage.getItem('credentials');
+  const storedCredentials = sessionStorage.getItem('credentials');
   if (storedCredentials) {
     credentials = JSON.parse(storedCredentials);
   }
@@ -786,8 +786,9 @@ function loadCredentials() {
 
 // Functie om opgeslagen kaartjes te bewaren
 function saveCredentials() {
-  localStorage.setItem('credentials', JSON.stringify(credentials));
+  sessionStorage.setItem('credentials', JSON.stringify(credentials));
 }
+
 
 
 function showDetails(credential, index) {

@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <title>Presentatiemodus</title>
+
+  <!-- Font Awesome voor icoontjes op de startknop -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    html, body {
+      margin: 0; 
+      padding: 0; 
+      height: 100%; 
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+      overflow: hidden;
+    }
+    h1, h2, h3, h4 {
+      margin: 10px 0;
+    }
+    p {
+      margin: 10px 0;
+    }
+
+    /* ===== Het hoofdscherm met sliding panels ===== */
+    #mainContainer {
+      width: 100%;
+      height: 100vh;
+      box-sizing: border-box;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    /* Kolommen */
+    .left-pane {
+      width: 100%;
+      height: 100%;
+      box-sizing: border-box;
+      position: relative;
+      z-index: 1;
+    }
+    
+    /* Panel met middelste en rechter panelen (rechts) */
+    .sliding-panel {
+      position: absolute;
+      top: 20px; /* Ruimte aan de bovenkant */
+      bottom: 20px; /* Ruimte aan de onderkant */
+      right: -40%; /* Begin buiten het scherm */
+      width: 40%; /* Smallere breedte */
+      background-color: #fff;
+      border-left: 2px solid #62a7f0; /* Subtiele blauwe rand in dezelfde kleur als de tab */
+      box-shadow: -8px 0 20px rgba(0, 0, 0, 0.35); /* Sterkere schaduw */
+      z-index: 2;
+      transition: right 0.4s ease-in-out;
+      display: flex;
+      flex-direction: column; /* Verticale stapeling */
+    }
+    
+    .sliding-panel.open {
+      right: 0;
+    }
+    
+    /* Nieuwe linker sliding panel */
+    .left-sliding-panel {
+      position: absolute;
+      top: 20px; 
+      bottom: 20px; 
+      left: -45%; /* Begin buiten het scherm */
+      width: 45%; 
+      background-color: #fff;
+      border-right: 2px solid #4CAF50; /* Groene rand voor onderscheid */
+      box-shadow: 8px 0 20px rgba(0, 0, 0, 0.35);
+      z-index: 2;
+      transition: left 0.4s ease-in-out;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .left-sliding-panel.open {
+      left: 0;
+    }
+    
+    /* NIEUWE Toggle tab (over volledige hoogte) */
+    .panel-tab {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: -50px; /* Breedte van de tab */
+      width: 50px;
+      background-color: #62a7f0;
+      border-radius: 15px 0 0 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
+      transition: background-color 0.3s ease;
+    }
+    
+    .panel-tab:hover {
+      background-color: #0056b3;
+    }
+    
+    /* Nieuwe linker tab */
+    .left-panel-tab {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: -50px; /* Breedte van de tab, aan rechterkant van het panel */
+      width: 50px;
+      background-color: #4CAF50; /* Groene kleur voor onderscheid */
+      border-radius: 0 15px 15px 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 5px 0 15px rgba(0, 0, 0, 0.2);
+      transition: background-color 0.3s ease;
+    }
+    
+    .left-panel-tab:hover {
+      background-color: #388E3C;
+    }
+    
+    .panel-tab i, .left-panel-tab i {
+      font-size: 28px;
+      color: white;
+    }
+    
+    /* Middelste en rechter panelen binnen sliding panel */
+    .middle-pane {
+      flex: 0 0 auto; /* Hoogte gebaseerd op inhoud */
+      width: 100%; /* Volledige breedte */
+      padding: 15px;
+      box-sizing: border-box;
+      border-bottom: 1px solid #ccc;
+      max-height: 25%; /* Iets kleinere max hoogte */
+      overflow-y: auto;
+    }
+    
+    .right-pane {
+      flex: 1; /* Neemt resterende ruimte */
+      width: 100%; /* Volledige breedte */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #f0f0f0;
+      box-sizing: border-box;
+      padding: 20px 0;
+    }
+    
+    /* Nieuwe flow pane voor linker panel */
+    .flow-pane {
+      flex: 1;
+      width: 100%;
+      background-color: #f5f5f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+    
+    /* Container voor titel en beschrijving boven de flow */
+    .flow-header {
+      flex: 0 0 auto;
+      width: 100%;
+      padding: 15px;
+      box-sizing: border-box;
+      border-bottom: 1px solid #ccc;
+      background-color: #fff;
+    }
+
+    /* De iframe in de linker kolom */
+    #iframeLeft {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    
+    /* De iframe voor de flow */
+    #iframeFlow {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* Telefoonmockup (inhoud komt daarbinnen in een iframe) */
+    .phone {
+      width: 410px; 
+      height: 850px; 
+      background-color: #000; /* Zwarte rand zoals een telefoon */
+      border-radius: 40px;    
+      position: relative;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+      padding: 18px; /* Aangepaste padding */
+      box-sizing: border-box;
+      margin: 10px auto; /* Centreren met marges */
+    }
+    
+    .phone-screen {
+      width: 100%;
+      height: 100%;
+      background-color: #fff; 
+      border-radius: 30px; 
+      overflow: hidden;
+    }
+    
+    .phone-screen iframe {
+      width: 100%;
+      height: 100%;
+      border: none; 
+    }
+
+    /* De lijst met QR-codes in de middenkolom */
+    #qrList {
+      margin: 0; 
+      padding: 0;
+    }
+    
+    #qrList li {
+      list-style: none;
+      margin-bottom: 15px;
+      padding: 0;
+    }
+    
+    #qrList button {
+      margin-top: 5px;
+      cursor: pointer;
+      background-color: #0077da;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 4px;
+      font-size: 14px;
+      transition: background-color 0.2s;
+    }
+    
+    #qrList button:hover {
+      background-color: #0056b3;
+    }
+    
+    .no-qr-message {
+      font-style: italic;
+      color: #666;
+      padding: 10px 0;
+    }
+    
+    .middle-pane h4 {
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 10px;
+      margin-bottom: 15px;
+    }
+    
+    .step-info {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 15px;
+    }
+    
+    /* Tooltip/hint stijlen - verbeterd */
+    .hint-balloon {
+      position: absolute;
+      width: 280px;
+      background-color: #ffffff;
+      border: 2px solid #62a7f0;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+      z-index: 10; 
+      font-size: 14px;
+      display: none; /* Begin verborgen */
+      text-align: left;
+    }
+    
+    /* Rechter hint */
+    #rightHintBalloon {
+      top: 50%;
+      right: calc(100% + 15px); /* Positioneren links van de tab */
+      transform: translateY(-50%);
+    }
+    
+    #rightHintBalloon:after {
+      content: '';
+      position: absolute;
+      right: -12px; /* Pijl aan rechterkant */
+      top: 50%;
+      transform: translateY(-50%);
+      border-width: 12px 0 12px 12px;
+      border-style: solid;
+      border-color: transparent transparent transparent #62a7f0;
+    }
+    
+    /* Linker hint */
+    #leftHintBalloon {
+      top: 50%;
+      left: calc(100% + 15px); /* Positioneren rechts van de tab */
+      transform: translateY(-50%);
+      border-color: #4CAF50;
+    }
+    
+    #leftHintBalloon:after {
+      content: '';
+      position: absolute;
+      left: -12px; /* Pijl aan linkerkant */
+      top: 50%;
+      transform: translateY(-50%);
+      border-width: 12px 12px 12px 0;
+      border-style: solid;
+      border-color: transparent #4CAF50 transparent transparent;
+    }
+    
+    .hint-balloon.show {
+      display: block;
+    }
+    
+    .hint-balloon p {
+      margin: 0 0 15px 0;
+      line-height: 1.5;
+      color: #333;
+    }
+    
+    .hint-balloon button {
+      background-color: #62a7f0;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: bold;
+      transition: background-color 0.3s;
+      display: inline-block;
+    }
+    
+    #leftHintBalloon button {
+      background-color: #4CAF50;
+    }
+    
+    .hint-balloon button:hover {
+      background-color: #0056b3;
+    }
+    
+    #leftHintBalloon button:hover {
+      background-color: #388E3C;
+    }
+  </style>
+</head>
+<body>
+  <!-- Het hoofdscherm met sliding panels -->
+  <div id="mainContainer">
+    <!-- Links: iframe met voorbeelden (volledige breedte) -->
+    <div class="left-pane">
+      <iframe id="iframeLeft"></iframe>
+    </div>
+
+    <!-- Nieuw: Linker sliding panel voor interactieve flow -->
+    <div class="left-sliding-panel" id="leftSlidingPanel">
+      <!-- Tab over volledige hoogte -->
+      <div class="left-panel-tab" id="leftPanelTab">
+        <i class="fa-solid fa-network-wired"></i>
+        
+        <!-- Hint balloon direct bij de tab -->
+        <div id="leftHintBalloon" class="hint-balloon">
+          <p>Klik op dit tabblad om de interactieve architectuurplaat te bekijken. Hier kun je zien hoe verifiable credentials van de authentieke bron via eDelivery naar de wallet gaan.</p>
+          <button class="hint-close">Ik snap het</button>
+        </div>
+      </div>
+      
+      <!-- Header met titel en beschrijving -->
+      <div class="flow-header">
+        <h4>Interactieve Architectuurplaat</h4>
+        <p class="step-info">Deze visualisatie toont hoe verifiable credentials van een authentieke bron via eDelivery naar een wallet worden getransporteerd.</p>
+      </div>
+
+      <!-- Iframe voor de interactieve flow -->
+      <div class="flow-pane">
+        <iframe id="iframeFlow"></iframe>
+      </div>
+    </div>
+
+    <!-- Sliding panel met tab over volledige hoogte (rechts) -->
+    <div class="sliding-panel" id="slidingPanel">
+      <!-- Nieuwe tab over volledige hoogte -->
+      <div class="panel-tab" id="panelTab">
+        <i class="fa-solid fa-mobile-screen"></i>
+        
+        <!-- Hint balloon direct bij de tab -->
+        <div id="rightHintBalloon" class="hint-balloon">
+          <p>Klik op dit telefoon-tabblad om de wallet uit te schuiven en te bedienen. Nogmaals klikken laat deze weer terugschuiven.</p>
+          <button class="hint-close">Ik snap het</button>
+        </div>
+      </div>
+      
+      <!-- Boven: lijst met knoppen voor QR's -->
+      <div class="middle-pane">
+        <h4>Simulatie scannen QR-codes</h4>
+        <p class="step-info"></p>
+        <ul id="qrList"></ul>
+      </div>
+
+      <!-- Onder: telefoonmockup -->
+      <div class="right-pane">
+        <div class="phone">
+          <div class="phone-screen">
+            <iframe id="iframeRight"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const iframeLeft = document.getElementById("iframeLeft");
+    const iframeRight = document.getElementById("iframeRight");
+    const iframeFlow = document.getElementById("iframeFlow");
+    const qrList = document.getElementById("qrList");
+    const slidingPanel = document.getElementById("slidingPanel");
+    const panelTab = document.getElementById("panelTab");
+    const leftSlidingPanel = document.getElementById("leftSlidingPanel");
+    const leftPanelTab = document.getElementById("leftPanelTab");
+    const rightHintBalloon = document.getElementById("rightHintBalloon");
+    const leftHintBalloon = document.getElementById("leftHintBalloon");
+    const hintCloseButtons = document.querySelectorAll(".hint-close");
+
+    // Toon hints eenmalig bij laden, na korte vertraging
+    setTimeout(() => {
+      rightHintBalloon.classList.add("show");
+      
+      // Toon ook linker hint automatisch
+      setTimeout(() => {
+        leftHintBalloon.classList.add("show");
+      }, 1000);
+    }, 1000);
+
+    // Hint sluiten knoppen
+    hintCloseButtons.forEach(button => {
+      button.addEventListener("click", function(e) {
+        e.stopPropagation(); // Voorkom dat het panel opent
+        const hintBalloon = this.closest('.hint-balloon');
+        if (hintBalloon) {
+          hintBalloon.classList.remove("show");
+        }
+      });
+    });
+
+    // Toggle voor sliding panels
+    panelTab.addEventListener("click", function() {
+      slidingPanel.classList.toggle("open");
+    });
+    
+    leftPanelTab.addEventListener("click", function() {
+      leftSlidingPanel.classList.toggle("open");
+    });
+
+// Haal het basispad uit de huidige URL
+const currentPath = window.location.pathname;
+const baseDir = currentPath.substring(0, currentPath.lastIndexOf('/'));
+
+// Controleer of de website lokaal draait
+const isLocal = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1";
+
+// Bepaal het domein voor online versie
+const onlineDomain = "https://www.opendemolab.eu";
+
+// Stel de juiste URL's in
+const leftSrc = isLocal
+    ? `${baseDir}/base/index.html`  // Relatief pad naar base/index.html
+    : `${onlineDomain}${baseDir}/base/index.html`; // Online versie
+
+const rightSrc = isLocal
+    ? "/demo/index.html"  // Wallet demo blijft absoluut 
+    : "https://www.opendemolab.eu/demo/index.html"; // Online versie
+    
+const flowSrc = isLocal
+    ? `${baseDir}/architecture/vc.html`  // Relatief pad naar architecture/vc.html
+    : `${onlineDomain}${baseDir}/architecture/vc.html`; // Online versie
+
+    // Functie om de zichtbaarheid van de flow content bij te werken
+    function updateFlowVisibility(showFlow) {
+      const flowPane = document.querySelector('.flow-pane');
+      const flowHeader = document.querySelector('.flow-header');
+      
+      if (showFlow) {
+        flowPane.style.display = 'flex';
+        flowHeader.style.display = 'block';
+        document.querySelector('.flow-header h4').textContent = "Interactieve Architectuurplaat";
+        document.querySelector('.flow-header .step-info').textContent = 
+          "Deze visualisatie toont hoe verifiable credentials van een authentieke bron via eDelivery naar een wallet worden getransporteerd.";
+      } else {
+        flowPane.style.display = 'none';
+        flowHeader.style.display = 'block';
+        document.querySelector('.flow-header h4').textContent = "Geen architectuurplaat beschikbaar";
+        document.querySelector('.flow-header .step-info').textContent = 
+          "Er is geen architectuurplaat beschikbaar voor deze stap van de demo.";
+      }
+    }
+
+    // Laad iframes direct bij het laden van de pagina
+    window.addEventListener("DOMContentLoaded", function() {
+      // Listener vóór je de src zet, zodat je de load niet mist
+      iframeLeft.addEventListener("load", handleLeftIframeLoad);
+      iframeLeft.src = leftSrc;
+      iframeRight.src = rightSrc;
+      
+      // Laad de flow iframe alvast, maar verberg de inhoud indien nodig
+      iframeFlow.src = flowSrc;
+      updateFlowVisibility(false); // Begin met niet-zichtbare flow content
+    });
+
+    function handleLeftIframeLoad() {
+        try {
+            const leftDoc = iframeLeft.contentDocument || iframeLeft.contentWindow.document;
+            
+            // Initieel alle QR codes opslaan per sectie
+            const allSections = leftDoc.querySelectorAll('section.step');
+            const qrCodesBySection = {};
+            
+            // Voor elke sectie, sla de QR codes op
+            allSections.forEach((section, sectionIndex) => {
+                const sectionId = section.id; // bijvoorbeeld "step-1"
+                const qrImages = section.querySelectorAll('img[src*="create-qr-code"]');
+                
+                if (qrImages.length > 0) {
+                    qrCodesBySection[sectionId] = [];
+                    
+                    qrImages.forEach((img, index) => {
+                        const qrUrl = img.getAttribute("src") || "";
+                        const paramMatch = qrUrl.match(/data=([^&]+)/);
+                        if (!paramMatch) return;
+                        
+                        const rawData = decodeURIComponent(paramMatch[1]);
+                        let jsonData;
+                        try {
+                            jsonData = JSON.parse(rawData);
+                        } catch(e) {
+                            console.warn("Kon de QR-data niet parsen:", rawData, e);
+                            return;
+                        }
+                        
+                        // Lees de alt-tekst; indien niet aanwezig -> fallback
+                        const altText = img.getAttribute("alt") || `QR code in ${sectionId.replace("-", " ")} #${index + 1}`;
+                        
+                        qrCodesBySection[sectionId].push({
+                            altText: altText,
+                            jsonData: jsonData
+                        });
+                    });
+                }
+            });
+            
+            // Functie om te controleren of een stap de VC Flow moet tonen
+            function checkForFlowActivation(section) {
+                // Controleer op data-attribute voor VC flow
+                return section.hasAttribute('data-show-vc-flow');
+            }
+            
+            // Functie om de QR codes te tonen voor een specifieke sectie
+            function showQRCodesForSection(sectionId, section) {
+                qrList.innerHTML = "";
+                
+                // Controleer of er QR codes zijn voor deze sectie
+                if (!qrCodesBySection[sectionId] || qrCodesBySection[sectionId].length === 0) {
+                    const message = document.createElement("div");
+                    message.textContent = "Geen QR codes in deze stap";
+                    message.classList.add("no-qr-message");
+                    qrList.appendChild(message);
+                }
+                else {
+                    // Bouw de QR code lijst voor deze sectie
+                    qrCodesBySection[sectionId].forEach((qrData, index) => {
+                        // 1) Maak een <li> als 'container' per QR
+                        const li = document.createElement("li");
+                        
+                        // 2) Titel van de QR code
+                        const title = document.createElement("div");
+                        title.textContent = qrData.altText;
+                        li.appendChild(title);
+                        
+                        // 3) De knop "Simuleer scan"
+                        const btn = document.createElement("button");
+                        btn.textContent = "Simuleer scan";
+                        btn.addEventListener("click", () => {
+                            iframeRight.contentWindow.postMessage({
+                                action: "simulateScan",
+                                qrData: JSON.stringify(qrData.jsonData)
+                            }, "*");
+                            
+                            // Open het panel als het nog niet open is
+                            if (!slidingPanel.classList.contains("open")) {
+                                slidingPanel.classList.add("open");
+                            }
+                        });
+                        li.appendChild(btn);
+                        
+                        // 4) Een <hr> na de knop (scheidingslijn)
+                        if (index < qrCodesBySection[sectionId].length - 1) {
+                            const hr = document.createElement("hr");
+                            li.appendChild(hr);
+                        }
+                        
+                        // 5) Voeg alles toe aan de lijst
+                        qrList.appendChild(li);
+                    });
+                }
+                
+                // Controleer of deze stap de VC flow moet tonen
+                const shouldShowFlow = checkForFlowActivation(section);
+                
+                // Werk zichtbaarheid van flow bij op basis van de stap
+                updateFlowVisibility(shouldShowFlow);
+            }
+            
+            // Monitor actieve sectie in de iframe
+            function monitorActiveSection() {
+                try {
+                    const activeSection = leftDoc.querySelector('section.step.active') || 
+                                      leftDoc.querySelector('section.step[style*="display: block"]');
+                    
+                    if (activeSection) {
+                        const activeSectionId = activeSection.id;
+                        showQRCodesForSection(activeSectionId, activeSection);
+                    }
+                } catch (err) {
+                    console.warn("Kon actieve sectie niet detecteren:", err);
+                }
+            }
+            
+            // Eerste keer uitvoeren
+            monitorActiveSection();
+            
+            // Observer op de body van de linker iframe om veranderingen in actieve sectie te detecteren
+            const bodyObserver = new MutationObserver(function(mutations) {
+                monitorActiveSection();
+            });
+            
+            // Start observeren van wijzigingen in de DOM
+            bodyObserver.observe(leftDoc.body, { 
+                childList: true, 
+                subtree: true, 
+                attributes: true, 
+                attributeFilter: ['class', 'style'] 
+            });
+            
+            // Luister naar klikken op de navigatieknoppen
+            const navButtons = leftDoc.querySelectorAll('button.prev, button.next');
+            navButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Kleine vertraging voor DOM updates
+                    setTimeout(monitorActiveSection, 100);
+                });
+            });
+            
+        } catch(err) {
+            console.warn("Kan de DOM van iframeLeft niet benaderen (CORS?)", err);
+        }
+    }
+
+    // Eventueel luisteren naar berichten van iframeRight of iframeFlow
+    window.addEventListener("message", (event) => {
+        console.log("Presentatiepagina ontving message:", event.data);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Internationale Patiëntsamenvatting Wallet Demo</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <section id="step-1" class="step">
+        <div class="subsection">
+            <h1>Internationale Patiëntsamenvatting Demo</h1>
+            <hr>
+            <h4><strong>International Patient Summary (IPS) - Wallet Demo</strong></h4>
+            <p>
+                Bij medische zorg in het buitenland is het essentieel dat zorgverleners toegang hebben tot uw belangrijke 
+                medische gegevens. De Internationale Patiëntsamenvatting (IPS) maakt dit mogelijk.
+                <br><br>
+                
+                <strong>Use case:</strong><br>
+                Een burger krijgt tijdens een verblijf in een EU-lidstaat medische klachten en bezoekt een arts. 
+                Via de wallet deelt hij zijn medische gegevens met deze buitenlandse arts, die de gegevens uitleest 
+                en opslaat in zijn medisch dossier.
+                <br><br>
+                
+                Eenmaal in de wallet kan de burger de IPS verstrekken aan een zorgaanbieder binnen de EU of in Nederland.
+                <br><br>
+                
+                <strong>Belangrijk:</strong> Zorgaanbieders of instellingen waarmee gegevens worden gedeeld, moeten geregistreerd 
+                zijn in een nationaal register. Alleen gecontroleerde zorgaanbieders kunnen gegevens ontvangen; 
+                als verificatie niet mogelijk is, vindt er geen gegevensuitwisseling plaats.
+            </p>
+
+            <h4>Gegevensset</h4>
+            <p>
+                De patiëntsamenvatting bevat:
+                <ul>
+                    <li>Persoonlijke identificatiegegevens (PID): naam, BSN, geboortedatum, geslacht, gemeente/adres.</li>
+                    <li>Medische gegevens: huidige medicatie, ziektebeeld, operaties, allergieën, en andere relevante gezondheidsinformatie.</li>
+                    <li>De inhoud van de patiëntsamenvatting is vastgelegd in de eHealth Network Guidelines en wordt momenteel als pdf-bestand opgeleverd.</li>
+                </ul>
+            </p>
+
+            <h4>Stappen in demo</h4>
+            <p>
+                De stappen in de demo kun je bedienen door onderstaande knoppen.
+            </p>
+               
+            <hr>
+        </div>
+        <div class="button-container">
+            <button class="next">Volgende stap <i class="fas fa-arrow-right"></i></button>
+        </div>
+    </section>
+
+    <section id="step-2" class="step">
+        <div class="subsection">
+            <div class="logo-container" id="logo-container-medical">
+                <div class="header-logo"></div>
+                <div class="header-text">Medisch Dossier</div>
+            </div>
+            <hr>
+            <h1>Mijn Medische Gegevens</h1>
+            <h4></h4>
+             
+            <p>
+                Beste Willeke,<br><br>
+                
+                Om uw Internationale Patiëntsamenvatting (IPS) in uw wallet op te halen, volgt u de volgende stappen:<br><br>
+                
+                Open de handelingsomgeving op uw telefoon<br>
+                Scan onderstaande QR-code <strong>met uw handelingsomgeving</strong> om een digitale versie van uw medische gegevens toe te voegen in uw wallet:
+                <br>
+                <div class="qr-code">
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?data=%7B%22Issuer%22%3Atrue%2C%22name%22%3A%22Internationale%20Pati%C3%ABntsamenvatting%22%2C%22issuedBy%22%3A%22Huisarts%20de%20Vries%22%2C%22LEID%22%3A%22NL_HEALTH_12345678%22%2C%22Issued_Date%22%3A%222024-09-17%22%2C%22Behaald%20door%22%3A%22Willeke%20Liselotte%20de%20Bruijn%22%2C%22BSN%22%3A%22123456789%22%2C%22Geboortedatum%22%3A%221985-04-12%22%2C%22Attestation_Trust_Type%22%3A%22Health-EU%22%2C%22rdfci%22%3A%5B%5D%2C%22a%22%3A%22w%22%2C%22t%22%3A%22w%22%7D&size=300x300" 
+                    alt="QR Code voor Internationale Patiëntsamenvatting">
+                </div>
+                
+            </p>
+            <hr>
+        </div>
+        <div class="button-container">
+            <button class="prev"><i class="fas fa-arrow-left"></i> Vorige stap</button>
+            <button class="next">Volgende stap <i class="fas fa-arrow-right"></i></button>
+        </div>
+    </section>
+
+    <section id="step-3" class="step">
+        <div class="subsection">
+            <h1>Op Reis naar het Buitenland</h1>
+            <hr>
+            <h4><strong>Willeke gaat op vakantie naar Italië</strong></h4><br>
+            <p>
+                Willeke heeft haar Internationale Patiëntsamenvatting (IPS) veilig opgeslagen in haar wallet.
+                Nu ze op reis gaat naar Italië, heeft ze een belangrijk document bij zich voor het geval ze medische hulp nodig heeft.
+            </p>
+            
+            <div class="travel-map">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?data=dummy-travel-map&size=500x300" 
+                    alt="Reiskaart naar Italië">
+                <div class="map-overlay">Reiskaart: Nederland → Italië</div>
+            </div>
+            
+            <p>
+                Tijdens haar vakantie in Rome krijgt Willeke plots last van ernstige buikpijn en koorts.
+                Ze besluit een lokale arts te bezoeken.
+            </p>
+            
+            <hr>
+        </div>
+        <div class="button-container">
+            <button class="prev"><i class="fas fa-arrow-left"></i> Vorige stap</button>
+            <button class="next">Volgende stap <i class="fas fa-arrow-right"></i></button>
+        </div>
+    </section>
+
+    <section id="step-4" class="step">
+        <div class="subsection">
+            <div class="logo-container" id="logo-container-doctor">
+                <div class="header-text">Dr. Marco Rossi</div>
+                <div class="doctor-info">Ospedale San Camillo, Rome</div>
+            </div>
+            <hr>
+            <h1>Bij de Buitenlandse Arts</h1>
+            <h4><strong>Medische gegevens delen</strong></h4><br>
+            
+            <p>
+                Dr. Rossi heeft medische informatie nodig om Willeke goed te kunnen helpen.
+                <br><br>
+                Hij vraagt Willeke om haar medische gegevens met hem te delen. De arts toont een QR-code die Willeke met haar wallet kan scannen.
+            </p>
+            
+            <div class="doctor-image">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?data=dummy-doctor-image&size=300x300" 
+                    alt="Dokter met QR-code">
+                <div class="doctor-overlay">
+                    <div class="qr-code doctor-qr">
+                        <img src="https://api.qrserver.com/v1/create-qr-code/?data=%7B%22type%22%3A%22verifier%22%2C%22requestedCard%22%3A%22Internationale%20Pati%C3%ABntsamenvatting%22%2C%22requester%22%3A%22Dr.%20Marco%20Rossi%2C%20Ospedale%20San%20Camillo%22%2C%22reason%22%3A%22Medical%20Treatment%22%2C%22rdfcv%22%3A%5B%22gn%22%2C%22sn%22%2C%22bd%22%2C%22bsn%22%2C%22med%22%5D%2C%22a%22%3A%2212t%22%2C%22t%22%3A%22w%22%7D&size=200x200" 
+                        alt="QR Code voor delen medische gegevens">
+                    </div>
+                </div>
+            </div>
+            
+            <p>
+                Willeke scant de QR-code met haar wallet en kan precies zien welke gegevens worden gedeeld:
+                <ul class="shared-data">
+                    <li>Persoonlijke identificatie (naam, geboortedatum)</li>
+                    <li>Huidige medicatie</li>
+                    <li>Bekende allergieën</li>
+                    <li>Recente medische geschiedenis</li>
+                </ul>
+                
+                Na verificatie van Dr. Rossi's credentials als erkende zorgverlener, gaat Willeke akkoord met het delen van haar IPS.
+            </p>
+            
+            <hr>
+        </div>
+        <div class="button-container">
+            <button class="prev"><i class="fas fa-arrow-left"></i> Vorige stap</button>
+            <button class="next">Volgende stap <i class="fas fa-arrow-right"></i></button>
+        </div>
+    </section>
+
+    <section id="step-5" class="step">
+        <div class="subsection">
+            <h1>Einde Demo</h1>
+            <hr>
+            <h4><strong>Internationale Patiëntsamenvatting succesvol gedeeld</strong></h4><br>
+            <p>
+                Het proces rondom het ophalen en delen van de Internationale Patiëntsamenvatting is afgerond.<br><br>
+                
+                <i class="fas fa-check-circle success-icon"></i> Dr. Rossi heeft nu toegang tot Willeke's relevante medische gegevens<br>
+                <i class="fas fa-check-circle success-icon"></i> De authenticiteit van de gegevens is automatisch geverifieerd<br>
+                <i class="fas fa-check-circle success-icon"></i> Willeke's IPS is zichtbaar in haar wallet onder 'Mijn digitale bewijzen'<br>
+                <i class="fas fa-check-circle success-icon"></i> De acties van ophalen en delen zijn zichtbaar onder 'Mijn activiteiten'<br><br>
+                
+                Dr. Rossi kan nu een correcte diagnose stellen met kennis van Willeke's medische geschiedenis,
+                medicatie en allergieën, wat mogelijk ernstige complicaties voorkomt.
+                <br><br>
+                
+                <div class="benefits-box">
+                    <h4>Voordelen van de IPS Wallet:</h4>
+                    <ul>
+                        <li>Veilige opslag van medische gegevens</li>
+                        <li>Controle over gegevens blijft bij de burger</li>
+                        <li>Internationale toegang tot medische zorg</li>
+                        <li>Alleen geverifieerde zorgverleners krijgen toegang</li>
+                        <li>Taalbarrières worden verminderd door gestandaardiseerde gegevensuitwisseling</li>
+                    </ul>
+                </div>
+            </p>
+        </div>
+        <div class="button-container">
+            <button class="prev"><i class="fas fa-arrow-left"></i> Vorige stap</button>
+        </div>
+    </section>
+
+    <!-- Voeg het script hier toe zodat de DOM volledig is geladen -->
+    <script src="demo.js"></script>
+
+</body>
+</html>

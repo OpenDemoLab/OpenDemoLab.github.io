@@ -453,21 +453,28 @@
       leftSlidingPanel.classList.toggle("open");
     });
 
-    // Controleer of de website lokaal draait
-    const isLocal = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1";
+  // Haal het basispad uit de huidige URL
+const currentPath = window.location.pathname;
+const baseDir = currentPath.substring(0, currentPath.lastIndexOf('/'));
 
-    // Stel de juiste URL's in
-    const leftSrc = isLocal
-        ? "/demos/hrm/vog/base/index.html"  // Lokale versie
-        : "https://www.opendemolab.eu/demos/hrm/vog/base/index.html"; // Online versie
+// Controleer of de website lokaal draait
+const isLocal = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1";
 
-    const rightSrc = isLocal
-        ? "/demo/index.html"  // Lokale versie
-        : "https://www.opendemolab.eu/demo/index.html"; // Online versie
-        
-    const flowSrc = isLocal
-        ? "/demos/hrm/diploma/architecture/vc.html"  // Lokale versie
-        : "https://www.opendemolab.eu/demos/hrm/diploma/architecture/vc.html"; // Online versie
+// Bepaal het domein voor online versie
+const onlineDomain = "https://www.opendemolab.eu";
+
+// Stel de juiste URL's in
+const leftSrc = isLocal
+    ? `${baseDir}/base/index.html`  // Relatief pad naar base/index.html
+    : `${onlineDomain}${baseDir}/base/index.html`; // Online versie
+
+const rightSrc = isLocal
+    ? "/demo/index.html"  // Wallet demo blijft absoluut 
+    : "https://www.opendemolab.eu/demo/index.html"; // Online versie
+    
+const flowSrc = isLocal
+    ? `${baseDir}/architecture/vc.html`  // Relatief pad naar architecture/vc.html
+    : `${onlineDomain}${baseDir}/architecture/vc.html`; // Online versie
 
     // Functie om de zichtbaarheid van de flow content bij te werken
     function updateFlowVisibility(showFlow) {

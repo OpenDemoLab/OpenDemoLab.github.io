@@ -50,22 +50,22 @@ h4 {
 }
 
 button.prev, button.next {
-    font-size: 16px;
-    color: #385168; /* Donkerblauwe tekstkleur */
-    text-decoration: none;
-    background-color: #F0F4F8; /* Achtergrondkleur van de knoppen */
-    padding: 12px 20px; /* Ruimte voor meer klikoppervlak */
-    border-radius: 8px; /* Afgeronde hoeken voor een moderne look */
-    display: inline-block;
-    font-weight: bold; /* Vetgedrukte tekst */
-    transition: all 0.3s ease;
-    margin: 0 10px; /* Ruimte tussen de knoppen behouden */
-    border: none; /* Verwijder standaard button rand */
-    cursor: pointer;
+  font-size: 16px;
+  color: #ffffff;
+  text-decoration: none;
+  background-color: #4da6df;
+  padding: 19px 20px;
+  border-radius: 8px;
+  display: inline-block;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  margin: 0 10px;
+  border: none;
+  cursor: pointer;
 }
 
 button.prev:hover, button.next:hover {
-    background-color: #e0e7ed; /* Iets donkerdere tint bij hover */
+  background-color: #3178b6;
     transform: translateY(-2px);
    
 }
@@ -114,20 +114,22 @@ button.prev:hover, button.next:hover {
 }
 
 button.go-example, button.go-home {
-    font-size: 16px;
-    color: #385168;
-    background-color: #F0F4F8;
-    padding: 12px 20px;
-    border-radius: 8px;
-    font-weight: bold;
-    margin: 0 10px;
-    border: none;
-    transition: all 0.3s ease;
-    cursor: pointer;
+  font-size: 16px;
+  color: #ffffff;
+  text-decoration: none;
+  background-color: #4da6df;
+  padding: 19px 20px;
+  border-radius: 8px;
+  display: inline-block;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  margin: 0 10px;
+  border: none;
+  cursor: pointer;
 }
 
 button.go-example:hover, button.go-home:hover {
-    background-color: #e0e7ed;
+  background-color: #3178b6;
     transform: translateY(-2px);
 }
 

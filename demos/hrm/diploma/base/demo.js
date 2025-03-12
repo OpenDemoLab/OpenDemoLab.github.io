@@ -1,5 +1,5 @@
 const demoConfig = {
-    totalSteps: 3 // Definieer hier het aantal stappen voor deze demo
+    totalSteps: 4 // Definieer hier het aantal stappen voor deze demo
 };
 
 let currentStep = 1; // Houd de huidige stap bij

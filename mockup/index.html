@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS Phone Mockup</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f0f0f0;
+    }
+
+    /* Telefoonframe */
+    .phone {
+      width: 410px;
+      height: 850px;
+      background-color: #000; /* Zwarte rand zoals een telefoon */
+      border-radius: 40px; /* Afgeronde hoeken */
+      position: relative;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Schaduw voor diepte-effect */
+      padding: 20px; /* Voeg padding toe om de ruimte tussen het scherm en het omhulsel aan te passen */
+      box-sizing: border-box; /* Inclusief padding in de breedte- en hoogteberekening */
+    }
+
+    /* Scherm van de telefoon */
+    .phone-screen {
+      width: 100%;
+      height: 100%;
+      background-color: #fff; /* Wit scherm binnen het frame */
+      border-radius: 30px; /* Afgeronde hoeken van het scherm */
+      overflow: hidden; /* Zorg ervoor dat de inhoud niet buiten het scherm komt */
+    }
+
+    /* Home button */
+    .home-button {
+      width: 60px;
+      height: 60px;
+      background-color: #333;
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 50%;
+    }
+
+    /* Voor het iframe (de app-inhoud) */
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none; /* Verwijder de standaard rand rond het iframe */
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="phone">
+    <div class="phone-screen">
+      <iframe src="https://www.opendemolab.eu/demo"></iframe>
+    </div>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo's - Open Demo Lab</title>
+    <!-- FontAwesome via CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- Externe CSS uit hoofdmap -->
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../fonts/inter.css">
+    
+    <style>
+        /* Aanvullende stijlen specifiek voor de demo pagina */
+        .main-container {
+            width: 90%;
+            max-width: 1400px;
+            margin: 120px auto 60px;
+            padding: 0 20px;
+        }
+        
+        /* Breadcrumbs */
+        #breadcrumbs {
+            margin-bottom: 30px;
+            font-size: 0.9rem;
+        }
+
+        #breadcrumbs a {
+            color: var(--primary-color);
+            text-decoration: none;
+            margin-right: 10px;
+        }
+
+        #breadcrumbs a:after {
+            content: '›';
+            margin-left: 10px;
+            color: var(--text-color);
+        }
+
+        #breadcrumbs span {
+            color: var(--text-color);
+        }
+        
+.section-title {
+    color: var(--primary-color);
+    text-align: left;
+}
+
+        /* Search */
+        .search-container {
+            margin-bottom: 40px;
+        }
+
+        #searchBar {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        #searchBar:focus {
+            border-color: var(--primary-color);
+        }
+
+        #noResultsMessage {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        
+        /* Demo sections */
+        .section-examples {
+            background-color: var(--light-color);
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            padding: 40px;
+            margin-bottom: 40px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .section-examples:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .section-container {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .section-image {
+            flex: 0 0 23%;
+            max-width: 40%;
+        }
+
+        .section-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .section-content {
+            flex: 1.5;
+        }
+
+        .section-content h2 {
+            font-size: 1.8rem;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .section-content p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+        
+        /* Tags */
+        #tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 25px;
+        }
+
+        .tag {
+            background-color: rgba(77, 166, 224, 0.1);
+            color: var(--primary-color);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .tag:hover {
+            background-color: rgba(77, 166, 224, 0.2);
+        }
+        
+        /* Upcoming sections */
+        .section-examples:not(:has(.section-container)) {
+            padding: 30px;
+        }
+
+        .section-examples:not(:has(.section-container)) h2 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .section-examples:not(:has(.section-container)) p {
+            color: #777;
+            font-style: italic;
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .section-container {
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .section-image {
+                max-width: 100%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .main-container {
+                margin-top: 100px;
+            }
+
+            .main-container > h2 {
+                font-size: 2rem;
+            }
+
+            .section-examples {
+                padding: 30px;
+            }
+
+            .section-content h2 {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .main-container {
+                width: 95%;
+                padding: 0 10px;
+            }
+
+            .section-examples {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container nav-container">
+            <a href="../" class="logo">Open <span>Demo Lab</span></a>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Fullscreen Menu -->
+    <div class="fullscreen-menu">
+        <div class="menu-links">
+            <a href="../">Home</a>
+            <a href="./">Demo's</a>
+        </div>
+    </div>
+
+    <div class="main-container">
+        <!-- Breadcrumbs -->
+        <div id="breadcrumbs" role="navigation" aria-label="Breadcrumbs">
+            <a href="../">Home</a>
+            <span>Demo's</span>
+        </div>
+
+        <h2 class="section-title">Demo's</h2>
+       
+        <div class="search-container" role="search">
+            <input type="text" id="searchBar" placeholder="Zoek demo's...">
+        </div>
+        <p id="noResultsMessage" style="display:none;" aria-live="polite">Geen resultaten gevonden.</p>
+
+        <!-- Sectie: Aan de slag bij een werkgever -->
+        <section class="section-examples">
+            <div class="section-container">
+                <!-- Linker kolom: Afbeelding -->
+                <div class="section-image">
+                    <img src="../images/demopage/eo.png" alt="Werkgever afbeelding">
+                </div>
+
+                <!-- Rechter kolom: Tekst, tags en knop -->
+                <div class="section-content">
+                    <h2>Aan de slag bij een werkgever</h2>
+                    
+                    <p>
+                        Willeke gaat aan de slag bij een nieuwe werkgever en daarbij komt nogal wat administratie kijken. Gelukkig biedt haar nieuwe werkgever de mogelijkheid om 
+                        een handelingsomgeving met walletfunctionaliteiten te gebruiken om deze zaken te regelen.
+                    </p>
+                    <a class="btn" href="hrm/index.html" aria-label="Lees meer over aan de slag bij een werkgever">
+                        <i class="fas fa-play"></i> Bekijk demo
+                    </a>
+                    <div id="tags">
+                        <div class="tag" onclick="filterByTag('Economie')">Economie</div>
+                        <div class="tag" onclick="filterByTag('Werkgever')">Werkgever</div>
+                        <div class="tag" onclick="filterByTag('Werknemer')">Werknemer</div>
+                        <div class="tag" onclick="filterByTag('Inhuur')">Inhuur</div>
+                        <div class="tag" onclick="filterByTag('VOG')">VOG</div>
+                        <div class="tag" onclick="filterByTag('Diploma')">Diploma</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sectie: Belastingadviseur -->
+        <section class="section-examples">
+            <div class="section-container">
+                <!-- Linker kolom: Afbeelding -->
+                <div class="section-image">
+                    <img src="../images/demopage/belastingdienst-logo.png" alt="afbeelding belastingadviseur machtigen">
+                </div>
+
+                <!-- Rechter kolom: Tekst, tags en knop -->
+                <div class="section-content">
+                    <h2>Belastingadviseur machtigen</h2>
+                    
+                    <p>
+                        Willeke wil haar belastingadviseur machtigen zodat deze de vooraf ingevulde aangifte (VIA) bij de Belastingdienst kan ophalen voor haar belastingaangifte.
+                    </p>
+                    <a class="btn" href="belastingdienst/accountant/index.html" aria-label="Lees meer over belastingadviseur machtigen">
+                        <i class="fas fa-play"></i> Bekijk demo
+                    </a>
+                    <div id="tags">
+                        <div class="tag" onclick="filterByTag('Burger')">Burger</div>
+                        <div class="tag" onclick="filterByTag('Belastingadvies')">Belastingadvies</div>
+                        <div class="tag" onclick="filterByTag('QES')">QES</div>
+                        <div class="tag" onclick="filterByTag('Machtiging')">Machtiging</div>
+                        <div class="tag" onclick="filterByTag('VIA')">VIA</div>
+                        <div class="tag" onclick="filterByTag('Belastingdienst')">Belastingdienst</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- NIEUWE SECTIE: Gemeente Rotterdam - Bijstandsuitkering aanvragen -->
+        <section class="section-examples">
+            <div class="section-container">
+                <!-- Linker kolom: Afbeelding -->
+                <div class="section-image">
+                    <img src="../images/demopage/rotterdam-logo.png" alt="Logo Gemeente Rotterdam">
+                </div>
+
+                <!-- Rechter kolom: Tekst, tags en knop -->
+                <div class="section-content">
+                    <h2>Bijstandsuitkering aanvragen</h2>
+                    
+                    <p>
+                        Willeke moet tijdelijk een beroep doen op een bijstandsuitkering. Via de persoonlijke omgeving van de Gemeente Rotterdam kan zij eenvoudig een aanvraag indienen en relevante bewijsstukken uit haar wallet delen.
+                    </p>
+                    <a class="btn" href="rotterdam/index.html" aria-label="Lees meer over bijstandsuitkering aanvragen">
+                        <i class="fas fa-play"></i> Bekijk demo
+                    </a>
+                    <div id="tags">
+                        <div class="tag" onclick="filterByTag('Gemeente')">Gemeente</div>
+                        <div class="tag" onclick="filterByTag('Uitkering')">Uitkering</div>
+                        <div class="tag" onclick="filterByTag('Bijstand')">Bijstand</div>
+                        <div class="tag" onclick="filterByTag('Rotterdam')">Rotterdam</div>
+                        <div class="tag" onclick="filterByTag('Sociale Dienst')">Sociale Dienst</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- NIEUWE SECTIE: SVB - A1 verklaring aanvragen -->
+        <section class="section-examples">
+            <div class="section-container">
+                <!-- Linker kolom: Afbeelding -->
+                <div class="section-image">
+                    <img src="../images/demopage/svb-logo.png" alt="Logo SVB">
+                </div>
+
+                <!-- Rechter kolom: Tekst, tags en knop -->
+                <div class="section-content">
+                    <h2>A1 verklaring aanvragen</h2>
+                    
+                    <p>
+                        Willeke gaat tijdelijk in het buitenland werken en heeft een A1 verklaring nodig die aantoont dat zij in Nederland sociaal verzekerd blijft. Via de SVB kan zij deze verklaring aanvragen en in haar wallet opslaan.
+                    </p>
+                    <a class="btn" href="svb/a1/index.html" aria-label="Lees meer over A1 verklaring aanvragen">
+                        <i class="fas fa-play"></i> Bekijk demo
+                    </a>
+                    <div id="tags">
+                        <div class="tag" onclick="filterByTag('SVB')">SVB</div>
+                        <div class="tag" onclick="filterByTag('A1')">A1</div>
+                        <div class="tag" onclick="filterByTag('Buitenland')">Buitenland</div>
+                        <div class="tag" onclick="filterByTag('Sociale verzekering')">Sociale verzekering</div>
+                        <div class="tag" onclick="filterByTag('EU')">EU</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- NIEUWE SECTIE: CAK - Medicijn verklaring aanvragen -->
+        <section class="section-examples">
+            <div class="section-container">
+                <!-- Linker kolom: Afbeelding -->
+                <div class="section-image">
+                    <img src="../images/demopage/cak-logo.png" alt="Logo CAK">
+                </div>
+
+                <!-- Rechter kolom: Tekst, tags en knop -->
+                <div class="section-content">
+                    <h2>Medicijn verklaring aanvragen</h2>
+                    
+                    <p>
+                        Willeke gebruikt medicijnen en gaat op vakantie naar het buitenland. Via het CAK kan zij een medicijnverklaring aanvragen die aantoont dat zij haar medicatie legitiem gebruikt en deze mag meenemen over de grens.
+                    </p>
+                    <a class="btn" href="cak/medicijn/index.html" aria-label="Lees meer over medicijn verklaring aanvragen">
+                        <i class="fas fa-play"></i> Bekijk demo
+                    </a>
+                    <div id="tags">
+                        <div class="tag" onclick="filterByTag('CAK')">CAK</div>
+                        <div class="tag" onclick="filterByTag('Medicijnen')">Medicijnen</div>
+                        <div class="tag" onclick="filterByTag('Gezondheid')">Gezondheid</div>
+                        <div class="tag" onclick="filterByTag('Verklaring')">Verklaring</div>
+                        <div class="tag" onclick="filterByTag('Reizen')">Reizen</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+         <!-- Sectie: Machtiging omzetbelasting -->
+         <section class="section-examples">
+            <div class="section-container">
+                <!-- Linker kolom: Afbeelding -->
+                <div class="section-image">
+                    <img src="../images/demopage/r-om.png" alt="afbeelding persoon handelt namens organisatie - er worden sleutels getoond die worden overgedragen">
+                </div>
+
+                <!-- Rechter kolom: Tekst, tags en knop -->
+                <div class="section-content">
+                    <h2>Machtiging omzetbelasting aanvragen om namens organisatie te kunnen handelen</h2>
+                    
+                    <p>
+                        Willeke vraagt als financieel medewerker een digitale machtiging aan haar werkgever om namens het bedrijf omzetbelasting te kunnen aangeven.
+                    </p>
+                    <a class="btn" href="om/index.html" aria-label="Lees meer over machtiging omzetbelasting aanvragen om namens organisatie te kunnen handelen">
+                        <i class="fas fa-play"></i> Bekijk demo
+                    </a>
+                    <div id="tags">
+                        <div class="tag" onclick="filterByTag('Organisatie')">Organisatie</div>
+                        <div class="tag" onclick="filterByTag('Belastingdienst')">Belastingdienst</div>
+                        <div class="tag" onclick="filterByTag('Machtiging')">Machtiging</div>
+                        <div class="tag" onclick="filterByTag('Omzetbelasting')">Omzetbelasting</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Open Demo Lab – Samen bouwen aan de toekomst van dienstverlening</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript voor menu en smooth scrolling uit hoofdmap -->
+    <script src="../menu.js"></script>
+    <script src="../smooth-scroll.js"></script>
+    
+    <script>
+        // Event listener voor de zoekbalk
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('searchBar').addEventListener('keyup', filterSections);
+        });
+
+        function filterSections() {
+            var input = document.getElementById('searchBar');
+            var filter = input.value.toUpperCase();
+            var sections = document.getElementsByClassName('section-examples');
+            var hasResults = false;
+
+            for (var i = 0; i < sections.length; i++) {
+                var txtValue = sections[i].textContent || sections[i].innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    sections[i].style.display = "";
+                    hasResults = true;
+                } else {
+                    sections[i].style.display = "none";
+                }
+            }
+
+            document.getElementById('noResultsMessage').style.display = hasResults ? "none" : "block";
+        }
+
+        function filterByTag(tag) {
+            var input = document.getElementById('searchBar');
+            input.value = tag; // Zet het tag-woord in het zoekveld
+            filterSections(); // Roep de zoekfunctie opnieuw aan
+        }
+    </script>
+</body>
+</html>

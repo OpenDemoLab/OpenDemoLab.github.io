@@ -1,0 +1,159 @@
+body {
+    font-family: 'Helvetica', sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+h1 {
+    font-size: 28px;
+    color: #152A62;
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background: #ccc;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 10px;
+    margin-top: 0px; /* Dit verkleint de witruimte tussen h4 en p */
+}
+
+h4 {
+    margin-bottom: 0px;
+}
+
+.step {
+    display: none; /* Standaard zijn alle secties verborgen */
+}
+
+.active {
+    display: block; /* Alleen de actieve sectie wordt getoond */
+}
+
+.button-container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center; /* Zorgt ervoor dat de knoppen horizontaal gecentreerd zijn */
+    margin-bottom: 40px;
+}
+
+button.prev, button.next {
+    font-size: 16px;
+    color: #385168; /* Donkerblauwe tekstkleur */
+    text-decoration: none;
+    background-color: #F0F4F8; /* Achtergrondkleur van de knoppen */
+    padding: 12px 20px; /* Ruimte voor meer klikoppervlak */
+    border-radius: 8px; /* Afgeronde hoeken voor een moderne look */
+    display: inline-block;
+    font-weight: bold; /* Vetgedrukte tekst */
+    transition: all 0.3s ease;
+    margin: 0 10px; /* Ruimte tussen de knoppen behouden */
+    border: none; /* Verwijder standaard button rand */
+    cursor: pointer;
+}
+
+button.prev:hover, button.next:hover {
+    background-color: #e0e7ed; /* Iets donkerdere tint bij hover */
+    transform: translateY(-2px);
+   
+}
+
+.highlight-link {
+    font-weight: bold;
+    background-color: #D9F2FF;
+    padding: 5px;
+    color: #152A62;
+  }
+
+
+.qr-code {
+    display: flex;
+    justify-content: center; /* Horizontale centrering */
+    align-items: center; /* Verticale centrering */
+    height: 100%; /* Zorg ervoor dat de container de volledige hoogte inneemt */
+    margin-top: 20px; /* Eventueel ruimte boven de QR-code */
+    margin-bottom: 40px;
+  }
+
+
+
+#logo-container-innovatiemakers {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+#logo-container-innovatiemakers i {
+  font-size: 48px; /* Grootte van het icoon */
+  color: #d35400; /* Kleur van het icoon passend bij de tekstkleur */
+}
+
+#logo-container-innovatiemakers h1 {
+  font-size: 28px;
+  color: #d35400; /* Donkeroranje kleur voor de titel */
+  
+}
+
+#step-2 #logo-container-innovatiemakers  h1 {
+    font-size: 28px;
+    color: #d35400; /* Donkeroranje kleur voor de titel */
+    margin-left: 20px;
+  }
+
+  #step-2 .subsection h4 {
+    margin-bottom: 10px;
+    font-size: 20px;
+    color: #333;
+}
+
+button.go-example, button.go-home {
+    font-size: 16px;
+    color: #385168;
+    background-color: #F0F4F8;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    margin: 0 10px;
+    border: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+button.go-example:hover, button.go-home:hover {
+    background-color: #e0e7ed;
+    transform: translateY(-2px);
+}
+
+button.close-tab i, button.go-home i {
+    margin-right: 8px; /* Voeg wat ruimte toe tussen het icoon en de tekst */
+}
+
+
+/* image containers for research/IPA/index.html */
+.image-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .image-container img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px; /* Voegt ruimte toe tussen de afbeeldingen */
+  }
+  

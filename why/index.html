@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Waarom Open Demo Lab</title>
+    <!-- FontAwesome via CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- Externe CSS -->
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../fonts/inter.css">
+    
+    <style>
+        /* Aanvullende stijlen specifiek voor waarom-pagina */
+        .main-container {
+            width: 90%;
+            max-width: 1400px;
+            margin: 120px auto 60px;
+            padding: 0 20px;
+        }
+        
+        /* Breadcrumbs */
+        #breadcrumbs {
+            margin-bottom: 30px;
+            font-size: 0.9rem;
+        }
+
+        #breadcrumbs a {
+            color: var(--primary-color);
+            text-decoration: none;
+            margin-right: 10px;
+        }
+
+        #breadcrumbs a:after {
+            content: '›';
+            margin-left: 10px;
+            color: var(--text-color);
+        }
+
+        #breadcrumbs span {
+            color: var(--text-color);
+        }
+        
+        /* Hoofdtitel */
+        .page-title {
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 30px;
+            text-align: left;
+        }
+        
+        /* Content secties */
+        .content-section {
+            background-color: var(--light-color);
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            padding: 40px;
+            margin-bottom: 40px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .content-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .content-section h2 {
+            color: var(--secondary-color);
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        .content-section p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+        
+        .content-section strong {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+        
+        /* Features lijst */
+        .features-list {
+            margin: 30px 0;
+        }
+        
+        .feature-item {
+            display: flex;
+            margin-bottom: 20px;
+        }
+        
+        .feature-icon {
+            flex: 0 0 50px;
+            height: 50px;
+            background-color: rgba(77, 166, 224, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            color: var(--primary-color);
+            font-size: 1.4rem;
+        }
+        
+        .feature-content {
+            flex: 1;
+        }
+        
+        .feature-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--secondary-color);
+        }
+        
+        /* Procesdiagram */
+        .process-diagram {
+            margin: 40px 0;
+            text-align: center;
+        }
+        
+        .process-diagram img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .diagram-caption {
+            margin-top: 15px;
+            font-size: 0.95rem;
+            color: #777;
+            font-style: italic;
+        }
+        
+        /* CTA sectie */
+        .cta-section {
+            background-color: var(--primary-color);
+            color: var(--light-color);
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 60px;
+        }
+        
+        .cta-section h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+        
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: white;
+            color: var(--primary-color);
+            padding: 15px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .cta-button:hover {
+            background-color: rgba(255, 255, 255, 0.9);
+            transform: translateY(-3px);
+        }
+        
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .main-container {
+                margin-top: 100px;
+            }
+            
+            .page-title {
+                font-size: 2rem;
+            }
+            
+            .content-section {
+                padding: 30px;
+            }
+            
+            .feature-item {
+                flex-direction: column;
+            }
+            
+            .feature-icon {
+                margin-bottom: 15px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .main-container {
+                width: 95%;
+                padding: 0 10px;
+            }
+            
+            .content-section {
+                padding: 20px;
+            }
+            
+            .page-title {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container nav-container">
+            <a href="../" class="logo">Open <span>Demo Lab</span></a>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Fullscreen Menu -->
+    <div class="fullscreen-menu">
+        <div class="menu-links">
+            <a href="../">Home</a>
+            <a href="../demos/">Demo's</a>
+            <a href="./">Over</a>
+      
+            
+        </div>
+    </div>
+
+    <div class="main-container">
+        <!-- Breadcrumbs -->
+        <div id="breadcrumbs" role="navigation" aria-label="Breadcrumbs">
+            <a href="../">Home</a>
+            <span>Waarom Open Demo Lab</span>
+        </div>
+
+        <h1 class="page-title">Waarom Open Demo Lab?</h1>
+        
+        <section class="content-section">
+            <h2>Demo's als katalysator in de digitale transitie</h2>
+            <p>In de snel veranderende digitale wereld is het cruciaal om niet alleen over innovatie te praten, maar deze ook tastbaar te maken. Open Demo Lab staat voor een pragmatische aanpak: <strong>laten zien in plaats van vertellen</strong>.</p>
+            
+            <div class="process-diagram">
+                <img src="../images/why/process-diagram.png" alt="Diagram van de transitiefasen: Base, Demo, POC, Production">
+                <p class="diagram-caption">Demo's vormen een essentiële schakel in de innovatieketen - ze vertalen concepten naar tastbare ervaringen voordat ze worden uitgewerkt in POC's en productiefases.</p>
+            </div>
+            
+            <p>Demo's vervullen een unieke en onmisbare rol in de digitale transitie van organisaties. Ze vormen de brug tussen abstracte concepten en concrete implementatie, waardoor ze een effectieve eerste stap zijn in het verkennen van nieuwe mogelijkheden zoals Europese wallets en persoonlijke omgevingen.</p>
+        </section>
+        
+        <section class="content-section">
+            <h2>De kracht van demo's binnen organisaties</h2>
+            
+            <div class="features-list">
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Inzicht en bewustwording</h3>
+                        <p>Demo's maken complexe technologische concepten tastbaar en begrijpelijk. Ze creëren een gedeeld begrip binnen teams en afdelingen over de mogelijkheden van Europese wallets en persoonlijke omgevingen, waardoor kennisbarrières worden doorbroken en een basis voor innovatie ontstaat.</p>
+                    </div>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Draagvlak en alignment</h3>
+                        <p>Door abstracte ideeën om te zetten in concrete, interactieve ervaringen, helpen demo's bij het creëren van draagvlak op alle organisatieniveaus. Besluitvormers, technische teams en eindgebruikers krijgen dezelfde realistische indruk, wat leidt tot betere afstemming en gedeelde verwachtingen.</p>
+                    </div>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Stimuleren van dialoog</h3>
+                        <p>Demo's fungeren als startpunt voor constructieve gesprekken. Ze maken het mogelijk om specifieke use cases te verkennen en de impact op verschillende stakeholders te bespreken, waardoor een rijkere discussie ontstaat dan mogelijk zou zijn met alleen theoretische concepten of presentaties.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="content-section">
+            <h2>Demo's als instrumenten voor ontwikkeling en innovatie</h2>
+            <p>Naast de waarde die demo's hebben voor bewustwording en communicatie, zijn ze ook krachtige hulpmiddelen in het ontwikkel- en innovatieproces zelf.</p>
+            
+            <div class="features-list">
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-sync-alt"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Iteratief onderzoek en ontwikkeling</h3>
+                        <p>Demo's lenen zich uitstekend voor een iteratieve aanpak. Ze maken het mogelijk om snel ideeën te testen, feedback te verzamelen en concepten te verfijnen voordat er aanzienlijke investeringen worden gedaan in volledige implementaties. Dit versnelt innovatiecycli en vermindert risico's.</p>
+                    </div>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-project-diagram"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Verbinden van technologie en gebruikersbehoeften</h3>
+                        <p>Door functionaliteit tastbaar te maken, helpen demo's bij het identificeren van echte gebruikersbehoeften en -verwachtingen. Ze maken het mogelijk om technologische mogelijkheden direct te koppelen aan praktische toepassingen, waardoor ontwikkeling beter aansluit bij werkelijke behoeften.</p>
+                    </div>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-tasks"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Prioritering en roadmapping</h3>
+                        <p>Interactieve demo's maken het mogelijk om verschillende scenario's en functionaliteiten te verkennen, wat helpt bij het bepalen van prioriteiten en het ontwikkelen van een realistisch implementatieplan. Ze bieden een concrete basis voor het maken van geïnformeerde keuzes in het verdere ontwikkeltraject.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="cta-section">
+            <h2>Klaar om te ervaren in plaats van alleen te lezen?</h2>
+            <p>Ontdek hoe Open Demo Lab uw organisatie kan helpen om Europese wallets en persoonlijke omgevingen concreet en begrijpelijk te maken met interactieve, op maat gemaakte demo's.</p>
+            <a href="../#contact" class="cta-button">Neem contact op</a>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Open Demo Lab – Samen bouwen aan de toekomst van dienstverlening</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript voor menu en smooth scrolling -->
+    <script src="../menu.js"></script>
+    <script src="../smooth-scroll.js"></script>
+</body>
+</html>

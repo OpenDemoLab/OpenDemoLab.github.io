@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Verifiable Credential Flow</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .container {
+            width: 100%;
+            max-width: 900px;
+            background-color: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-sizing: border-box;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            font-size: 1.5rem;
+            margin-top: 0;
+        }
+        .diagram {
+            position: relative;
+            height: 450px;
+            margin: 30px 0;
+            box-sizing: border-box;
+        }
+        .components-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100%;
+            justify-content: space-between;
+            position: relative;
+        }
+        .component {
+            width: 80%;
+            height: 80px;
+            background-color: #f0f8ff;
+            border: 2px solid #4682b4;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: background-color 0.3s;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            font-size: 14px;
+            z-index: 2;
+            position: relative;
+            margin: 15px 0;
+        }
+        .component-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #2c5777;
+        }
+        .source {
+            background-color: #e6ffe6;
+            border-color: #4caf50;
+        }
+        .edelivery {
+            background-color: #fff2e6;
+            border-color: #ff9800;
+        }
+        .wallet {
+            background-color: #e6f2ff;
+            border-color: #2196f3;
+        }
+        .path {
+            stroke: #888;
+            stroke-width: 3;
+            stroke-dasharray: 5;
+            fill: none;
+        }
+        .credential {
+            position: absolute;
+            width: 40px;
+            height: 30px;
+            background-color: #ffeb3b;
+            border: 2px solid #fbc02d;
+            border-radius: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 16px;
+            left: 50%;
+            top: 60px;
+            transform: translateX(-50%);
+            opacity: 0;
+            z-index: 10;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        .controls {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            gap: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+            min-width: 120px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        button:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+        }
+        .tooltip {
+            position: absolute;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 8px 12px;
+            border-radius: 4px;
+            font-size: 14px;
+            z-index: 20;
+            visibility: hidden;
+            opacity: 0;
+            transition: opacity 0.3s;
+            width: 200px;
+            text-align: center;
+            pointer-events: none;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            margin-bottom: 5px;
+        }
+        .component:hover .tooltip {
+            visibility: visible;
+            opacity: 1;
+        }
+        .info-panel {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f0f0f0;
+            border-radius: 8px;
+            border-left: 5px solid #4682b4;
+        }
+        .step-indicator {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .step {
+            width: 15px;
+            height: 15px;
+            background-color: #ddd;
+            border-radius: 50%;
+            margin: 0 5px;
+        }
+        .step.active {
+            background-color: #4CAF50;
+        }
+        #resetBtn {
+            background-color: #9e9e9e;
+        }
+        #resetBtn:hover {
+            background-color: #757575;
+        }
+        @media (min-width: 768px) {
+            .components-container {
+                flex-direction: row;
+                justify-content: space-between;
+                height: auto;
+            }
+            .component {
+                width: 28%;
+                height: 100px;
+                margin: 0;
+            }
+            .credential {
+                top: 50%;
+                left: 16%;
+                transform: translate(-50%, -50%);
+            }
+            .diagram {
+                height: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Verifiable Credential Flow Visualisatie</h1>
+        
+        <div class="diagram">
+            <svg id="connectionSvg" width="100%" height="100%" style="position: absolute; left: 0; top: 0; z-index: 1;"></svg>
+            
+            <div class="components-container">
+                <div class="component source" onclick="showInfo('source')">
+                    <div class="component-title">Authentieke Bron</div>
+                    <div>Uitgever</div>
+                    <div class="tooltip">Hier wordt de verifiable credential uitgegeven en van een digitale handtekening voorzien</div>
+                </div>
+                
+                <div class="component edelivery" onclick="showInfo('edelivery')">
+                    <div class="component-title">eDelivery</div>
+                    <div>Beveiligd transport</div>
+                    <div class="tooltip">Zorgt voor veilige en betrouwbare overdracht van de verifiable credential</div>
+                </div>
+                
+                <div class="component wallet" onclick="showInfo('wallet')">
+                    <div class="component-title">Wallet</div>
+                    <div>Ontvanger</div>
+                    <div class="tooltip">Slaat de verifiable credential veilig op en kan deze delen wanneer nodig</div>
+                </div>
+            </div>
+            
+            <div class="credential" id="credential">VC</div>
+        </div>
+        
+        <div class="step-indicator">
+            <div class="step" id="step1"></div>
+            <div class="step" id="step2"></div>
+            <div class="step" id="step3"></div>
+        </div>
+        
+        <div class="info-panel" id="infoPanel">
+            Klik op een component voor meer informatie of druk op de knop om de flow te starten.
+        </div>
+        
+        <div class="controls">
+            <button id="startBtn" onclick="startAnimation()">Start Flow</button>
+            <button id="resetBtn" onclick="resetAnimation()" disabled>Reset</button>
+        </div>
+    </div>
+
+    <script>
+        let animationInProgress = false;
+        let isMobile = window.innerWidth < 768;
+        
+        // Functie om SVG-paden te tekenen tussen componenten
+        function drawConnectionLines() {
+            const svg = document.getElementById('connectionSvg');
+            svg.innerHTML = ''; // Maak svg leeg
+            
+            const components = document.querySelectorAll('.component');
+            const source = components[0];
+            const edelivery = components[1];
+            const wallet = components[2];
+            
+            if (isMobile) {
+                // Voor mobiel: verticale lijnen
+                drawVerticalConnection(svg, source, edelivery);
+                drawVerticalConnection(svg, edelivery, wallet);
+            } else {
+                // Voor desktop: horizontale lijnen
+                drawHorizontalConnection(svg, source, edelivery);
+                drawHorizontalConnection(svg, edelivery, wallet);
+            }
+        }
+        
+        function drawVerticalConnection(svg, top, bottom) {
+            const topRect = top.getBoundingClientRect();
+            const bottomRect = bottom.getBoundingClientRect();
+            const diagramRect = document.querySelector('.diagram').getBoundingClientRect();
+            
+            const startX = topRect.left + topRect.width/2 - diagramRect.left;
+            const startY = topRect.top + topRect.height - diagramRect.top;
+            
+            const endX = bottomRect.left + bottomRect.width/2 - diagramRect.left;
+            const endY = bottomRect.top - diagramRect.top;
+            
+            const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+            path.setAttribute("d", `M${startX},${startY} L${startX},${startY + (endY - startY) / 2} L${endX},${startY + (endY - startY) / 2} L${endX},${endY}`);
+            path.setAttribute("class", "path");
+            svg.appendChild(path);
+        }
+        
+        function drawHorizontalConnection(svg, left, right) {
+            const leftRect = left.getBoundingClientRect();
+            const rightRect = right.getBoundingClientRect();
+            const diagramRect = document.querySelector('.diagram').getBoundingClientRect();
+            
+            const startX = leftRect.left + leftRect.width - diagramRect.left;
+            const startY = leftRect.top + leftRect.height/2 - diagramRect.top;
+            
+            const endX = rightRect.left - diagramRect.left;
+            const endY = rightRect.top + rightRect.height/2 - diagramRect.top;
+            
+            const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+            path.setAttribute("d", `M${startX},${startY} L${endX},${endY}`);
+            path.setAttribute("class", "path");
+            svg.appendChild(path);
+        }
+        
+        function updateLayout() {
+            isMobile = window.innerWidth < 768;
+            drawConnectionLines();
+            resetAnimation();
+        }
+        
+        // Teken lijnen bij laden en bij resize
+        window.addEventListener('load', updateLayout);
+        window.addEventListener('resize', updateLayout);
+        
+        function startAnimation() {
+            if (animationInProgress) return;
+            
+            animationInProgress = true;
+            document.getElementById('startBtn').disabled = true;
+            document.getElementById('resetBtn').disabled = true;
+            
+            const credential = document.getElementById('credential');
+            credential.style.opacity = '1';
+            
+            const components = document.querySelectorAll('.component');
+            const source = components[0];
+            const edelivery = components[1];
+            const wallet = components[2];
+            
+            // Highlight current step
+            document.getElementById('step1').classList.add('active');
+            
+            // Step 1: Source to eDelivery
+            setTimeout(() => {
+                credential.style.transition = 'left 2s, top 2s, transform 2s';
+                
+                if (isMobile) {
+                    credential.style.top = edelivery.offsetTop + edelivery.offsetHeight / 2 + 'px';
+                } else {
+                    credential.style.left = '50%';
+                    credential.style.top = '50%';
+                }
+                
+                // Highlight source component
+                source.style.backgroundColor = '#b9e6b9';
+                updateInfoPanel('De authentieke bron genereert een verifiable credential en ondertekent deze digitaal...');
+            }, 500);
+            
+            // Step 2: Through eDelivery
+            setTimeout(() => {
+                document.getElementById('step1').classList.remove('active');
+                document.getElementById('step2').classList.add('active');
+                
+                // Reset source highlight and highlight eDelivery
+                source.style.backgroundColor = '';
+                edelivery.style.backgroundColor = '#ffddb3';
+                updateInfoPanel('eDelivery zorgt voor veilige en betrouwbare overdracht van de verifiable credential...');
+            }, 2500);
+            
+            // Step 3: eDelivery to Wallet
+            setTimeout(() => {
+                if (isMobile) {
+                    credential.style.top = wallet.offsetTop + wallet.offsetHeight / 2 + 'px';
+                } else {
+                    credential.style.left = '84%';
+                }
+            }, 4500);
+            
+            // Step 4: Finish
+            setTimeout(() => {
+                document.getElementById('step2').classList.remove('active');
+                document.getElementById('step3').classList.add('active');
+                
+                // Reset eDelivery highlight and highlight wallet
+                edelivery.style.backgroundColor = '';
+                wallet.style.backgroundColor = '#b3d9ff';
+                updateInfoPanel('De wallet ontvangt de verifiable credential en slaat deze veilig op. De gebruiker kan deze nu beheren en delen waar nodig.');
+                
+                document.getElementById('resetBtn').disabled = false;
+            }, 6500);
+        }
+        
+        function resetAnimation() {
+            const credential = document.getElementById('credential');
+            credential.style.transition = 'none';
+            credential.style.opacity = '0';
+            
+            if (isMobile) {
+                credential.style.top = document.querySelector('.source').offsetTop + document.querySelector('.source').offsetHeight / 2 + 'px';
+                credential.style.left = '50%';
+                credential.style.transform = 'translateX(-50%)';
+            } else {
+                credential.style.top = '50%';
+                credential.style.left = '16%';
+                credential.style.transform = 'translate(-50%, -50%)';
+            }
+            
+            // Reset component highlights
+            document.querySelectorAll('.component').forEach(comp => {
+                comp.style.backgroundColor = '';
+            });
+            document.querySelector('.source').style.backgroundColor = '#e6ffe6';
+            document.querySelector('.edelivery').style.backgroundColor = '#fff2e6';
+            document.querySelector('.wallet').style.backgroundColor = '#e6f2ff';
+            
+            // Reset step indicators
+            document.getElementById('step1').classList.remove('active');
+            document.getElementById('step2').classList.remove('active');
+            document.getElementById('step3').classList.remove('active');
+            
+            updateInfoPanel('Klik op een component voor meer informatie of druk op de knop om de flow te starten.');
+            
+            document.getElementById('startBtn').disabled = false;
+            document.getElementById('resetBtn').disabled = true;
+            animationInProgress = false;
+        }
+        
+        function showInfo(component) {
+            switch(component) {
+                case 'source':
+                    updateInfoPanel('<b>Authentieke Bron</b>: Een vertrouwde uitgever die verifiable credentials genereert en digitaal ondertekent. Dit kan bijvoorbeeld een overheidsinstantie, onderwijsinstelling of bank zijn die de authenticiteit van de gegevens garandeert.');
+                    break;
+                case 'edelivery':
+                    updateInfoPanel('<b>eDelivery</b>: Een beveiligd transportnetwerk dat zorgt voor betrouwbare en veilige uitwisseling van gegevens tussen organisaties. Het biedt encryptie, identiteitsverificatie en non-repudiation (onweerlegbaarheid).');
+                    break;
+                case 'wallet':
+                    updateInfoPanel('<b>Wallet</b>: Een digitale portemonnee waarin de gebruiker zijn verifiable credentials kan opslaan, beheren en delen. De wallet beschermt de privacy van de gebruiker en geeft controle over welke gegevens met wie worden gedeeld.');
+                    break;
+            }
+        }
+        
+        function updateInfoPanel(text) {
+            document.getElementById('infoPanel').innerHTML = text;
+        }
+    </script>
+</body>
+</html>

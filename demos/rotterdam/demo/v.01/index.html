@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <title>Presentatiemodus</title>
+
+  <!-- Font Awesome voor icoontje op de startknop -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    html, body {
+      margin: 0; 
+      padding: 0; 
+      height: 100%; 
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+      overflow: hidden;
+    }
+    h1, h2, h3, h4 {
+      margin: 10px 0;
+    }
+    p {
+      margin: 10px 0;
+    }
+
+    /* ===== Het hoofdscherm met sliding panel ===== */
+    #mainContainer {
+      width: 100%;
+      height: 100vh;
+      box-sizing: border-box;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    /* Kolommen */
+    .left-pane {
+      width: 100%;
+      height: 100%;
+      box-sizing: border-box;
+      position: relative;
+      z-index: 1;
+    }
+    
+    /* Panel met middelste en rechter panelen */
+    .sliding-panel {
+      position: absolute;
+      top: 20px; /* Ruimte aan de bovenkant */
+      bottom: 20px; /* Ruimte aan de onderkant */
+      right: -40%; /* Begin buiten het scherm */
+      width: 40%; /* Smallere breedte */
+      background-color: #fff;
+      border-left: 2px solid #62a7f0; /* Subtiele blauwe rand in dezelfde kleur als de tab */
+      box-shadow: -8px 0 20px rgba(0, 0, 0, 0.35); /* Sterkere schaduw */
+      z-index: 2;
+      transition: right 0.4s ease-in-out;
+      display: flex;
+      flex-direction: column; /* Verticale stapeling */
+      /* Geen border-radius meer */
+    }
+    
+    .sliding-panel.open {
+      right: 0;
+    }
+    
+    /* NIEUWE Toggle tab (over volledige hoogte) */
+    .panel-tab {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: -50px; /* Breedte van de tab */
+      width: 50px;
+      background-color: #62a7f0;
+      border-radius: 15px 0 0 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
+      transition: background-color 0.3s ease;
+    }
+    
+    .panel-tab:hover {
+      background-color: #0056b3;
+    }
+    
+    .panel-tab i {
+      font-size: 28px;
+      color: white;
+    }
+    
+    /* Middelste en rechter panelen binnen sliding panel */
+    .middle-pane {
+      flex: 0 0 auto; /* Hoogte gebaseerd op inhoud */
+      width: 100%; /* Volledige breedte */
+      padding: 15px;
+      box-sizing: border-box;
+      border-bottom: 1px solid #ccc;
+      max-height: 25%; /* Iets kleinere max hoogte */
+      overflow-y: auto;
+    }
+    
+    .right-pane {
+      flex: 1; /* Neemt resterende ruimte */
+      width: 100%; /* Volledige breedte */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #f0f0f0;
+      box-sizing: border-box;
+      padding: 20px 0;
+    }
+
+    /* De iframe in de linker kolom */
+    #iframeLeft {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* Telefoonmockup (inhoud komt daarbinnen in een iframe) */
+    .phone {
+      width: 410px; 
+      height: 850px; 
+      background-color: #000; /* Zwarte rand zoals een telefoon */
+      border-radius: 40px;    
+      position: relative;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+      padding: 18px; /* Aangepaste padding */
+      box-sizing: border-box;
+      margin: 10px auto; /* Centreren met marges */
+    }
+    
+    .phone-screen {
+      width: 100%;
+      height: 100%;
+      background-color: #fff; 
+      border-radius: 30px; 
+      overflow: hidden;
+    }
+    
+    .phone-screen iframe {
+      width: 100%;
+      height: 100%;
+      border: none; 
+    }
+
+    /* De lijst met QR-codes in de middenkolom */
+    #qrList {
+      margin: 0; 
+      padding: 0;
+    }
+    
+    #qrList li {
+      list-style: none;
+      margin-bottom: 15px;
+      padding: 0;
+    }
+    
+    #qrList button {
+      margin-top: 5px;
+      cursor: pointer;
+      background-color: #0077da;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 4px;
+      font-size: 14px;
+      transition: background-color 0.2s;
+    }
+    
+    #qrList button:hover {
+      background-color: #0056b3;
+    }
+    
+    .no-qr-message {
+      font-style: italic;
+      color: #666;
+      padding: 10px 0;
+    }
+    
+    .middle-pane h4 {
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 10px;
+      margin-bottom: 15px;
+    }
+    
+    .step-info {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 15px;
+    }
+    
+    /* Tooltip/hint stijlen - verbeterd */
+    #hintBalloon {
+      position: absolute;
+      top: 50%;
+      right: calc(100% + 15px); /* Positioneren links van de tab */
+      transform: translateY(-50%);
+      width: 280px;
+      background-color: #ffffff;
+      border: 2px solid #62a7f0;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+      z-index: 10; 
+      font-size: 14px;
+      display: none; /* Begin verborgen */
+      text-align: left;
+    }
+    
+    #hintBalloon.show {
+      display: block;
+    }
+    
+    #hintBalloon:after {
+      content: '';
+      position: absolute;
+      right: -12px; /* Pijl aan rechterkant */
+      top: 50%;
+      transform: translateY(-50%);
+      border-width: 12px 0 12px 12px;
+      border-style: solid;
+      border-color: transparent transparent transparent #62a7f0;
+    }
+    
+    #hintBalloon p {
+      margin: 0 0 15px 0;
+      line-height: 1.5;
+      color: #333;
+    }
+    
+    #hintBalloon button {
+      background-color: #62a7f0;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: bold;
+      transition: background-color 0.3s;
+      display: inline-block;
+    }
+    
+    #hintBalloon button:hover {
+      background-color: #0056b3;
+    }
+    
+    /* Tab-hint stijl verwijderen */
+    /* .tab-hint {
+      position: absolute;
+      top: 50%;
+      right: calc(100% + 5px);
+      transform: translateY(-50%);
+      background-color: #ff9800;
+      color: white;
+      font-size: 18px;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      animation: pulse 1.5s infinite;
+      z-index: 6;
+    }
+    
+    @keyframes pulse {
+      0% { transform: translateY(-50%) scale(1); }
+      50% { transform: translateY(-50%) scale(1.1); }
+      100% { transform: translateY(-50%) scale(1); }
+    } */
+  </style>
+</head>
+<body>
+  <!-- Het hoofdscherm met sliding panel -->
+  <div id="mainContainer">
+    <!-- Links: iframe met voorbeelden (volledige breedte) -->
+    <div class="left-pane">
+      <iframe id="iframeLeft"></iframe>
+    </div>
+
+    <!-- Sliding panel met tab over volledige hoogte -->
+    <div class="sliding-panel" id="slidingPanel">
+      <!-- Nieuwe tab over volledige hoogte -->
+      <div class="panel-tab" id="panelTab">
+        <i class="fa-solid fa-mobile-screen"></i>
+        
+        <!-- Hint balloon direct bij de tab -->
+        <div id="hintBalloon">
+          <p>Klik op dit telefoon-tabblad om de wallet uit te schuiven en te bedienen. Nogmaals klikken laat deze weer terugschuiven.</p>
+          <button id="hintClose">Ik snap het</button>
+        </div>
+      </div>
+      
+      <!-- Boven: lijst met knoppen voor QR's -->
+      <div class="middle-pane">
+        <h4>Simulatie scannen QR-codes</h4>
+        <p class="step-info"></p>
+        <ul id="qrList"></ul>
+      </div>
+
+      <!-- Onder: telefoonmockup -->
+      <div class="right-pane">
+        <div class="phone">
+          <div class="phone-screen">
+            <iframe id="iframeRight"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const iframeLeft = document.getElementById("iframeLeft");
+    const iframeRight = document.getElementById("iframeRight");
+    const qrList = document.getElementById("qrList");
+    const slidingPanel = document.getElementById("slidingPanel");
+    const panelTab = document.getElementById("panelTab");
+    const hintBalloon = document.getElementById("hintBalloon");
+    const hintClose = document.getElementById("hintClose");
+
+    // Toon hint eenmalig bij laden, na korte vertraging
+    setTimeout(() => {
+      if (hintBalloon) {
+        hintBalloon.classList.add("show");
+      }
+    }, 1000);
+
+    // Hint sluiten knop
+    if (hintClose) {
+      hintClose.addEventListener("click", function(e) {
+        e.stopPropagation(); // Voorkom dat het panel opent
+        if (hintBalloon) {
+          hintBalloon.classList.remove("show");
+        }
+      });
+    }
+
+    // Toggle voor sliding panel met nieuwe tab
+    panelTab.addEventListener("click", function() {
+      slidingPanel.classList.toggle("open");
+    });
+
+    // Controleer of de website lokaal draait
+    const isLocal = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1";
+
+    // Stel de juiste URL's in
+    const leftSrc = isLocal
+        ? "/demos/rotterdam/demo/v.01/version0.1"  // Lokale versie
+        : "https://www.opendemolab.eu/demos/rotterdam/demo/v.01/version0.1"; // Online versie
+
+    const rightSrc = isLocal
+        ? "/demo"  // Lokale versie
+        : "https://www.opendemolab.eu/demo"; // Online versie
+
+    // Laad iframes direct bij het laden van de pagina
+    window.addEventListener("DOMContentLoaded", function() {
+      // Listener vóór je de src zet, zodat je de load niet mist
+      iframeLeft.addEventListener("load", handleLeftIframeLoad);
+      iframeLeft.src = leftSrc;
+      iframeRight.src = rightSrc;
+    });
+
+    function handleLeftIframeLoad() {
+        try {
+            const leftDoc = iframeLeft.contentDocument || iframeLeft.contentWindow.document;
+            
+            // Initieel alle QR codes opslaan per sectie
+            const allSections = leftDoc.querySelectorAll('section.step');
+            const qrCodesBySection = {};
+            
+            // Voor elke sectie, sla de QR codes op
+            allSections.forEach((section, sectionIndex) => {
+                const sectionId = section.id; // bijvoorbeeld "step-1"
+                const qrImages = section.querySelectorAll('img[src*="create-qr-code"]');
+                
+                if (qrImages.length > 0) {
+                    qrCodesBySection[sectionId] = [];
+                    
+                    qrImages.forEach((img, index) => {
+                        const qrUrl = img.getAttribute("src") || "";
+                        const paramMatch = qrUrl.match(/data=([^&]+)/);
+                        if (!paramMatch) return;
+                        
+                        const rawData = decodeURIComponent(paramMatch[1]);
+                        let jsonData;
+                        try {
+                            jsonData = JSON.parse(rawData);
+                        } catch(e) {
+                            console.warn("Kon de QR-data niet parsen:", rawData, e);
+                            return;
+                        }
+                        
+                        // Lees de alt-tekst; indien niet aanwezig -> fallback
+                        const altText = img.getAttribute("alt") || `QR code in ${sectionId.replace("-", " ")} #${index + 1}`;
+                        
+                        qrCodesBySection[sectionId].push({
+                            altText: altText,
+                            jsonData: jsonData
+                        });
+                    });
+                }
+            });
+            
+            // Functie om de QR codes te tonen voor een specifieke sectie
+            function showQRCodesForSection(sectionId) {
+                qrList.innerHTML = "";
+                
+                // Controleer of er QR codes zijn voor deze sectie
+                if (!qrCodesBySection[sectionId] || qrCodesBySection[sectionId].length === 0) {
+                    const message = document.createElement("div");
+                    message.textContent = "Geen QR codes in deze stap";
+                    message.classList.add("no-qr-message");
+                    qrList.appendChild(message);
+                    return;
+                }
+                
+                // Bouw de QR code lijst voor deze sectie
+                qrCodesBySection[sectionId].forEach((qrData, index) => {
+                    // 1) Maak een <li> als 'container' per QR
+                    const li = document.createElement("li");
+                    
+                    // 2) Titel van de QR code
+                    const title = document.createElement("div");
+                    title.textContent = qrData.altText;
+                    li.appendChild(title);
+                    
+                    // 3) De knop "Simuleer scan"
+                    const btn = document.createElement("button");
+                    btn.textContent = "Simuleer scan";
+                    btn.addEventListener("click", () => {
+                        iframeRight.contentWindow.postMessage({
+                            action: "simulateScan",
+                            qrData: JSON.stringify(qrData.jsonData)
+                        }, "*");
+                        
+                        // Open het panel als het nog niet open is
+                        if (!slidingPanel.classList.contains("open")) {
+                            slidingPanel.classList.add("open");
+                        }
+                    });
+                    li.appendChild(btn);
+                    
+                    // 4) Een <hr> na de knop (scheidingslijn)
+                    if (index < qrCodesBySection[sectionId].length - 1) {
+                        const hr = document.createElement("hr");
+                        li.appendChild(hr);
+                    }
+                    
+                    // 5) Voeg alles toe aan de lijst
+                    qrList.appendChild(li);
+                });
+            }
+            
+            // Monitor actieve sectie in de iframe
+            function monitorActiveSection() {
+                try {
+                    const activeSection = leftDoc.querySelector('section.step.active') || 
+                                      leftDoc.querySelector('section.step[style*="display: block"]');
+                    
+                    if (activeSection) {
+                        const activeSectionId = activeSection.id;
+                        showQRCodesForSection(activeSectionId);
+                    }
+                } catch (err) {
+                    console.warn("Kon actieve sectie niet detecteren:", err);
+                }
+            }
+            
+            // Eerste keer uitvoeren
+            monitorActiveSection();
+            
+            // Observer op de body van de linker iframe om veranderingen in actieve sectie te detecteren
+            const bodyObserver = new MutationObserver(function(mutations) {
+                monitorActiveSection();
+            });
+            
+            // Start observeren van wijzigingen in de DOM
+            bodyObserver.observe(leftDoc.body, { 
+                childList: true, 
+                subtree: true, 
+                attributes: true, 
+                attributeFilter: ['class', 'style'] 
+            });
+            
+            // Luister naar klikken op de navigatieknoppen
+            const navButtons = leftDoc.querySelectorAll('button.prev, button.next');
+            navButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Kleine vertraging voor DOM updates
+                    setTimeout(monitorActiveSection, 100);
+                });
+            });
+            
+        } catch(err) {
+            console.warn("Kan de DOM van iframeLeft niet benaderen (CORS?)", err);
+        }
+    }
+
+    // Eventueel luisteren naar berichten van iframeRight
+    window.addEventListener("message", (event) => {
+        console.log("Presentatiepagina ontving message:", event.data);
+    });
+  </script>
+</body>
+</html>

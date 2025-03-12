@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aan de slag bij een werkgever - Open Demo Lab</title>
+    <!-- FontAwesome via CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- Externe CSS uit hoofdmap -->
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="../../fonts/inter.css">
+    
+    <style>
+        /* Aanvullende stijlen specifiek voor de demo-detail pagina */
+        .main-container {
+            width: 90%;
+            max-width: 1400px;
+            margin: 120px auto 60px;
+            padding: 0 20px;
+        }
+        
+        /* Breadcrumbs */
+        #breadcrumbs {
+            margin-bottom: 30px;
+            font-size: 0.9rem;
+        }
+
+        #breadcrumbs a {
+            color: var(--primary-color);
+            text-decoration: none;
+            margin-right: 10px;
+        }
+
+        #breadcrumbs a:after {
+            content: '›';
+            margin-left: 10px;
+            color: var(--text-color);
+        }
+
+        #breadcrumbs span {
+            color: var(--text-color);
+        }
+        
+        /* Sectie styling */
+        .sectie {
+            background-color: var(--light-color);
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            padding: 40px;
+            margin-bottom: 40px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .sectie h2 {
+            color: var(--primary-color);
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 25px;
+        }
+        
+        .sectie h3 {
+            color: var(--secondary-color);
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin: 35px 0 20px;
+        }
+        
+        .sectie p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin-bottom: 25px;
+        }
+        
+        /* Demo lijst */
+        .sectie ul {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 30px 0;
+        }
+        
+        .sectie li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .button-demolist {
+            display: inline-flex;
+            align-items: center;
+            background-color: var(--primary-color);
+            color: var(--light-color);
+            padding: 12px 25px;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            margin-right: 15px;
+            flex-grow: 0;
+            width: 500px;
+        }
+        
+        .button-demolist i {
+            margin-right: 10px;
+        }
+        
+        .button-demolist:hover {
+            background-color: #2c89c5;
+        }
+        
+        /* Indicatie in ontwikkeling */
+        #io {
+            background-color: #888;
+            cursor: default;
+        }
+        
+        #io:hover {
+            background-color: #777;
+        }
+        
+        .sectie li:has(#io) {
+            color: #666;
+            font-style: italic;
+        }
+        
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .main-container {
+                margin-top: 100px;
+            }
+            
+            .sectie {
+                padding: 30px;
+            }
+            
+            .sectie h2 {
+                font-size: 1.8rem;
+            }
+            
+            .sectie h3 {
+                font-size: 1.4rem;
+            }
+            
+            .button-demolist {
+                margin-bottom: 10px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .main-container {
+                width: 95%;
+                padding: 0 10px;
+            }
+            
+            .sectie {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container nav-container">
+            <a href="../../" class="logo">Open <span>Demo Lab</span></a>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Fullscreen Menu -->
+    <div class="fullscreen-menu">
+        <div class="menu-links">
+            <a href="../../">Home</a>
+            <a href="../">Demo's</a>
+            <a href="../../#contact">Contact</a>
+        </div>
+    </div>
+
+    <div class="main-container">
+        <!-- Breadcrumbs -->
+        <div id="breadcrumbs" role="navigation" aria-label="Breadcrumbs">
+            <a href="../../">Home</a>
+            <a href="../">Demo's</a>
+            <span>Aan de slag bij een werkgever</span>
+        </div>
+
+        <section class="sectie">
+            <h2>Aan de slag bij een nieuwe werkgever</h2>
+            <p>
+                Willeke begint bij een nieuwe werkgever, en dat brengt flink wat administratie met zich mee. 
+                Gelukkig kan ze gebruikmaken van een handelingsomgeving met walletfunctionaliteiten om dit proces te vereenvoudigen.
+            </p>
+            <p>
+                In plaats van een kopie van haar paspoort te moeten inleveren, handtekeningen in te scannen, digitale bewijzen te mailen en pdf-formulieren handmatig in te vullen (met kans op fouten), kan ze nu alles efficiënt en betrouwbaar regelen.
+            </p>
+            <p>
+                Het proces verloopt gestandaardiseerd en veilig, zonder handmatig overtypen. Bewijzen worden automatisch gevalideerd, wat fouten voorkomt en het hele proces veel gemakkelijker maakt.
+            </p>
+            
+            <ul>
+                <li>
+                    <a class="button-demolist" href="id/index.html" aria-label="Open identificatie van de werknemer door de werkgever">
+                        <i class="fas fa-play"></i> Identificatie van de werknemer door de werkgever
+                    </a>
+                </li>
+                <li>
+                    <a class="button-demolist" href="vog/index.html" aria-label="Open verklaring omtrent gedrag ophalen en delen">
+                        <i class="fas fa-play"></i> Verklaring Omtrent Gedrag ophalen en delen 
+                    </a>
+                </li>
+                <li>
+                    <a class="button-demolist" href="diploma/index.html" aria-label="Open diploma ophalen en delen met de werkgever">
+                        <i class="fas fa-play"></i> Diploma ophalen en delen met de werkgever
+                    </a> 
+                </li>
+                <li>
+                    <a class="button-demolist" href="formulier-loonheffing/index.html" aria-label="Open formulier loonheffing invullen en ondertekenen">
+                        <i class="fas fa-play"></i> Formulier loonheffing invullen en ondertekenen
+                    </a>
+                </li>
+                <li>
+                    <a class="button-demolist" href="arbeidsovereenkomst-ondertekenen/index.html" aria-label="Open arbeidsovereenkomst ondertekenen">
+                        <i class="fas fa-play"></i> Ondertekenen arbeidsovereenkomst
+                    </a>
+                </li>
+            </ul>
+            
+            <h3>Na indiensttreding</h3>
+            <p>Na je indiensttreding kun je met de handelingsomgeving ook andere zaken regelen:</p>
+            <ul>
+                <li>
+                    <a class="button-demolist" href="access/index.html" aria-label="Open toegangspas ontvangen">
+                        <i class="fas fa-play"></i> Ontvangen van een toegangspas
+                    </a> 
+                </li>
+            </ul>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Open Demo Lab – Samen bouwen aan de toekomst van dienstverlening</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript voor menu en smooth scrolling uit hoofdmap -->
+    <script src="../../menu.js"></script>
+    <script src="../../smooth-scroll.js"></script>
+    
+    <script>
+        // Breadcrumbs script
+        document.addEventListener('DOMContentLoaded', function() {
+            // De breadcrumbs zijn al in HTML gedefinieerd, dus we hoeven niets dynamisch te genereren
+        });
+    </script>
+</body>
+</html>

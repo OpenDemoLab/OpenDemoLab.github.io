@@ -499,7 +499,7 @@ nav.menu-open .logo span {
 
 /* ===== FOOTER ===== */
 footer {
-    background-color: var(--secondary-color);
+    background-color: #777777;
     color: var(--light-color);
     padding: 30px 0;
     text-align: center;

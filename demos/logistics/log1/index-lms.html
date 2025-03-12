@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rit Informatie en Digitale Bewijzen</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .top-bar {
+            background-color: #4C73AF;
+            color: white;
+            padding: 10px 20px;
+            font-size: 20px;
+            text-align: left;
+        }
+
+        .container {
+            display: flex;
+            height: 50vh;
+        }
+
+        .ritinformatie {
+            width: 50%;
+            padding: 20px;
+            overflow-y: auto;
+            border-right: 1px solid #ddd;
+        }
+
+        .ritinformatie h2 {
+            text-align: left;
+        }
+
+        .ritinformatie table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .ritinformatie th, .ritinformatie td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        .kaart {
+            width: 50%;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .kaart-placeholder {
+            width: 100%;
+            height: 300px;
+            background-color: #e0e0e0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #ddd;
+        }
+
+        .digitale-bewijzen {
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-top: 1px solid #ddd;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .digitale-bewijzen h1 {
+            text-align: left;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 24px;
+            font-weight: normal;
+        }
+
+        .bewijzen-sectie {
+            display: flex;
+            border-top: 1px solid #ddd;
+            padding-top: 20px;
+        }
+
+        .bewijzen-lijst, .naam-foto, .knop-sectie {
+            flex: 1;
+            padding: 0 10px;
+            border-right: 1px solid #ddd;
+        }
+
+        .bewijzen-lijst:last-child, .naam-foto:last-child, .knop-sectie:last-child {
+            border-right: none;
+        }
+
+        .kolom-titel {
+            font-size: 18px;
+            margin: 0 0 10px;
+            text-align: left;
+            font-weight: bold;
+        }
+
+        .bewijs-item {
+            margin: 5px 0;
+            text-align: left;
+            width: 100%;
+        }
+
+        .naam-foto-content {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .naam-foto p {
+            margin: 0;
+            padding-top: 5px;
+        }
+
+        .naam-foto img {
+            height: 100px;
+        }
+
+        .uitgifte-button {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: white;
+            background-color: #4CAF50;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            align-self: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Bar -->
+    <div class="top-bar">Logistical Management System</div>
+
+    <div class="container">
+        <!-- Ritinformatie tabel -->
+        <div class="ritinformatie">
+            <h2>Rit Informatie</h2>
+            <table>
+                <tr>
+                    <th>Ritnummer</th>
+                    <td>TRIP0916</td>
+                </tr>
+                <tr>
+                    <th>Activiteit</th>
+                    <td>Start, Drive, Load, Unload</td>
+                </tr>
+                <tr>
+                    <th>Naam rijder</th>
+                    <td>Willeke de Bruijn</td>
+                </tr>
+                <tr>
+                    <th>Truck</th>
+                    <td>Truck 123</td>
+                </tr>
+                <tr>
+                    <th>Trailer</th>
+                    <td>Trailer 456</td>
+                </tr>
+                <tr>
+                    <th>Route</th>
+                    <td>Ede - Rotterdam - Schiphol</td>
+                </tr>
+                <tr>
+                    <th>Status</th>
+                    <td>In uitvoering</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Kaart -->
+        <div class="kaart">
+            <h2>Kaart</h2>
+            <div class="kaart-placeholder">
+                <img src="route.png" alt="Routekaart" style="width: 100%; height: auto;">
+            </div>
+        </div>
+    </div>
+
+    <!-- Digitale Bewijzen Sectie -->
+    <div class="digitale-bewijzen">
+        <h1>Geef digitale bewijzen uit voor rit</h1>
+        <div class="bewijzen-sectie">
+            <!-- Linkerkolom: Digitale Bewijzen -->
+            <div class="bewijzen-lijst">
+                <div class="kolom-titel">Digitale bewijzen</div>
+                <div class="bewijs-item">Eigendomsbezit object truck</div>
+                <div class="bewijs-item">Eigendomsbezit object trailer</div>
+                <div class="bewijs-item">ADR-certificaat – Bevoegdheid vervoer gevaarlijke stoffen</div>
+                <div class="bewijs-item">IVP-certificaat – Training industriële veiligheidsprotocollen</div>
+                <div class="bewijs-item">ATEX-certificaat – Veiligheid bij explosiegevaarlijke stoffen</div>
+                <div class="bewijs-item">Douaneclearance T2</div>
+                <div class="bewijs-item">Toegangspas Maasvlakte Terminal</div>
+                <div class="bewijs-item">Toegangspas Magazijn BX09 Maasvlakte</div>
+                <div class="bewijs-item">Toegangspas Schiphol Cargo Zone</div>
+                <div class="bewijs-item">Toegangspas Magazijn X509 Schiphol</div>
+            </div>
+
+            <!-- Middenkolom: Naam en Foto -->
+            <div class="naam-foto">
+                <div class="kolom-titel">Aan persoon</div>
+                <div class="naam-foto-content">
+                    <p>Willeke de Bruijn</p>
+                    <img src="pasfoto.png" alt="Foto van Willeke de Bruijn">
+
+                </div>
+            </div>
+
+            <!-- Rechterkolom: Knop Uitgifte Bewijzen -->
+            <div class="knop-sectie">
+                <div class="kolom-titel">Bevestig uitgifte</div>
+                <button class="uitgifte-button">Bevestig Uitgifte</button>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

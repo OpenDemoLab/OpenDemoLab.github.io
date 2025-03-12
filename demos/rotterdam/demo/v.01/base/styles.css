@@ -1283,6 +1283,7 @@ a.login-card:hover {
     justify-content: center;
 }
 
+
 /* Responsive styling */
 @media (max-width: 768px) {
     .bijstandsaanvraag-steps {
@@ -1383,4 +1384,186 @@ a.login-card:hover {
     #step-6 .bijstandsaanvraag-input {
         max-width: 100%;
     }
+}
+
+
+/* Improved step navigation styling */
+.bijstandsaanvraag-steps {
+    display: flex;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 30px;
+    overflow: hidden;
+}
+
+.bijstandsaanvraag-step {
+    flex: 1;
+    padding: 15px 10px;
+    text-align: center;
+    background-color: #f9f9f9;
+    border-right: 1px solid #ddd;
+    color: #666;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.bijstandsaanvraag-step:last-child {
+    border-right: none;
+}
+
+.bijstandsaanvraag-step.active {
+    background-color: #006400;
+    color: white;
+}
+
+.bijstandsaanvraag-step.completed {
+    background-color: #006400;
+    color: white;
+}
+
+.bijstandsaanvraag-step-icon {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    line-height: 24px;
+    text-align: center;
+    border-radius: 50%;
+    background-color: #ccc;
+    color: white;
+    margin-bottom: 5px;
+}
+
+.bijstandsaanvraag-step.active .bijstandsaanvraag-step-icon {
+    background-color: white;
+    color: #006400;
+}
+
+.bijstandsaanvraag-step.completed .bijstandsaanvraag-step-icon {
+    background-color: white;
+    color: #006400;
+}
+
+.bijstandsaanvraag-step-text {
+    display: block;
+    text-align: center;
+}
+
+/* Styling for the Einde Demo screen */
+.einde-demo-screen {
+    max-width: 800px;
+    width: 100%;
+    margin: 30px auto;
+    padding: 40px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+.einde-demo-screen h1 {
+    font-size: 32px;
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.einde-demo-screen hr {
+    border: 0;
+    height: 1px;
+    background: #ccc;
+    margin-bottom: 30px;
+}
+
+.einde-demo-screen h4 {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.einde-demo-screen p {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+/* Custom buttons for the Einde Demo screen */
+.einde-demo-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 40px;
+}
+
+.einde-demo-button {
+    padding: 15px 25px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.einde-demo-button i {
+    margin-right: 10px;
+}
+
+.einde-demo-button.primary {
+    background-color: #2d851e;
+    color: white;
+    border-color: #2d851e;
+}
+
+.einde-demo-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.einde-demo-button.primary:hover {
+    background-color: #10a81d;
+}
+
+/* CSS voor het laden icoon en animatie */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.loading-icon {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: white;
+    animation: spin 1s ease-in-out infinite;
+    margin-left: 10px;
+    vertical-align: middle;
+}
+
+.success-message {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #e6f4ea;
+    border-left: 4px solid #34a853;
+    color: #155724;
+    border-radius: 4px;
+    font-size: 16px;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.success-message.visible {
+    opacity: 1;
+}
+
+.disabled-button {
+    opacity: 0.7;
+    cursor: not-allowed;
 }

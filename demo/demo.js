@@ -328,6 +328,26 @@ document.getElementById('submit-pin').addEventListener('click', function() {
   bottomNav.style.display = 'flex';
 });
 
+// een #main in de url laat je meteen naar hoofdscherm gaan
+document.addEventListener('DOMContentLoaded', function() {
+  // Check if there's a hash in the URL
+  if (window.location.hash === '#main') {
+    // Hide welcome and pin screens
+    document.getElementById('welcome-screen').style.display = 'none';
+    document.getElementById('pin-inlog-screen').style.display = 'none';
+    
+    // Show wallet screen and bottom navigation
+    document.getElementById('wallet-screen').style.display = 'block';
+    document.querySelector('.bottom-nav').style.display = 'flex';
+    
+    // Load credentials and display them
+    loadCredentials();
+    loadDefaultCredentials();
+    saveCredentials();
+    displayCredentials();
+  }
+});
+
 
 // Voeg de event listener toe voor het klikken op de overzicht-knop in de navbar
 overviewNavbarItem.addEventListener('click', () => {

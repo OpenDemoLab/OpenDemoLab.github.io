@@ -3,49 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Internationale Patiëntsamenvatting Wallet Demo</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Europese Zorgverzekeringskaart (EHIC) Demo</title>
+    <link rel="stylesheet" href="styles.css"> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
 
     <section id="step-1" class="step">
         <div class="subsection">
-            <h1>Internationale Patiëntsamenvatting Demo</h1>
+            <h1>Intro demo</h1>
             <hr>
-            <h4><strong>International Patient Summary (IPS) - Wallet Demo</strong></h4>
+            <h4><strong>Europese Zorgverzekeringskaart ophalen en delen</strong></h4>
             <p>
-                Bij medische zorg in het buitenland is het essentieel dat zorgverleners toegang hebben tot uw belangrijke 
-                medische gegevens. De Internationale Patiëntsamenvatting (IPS) maakt dit mogelijk.
+                Wanneer Willeke op vakantie gaat binnen de Europese Unie, is het belangrijk om haar Europese Zorgverzekeringskaart 
+                (European Health Insurance Card – EHIC) bij zich te hebben. Met deze kaart kan zij tegen dezelfde voorwaarden 
+                als de inwoners van het land waar zij verblijft, medische zorg ontvangen.
                 <br><br>
-                
-                <strong>Use case:</strong><br>
-                Een burger krijgt tijdens een verblijf in een EU-lidstaat medische klachten en bezoekt een arts. 
-                Via de wallet deelt hij zijn medische gegevens met deze buitenlandse arts, die de gegevens uitleest 
-                en opslaat in zijn medisch dossier.
+                Door gebruik te maken van geverifieerde digitale bewijzen zoals de EHIC in combinatie met een handelingsomgeving, 
+                kan Willeke gemakkelijk haar zorgverzekeringskaart ophalen en deze veilig delen met zorgaanbieders in het buitenland.
                 <br><br>
-                
-                Eenmaal in de wallet kan de burger de IPS verstrekken aan een zorgaanbieder binnen de EU of in Nederland.
-                <br><br>
-                
-                <strong>Belangrijk:</strong> Zorgaanbieders of instellingen waarmee gegevens worden gedeeld, moeten geregistreerd 
-                zijn in een nationaal register. Alleen gecontroleerde zorgaanbieders kunnen gegevens ontvangen; 
-                als verificatie niet mogelijk is, vindt er geen gegevensuitwisseling plaats.
-            </p>
-
-            <h4>Gegevensset</h4>
-            <p>
-                De patiëntsamenvatting bevat:
-                <ul>
-                    <li>Persoonlijke identificatiegegevens (PID): naam, BSN, geboortedatum, geslacht, gemeente/adres.</li>
-                    <li>Medische gegevens: huidige medicatie, ziektebeeld, operaties, allergieën, en andere relevante gezondheidsinformatie.</li>
-                    <li>De inhoud van de patiëntsamenvatting is vastgelegd in de eHealth Network Guidelines en wordt momenteel als pdf-bestand opgeleverd.</li>
-                </ul>
+                In deze demo tonen we hoe het ophalen van Willeke's EHIC bij haar zorgverzekeraar en het delen met een zorgaanbieder
+                in het buitenland eruit kan zien.
             </p>
 
             <h4>Stappen in demo</h4>
             <p>
-                De stappen in de demo kun je bedienen door onderstaande knoppen.
+                De stappen in de demo kunt u bedienen met onderstaande knoppen.
             </p>
                
             <hr>
@@ -55,31 +38,66 @@
         </div>
     </section>
 
-    <section id="step-2" class="step">
+    <section id="step-2" class="step" data-show-vc-flow="true">
         <div class="subsection">
-            <div class="logo-container" id="logo-container-medical">
-                <div class="header-logo"></div>
-                <div class="header-text">Medisch Dossier</div>
-            </div>
-            <hr>
-            <h1>Mijn Medische Gegevens</h1>
-            <h4></h4>
-             
-            <p>
-                Beste Willeke,<br><br>
-                
-                Om uw Internationale Patiëntsamenvatting (IPS) in uw wallet op te halen, volgt u de volgende stappen:<br><br>
-                
-                Open de handelingsomgeving op uw telefoon<br>
-                Scan onderstaande QR-code <strong>met uw handelingsomgeving</strong> om een digitale versie van uw medische gegevens toe te voegen in uw wallet:
-                <br>
-                <div class="qr-code">
-                    <img src="https://api.qrserver.com/v1/create-qr-code/?data=%7B%22Issuer%22%3Atrue%2C%22name%22%3A%22Internationale%20Pati%C3%ABntsamenvatting%22%2C%22issuedBy%22%3A%22Huisarts%20de%20Vries%22%2C%22LEID%22%3A%22NL_HEALTH_12345678%22%2C%22Issued_Date%22%3A%222024-09-17%22%2C%22Behaald%20door%22%3A%22Willeke%20Liselotte%20de%20Bruijn%22%2C%22BSN%22%3A%22123456789%22%2C%22Geboortedatum%22%3A%221985-04-12%22%2C%22Attestation_Trust_Type%22%3A%22Health-EU%22%2C%22rdfci%22%3A%5B%5D%2C%22a%22%3A%22w%22%2C%22t%22%3A%22w%22%7D&size=300x300" 
-                    alt="QR Code voor Internationale Patiëntsamenvatting">
+            <!-- Simple header with just logo and title -->
+            <div class="insurer-header">
+                <div class="insurer-logo">
+                    <img src="https://via.placeholder.com/40x40" alt="Zorgverzekeraar Logo">
+                    <span class="insurer-title">Mijn zorgverzekeraar</span>
                 </div>
-                
-            </p>
-            <hr>
+            </div>
+            
+            <!-- Main navigation with nice rounded style -->
+            <div class="main-nav">
+                <ul>
+                    <li><a href="#">Mijn overzicht</a></li>
+                    <li><a href="#" class="active">Mijn zorgverzekering</a></li>
+                    <li><a href="#">Mijn declaratieoverzicht</a></li>
+                    <li><a href="#">Mijn vergoedingen</a></li>
+                    <li><a href="#">Mijn facturen en betalen</a></li>
+                    <li><a href="#">Mijn gegevens</a></li>
+                    <li><a href="#">Mijn postvak</a></li>
+                </ul>
+            </div>
+            
+            <!-- User welcome section -->
+            <div class="user-welcome">
+                <h2>Goedendag Willeke</h2>
+                <div class="customer-number">
+                    <div>Klantnummer</div>
+                    <div style="font-weight: bold;">12345678</div>
+                </div>
+            </div>
+            
+            <!-- Breadcrumbs -->
+            <div class="breadcrumbs">
+                <a href="#">Mijn zorgverzekering</a> &gt; Europese zorgpas
+            </div>
+            
+            <h1>Europese Zorgpas (EHIC)</h1>
+             
+            <div class="content-section">
+                <div class="content-header">
+                    <i class="fas fa-id-card"></i>
+                    <h3>Europese Zorgpas aanvragen</h3>
+                </div>
+                <div class="content-body">
+                    <p>Hier kunt u uw zorgpas ophalen:</p>
+                    <p>
+                        U kunt het ophalen van uw Europese Zorgpas als volgt voltooien:<br><br>
+                        
+                        1. Open de handelingsomgeving op uw telefoon<br>
+                        2. Scan onderstaande QR-code <strong>met uw handelingsomgeving</strong> om een digitale versie van uw EHIC toe te voegen in uw wallet:
+                    </p>
+                    <div class="qr-code">
+                        <img src="https://api.qrserver.com/v1/create-qr-code/?data=%7B%20%22Issuer%22%3A%20true%2C%20%22name%22%3A%20%22EHIC%20pas%22%2C%20%22issuedBy%22%3A%20%22Mijn%20zorgverzekeraar%22%2C%20%22LEID%22%3A%20%22NL_KVK_27378698%22%2C%20%22Name%22%3A%20%22de%20Bruijn%22%2C%20%22Given%20name%22%3A%20%22Willeke%20Liselotte%22%2C%20%22Date%20of%20birth%22%3A%20%2210-03-1980%22%2C%20%22Personal%20identification%20number%22%3A%20%22999999990%22%2C%20%22Identification%20number%20of%20the%20institution%22%3A%20%22123456789NLZORG%22%2C%20%22Identification%20number%20of%20the%20card%22%3A%20%22EHIC-NL-20230784522%22%2C%20%22Expiry%20date%22%3A%20%2201-01-2026%22%2C%20%22Attestation%20Trust%20Type%22%3A%20%22PuB-EAA%22%2C%20%22rdfci%22%3A%20%5B%5D%20%7D&amp;size=300x300" alt="QR Code for EHIC pas">
+                    </div>
+                </div>
+                <div class="content-footer">
+                    <p>Heeft u vragen over uw Europese Zorgpas? <a href="#">Bekijk onze veelgestelde vragen</a></p>
+                </div>
+            </div>
         </div>
         <div class="button-container">
             <button class="prev"><i class="fas fa-arrow-left"></i> Vorige stap</button>
@@ -89,25 +107,32 @@
 
     <section id="step-3" class="step">
         <div class="subsection">
-            <h1>Op Reis naar het Buitenland</h1>
+            <h1>Op reis in Europa</h1>
             <hr>
-            <h4><strong>Willeke gaat op vakantie naar Italië</strong></h4><br>
+            <h4><strong>Willeke's EHIC is opgeslagen in haar wallet</strong></h4>
             <p>
-                Willeke heeft haar Internationale Patiëntsamenvatting (IPS) veilig opgeslagen in haar wallet.
-                Nu ze op reis gaat naar Italië, heeft ze een belangrijk document bij zich voor het geval ze medische hulp nodig heeft.
+                Willeke is nu op vakantie in Duitsland en heeft haar Europese Zorgverzekeringskaart bij de hand in haar digitale wallet.
+                <br><br>
+                Wanneer zij medische zorg nodig heeft, kan Willeke haar EHIC snel en veilig delen met zorgaanbieders.
+                <br><br>
+                In haar wallet ziet Willeke de volgende informatie:
             </p>
-            
-            <div class="travel-map">
-                <img src="https://api.qrserver.com/v1/create-qr-code/?data=dummy-travel-map&size=500x300" 
-                    alt="Reiskaart naar Italië">
-                <div class="map-overlay">Reiskaart: Nederland → Italië</div>
+
+            <div class="ehic-card">
+                <div class="ehic-header">
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?data=placeholder&size=50x50" alt="Small QR">
+                    <div>
+                        <h3>Europese Zorgverzekeringskaart</h3>
+                        <p>Zorgverzekeraar Nederland</p>
+                    </div>
+                </div>
+                <div class="ehic-details">
+                    <p><strong>Naam:</strong> Willeke Liselotte de Bruijn</p>
+                    <p><strong>Geboortedatum:</strong> 23-05-1990</p>
+                    <p><strong>Kaartnummer:</strong> NL 3691284751</p>
+                    <p><strong>Geldig tot:</strong> 15-10-2025</p>
+                </div>
             </div>
-            
-            <p>
-                Tijdens haar vakantie in Rome krijgt Willeke plots last van ernstige buikpijn en koorts.
-                Ze besluit een lokale arts te bezoeken.
-            </p>
-            
             <hr>
         </div>
         <div class="button-container">
@@ -119,42 +144,25 @@
     <section id="step-4" class="step">
         <div class="subsection">
             <div class="logo-container" id="logo-container-doctor">
-                <div class="header-text">Dr. Marco Rossi</div>
-                <div class="doctor-info">Ospedale San Camillo, Rome</div>
+                <h1>Praxis Dr. Müller - Berlijn</h1>
             </div>
             <hr>
-            <h1>Bij de Buitenlandse Arts</h1>
-            <h4><strong>Medische gegevens delen</strong></h4><br>
-            
+            <h4><strong>Willeke deelt haar EHIC met de zorgaanbieder</strong></h4>
             <p>
-                Dr. Rossi heeft medische informatie nodig om Willeke goed te kunnen helpen.
+                Willeke is bij een arts in Duitsland en moet haar verzekeringsbewijs tonen. In plaats van een papieren kaart kan zij
+                haar digitale EHIC delen.
                 <br><br>
-                Hij vraagt Willeke om haar medische gegevens met hem te delen. De arts toont een QR-code die Willeke met haar wallet kan scannen.
+                De receptionist vraagt Willeke om haar verzekeringsbewijs te tonen en biedt haar een QR-code aan die ze kan scannen
+                om haar gegevens te delen:
             </p>
-            
-            <div class="doctor-image">
-                <img src="https://api.qrserver.com/v1/create-qr-code/?data=dummy-doctor-image&size=300x300" 
-                    alt="Dokter met QR-code">
-                <div class="doctor-overlay">
-                    <div class="qr-code doctor-qr">
-                        <img src="https://api.qrserver.com/v1/create-qr-code/?data=%7B%22type%22%3A%22verifier%22%2C%22requestedCard%22%3A%22Internationale%20Pati%C3%ABntsamenvatting%22%2C%22requester%22%3A%22Dr.%20Marco%20Rossi%2C%20Ospedale%20San%20Camillo%22%2C%22reason%22%3A%22Medical%20Treatment%22%2C%22rdfcv%22%3A%5B%22gn%22%2C%22sn%22%2C%22bd%22%2C%22bsn%22%2C%22med%22%5D%2C%22a%22%3A%2212t%22%2C%22t%22%3A%22w%22%7D&size=200x200" 
-                        alt="QR Code voor delen medische gegevens">
-                    </div>
+            <div class="doctor-container">
+                <div class="qr-code">
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?data=%7B%22type%22%3A%22verifier%22%2C%22requestedCard%22%3A%22EHIC%20pas%22%2C%22requester%22%3A%22Praxis%20Dr.%20M%C3%BCller%20-%20Berlijn%22%2C%22org-id%22%3A%22DE-123456789%22%2C%22reason%22%3A%22EHIC%22%2C%22rdfcv%22%3A%5B%22EHIC%20pas%22%5D%2C%22a%22%3A%22w%22%7D&amp;size=300x300" alt="QR Code for EHIC pas Verifier">
                 </div>
             </div>
-            
             <p>
-                Willeke scant de QR-code met haar wallet en kan precies zien welke gegevens worden gedeeld:
-                <ul class="shared-data">
-                    <li>Persoonlijke identificatie (naam, geboortedatum)</li>
-                    <li>Huidige medicatie</li>
-                    <li>Bekende allergieën</li>
-                    <li>Recente medische geschiedenis</li>
-                </ul>
-                
-                Na verificatie van Dr. Rossi's credentials als erkende zorgverlener, gaat Willeke akkoord met het delen van haar IPS.
+                Willeke scant bovenstaande QR-code <strong>met haar handelingsomgeving</strong> om haar EHIC-gegevens te delen met de zorgaanbieder.
             </p>
-            
             <hr>
         </div>
         <div class="button-container">
@@ -165,35 +173,22 @@
 
     <section id="step-5" class="step">
         <div class="subsection">
-            <h1>Einde Demo</h1>
+            <h1>Einde demo</h1>
             <hr>
-            <h4><strong>Internationale Patiëntsamenvatting succesvol gedeeld</strong></h4><br>
+            <h4><strong>Ophalen en delen van EHIC met wallet afgerond</strong></h4>
             <p>
-                Het proces rondom het ophalen en delen van de Internationale Patiëntsamenvatting is afgerond.<br><br>
-                
-                <i class="fas fa-check-circle success-icon"></i> Dr. Rossi heeft nu toegang tot Willeke's relevante medische gegevens<br>
-                <i class="fas fa-check-circle success-icon"></i> De authenticiteit van de gegevens is automatisch geverifieerd<br>
-                <i class="fas fa-check-circle success-icon"></i> Willeke's IPS is zichtbaar in haar wallet onder 'Mijn digitale bewijzen'<br>
-                <i class="fas fa-check-circle success-icon"></i> De acties van ophalen en delen zijn zichtbaar onder 'Mijn activiteiten'<br><br>
-                
-                Dr. Rossi kan nu een correcte diagnose stellen met kennis van Willeke's medische geschiedenis,
-                medicatie en allergieën, wat mogelijk ernstige complicaties voorkomt.
+                Het proces rondom het ophalen en delen van Willeke's Europese Zorgverzekeringskaart is afgerond.
                 <br><br>
-                
-                <div class="benefits-box">
-                    <h4>Voordelen van de IPS Wallet:</h4>
-                    <ul>
-                        <li>Veilige opslag van medische gegevens</li>
-                        <li>Controle over gegevens blijft bij de burger</li>
-                        <li>Internationale toegang tot medische zorg</li>
-                        <li>Alleen geverifieerde zorgverleners krijgen toegang</li>
-                        <li>Taalbarrières worden verminderd door gestandaardiseerde gegevensuitwisseling</li>
-                    </ul>
-                </div>
+                De Duitse zorgaanbieder heeft Willeke's verzekeringsinformatie ontvangen en kan automatisch valideren of de EHIC echt is en daadwerkelijk is uitgegeven door haar zorgverzekeraar.
+                <br><br>
+                Willeke's EHIC blijft beschikbaar in haar wallet onder 'Mijn digitale bewijzen'. De acties van ophalen en delen zijn zichtbaar onder 'Mijn activiteiten'.
+                <br><br>
+                Willeke kan nu verder met haar medische behandeling, wetende dat de administratieve zaken eenvoudig en veilig zijn afgehandeld.
             </p>
         </div>
         <div class="button-container">
             <button class="prev"><i class="fas fa-arrow-left"></i> Vorige stap</button>
+            <button class="next">Volgende stap <i class="fas fa-arrow-right"></i></button>
         </div>
     </section>
 

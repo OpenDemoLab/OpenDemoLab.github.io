@@ -1,25 +1,26 @@
 body {
-    font-family: 'Helvetica', sans-serif;
+    font-family: 'Helvetica', 'Arial', sans-serif;
     color: #333;
     margin: 0;
     padding: 20px;
     line-height: 1.6;
-    max-width: 800px;
+    max-width: 1000px; /* Wider layout */
     margin: 0 auto;
     text-align: left;
+    background-color: #f8fafa;
 }
 
 h1 {
     font-size: 28px;
-    color: #004B87; /* EHIC blue */
+    color: #00847c; 
     text-align: left;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 
 hr {
     border: 0;
     height: 1px;
-    background: #ccc;
+    background: #e0e0e0;
     margin-bottom: 20px;
 }
 
@@ -28,11 +29,13 @@ p {
     color: #555;
     margin-bottom: 10px;
     margin-top: 0px;
+    line-height: 1.6;
 }
 
 h4 {
-    margin-bottom: 0px;
-    color: #004B87;
+    margin-bottom: 5px;
+    color: #00847c;
+    font-size: 18px;
 }
 
 .step {
@@ -54,7 +57,7 @@ button.prev, button.next {
     font-size: 16px;
     color: #ffffff;
     text-decoration: none;
-    background-color: #004B87; /* EHIC blue button */
+    background-color: #00847c; 
     padding: 12px 20px;
     border-radius: 8px;
     display: inline-block;
@@ -66,7 +69,7 @@ button.prev, button.next {
 }
 
 button.prev:hover, button.next:hover {
-    background-color: #003D6F; /* Donkerdere tint bij hover */
+    background-color: #006e68; 
     transform: translateY(-2px);
 }
 
@@ -86,28 +89,156 @@ button.prev:hover, button.next:hover {
     margin-bottom: 40px;
 }
 
-#logo-container-insurer {
+/* Insurer header styling */
+.insurer-header {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    background-color: #ffffff;
+    margin-bottom: 0;
+    width: 100%;
+}
+
+.insurer-logo {
+    display: flex;
+    align-items: center;
+}
+
+.insurer-logo img {
+    height: 40px;
+    margin-right: 10px;
+}
+
+.insurer-title {
+    color: #00847c;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+/* Main navigation */
+.main-nav {
+    background-color: #e8f6f5;
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 15px 0;
+    display: flex;
+    width: 100%;
+}
+
+.main-nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.main-nav li {
+    flex: 1;
+    text-align: center;
+}
+
+.main-nav a {
+    color: #00847c;
+    text-decoration: none;
+    padding: 15px 10px;
+    display: block;
+    font-weight: 500;
+    white-space: nowrap;
+    font-size: 15px;
+}
+
+.main-nav a.active {
+    background-color: #00847c;
+    color: white;
+}
+
+/* Breadcrumbs */
+.breadcrumbs {
+    margin: 15px 0;
+    font-size: 14px;
+    color: #666;
+}
+
+.breadcrumbs a {
+    color: #00847c;
+    text-decoration: none;
+}
+
+/* User welcome section */
+.user-welcome {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.user-welcome h2 {
+    color: #00847c;
+    margin: 0;
+    font-size: 26px;
+}
+
+.user-welcome .customer-number {
+    text-align: right;
+    color: #666;
+}
+
+/* Content sections */
+.content-section {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    padding: 25px;
+    margin-bottom: 20px;
+    border: 1px solid #f0f0f0;
+}
+
+.content-header {
     display: flex;
     align-items: center;
     margin-bottom: 20px;
-    background-color: #f8f8f8;
-    padding: 10px;
-    border-radius: 5px;
 }
 
-#logo-container-insurer .header-logo {
-    background-color: #004B87; /* EHIC blue */
-    width: 30px;
-    height: 30px;
-    margin-right: 10px;
-    border-radius: 50%;
+.content-header i {
+    color: #00847c;
+    margin-right: 15px;
+    font-size: 22px;
 }
 
-#logo-container-insurer .header-text {
-    font-size: 18px;
-    color: #004B87;
-    font-weight: bold;
+.content-header h3 {
+    color: #00847c;
     margin: 0;
+    font-size: 20px;
+}
+
+.content-body {
+    margin-bottom: 20px;
+}
+
+.content-footer {
+    margin-top: 20px;
+}
+
+.content-footer a {
+    color: #00847c;
+    text-decoration: none;
+}
+
+/* Blue button styling */
+.btn-primary {
+    background-color: #004B87;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    background-color: #003a6a;
 }
 
 #logo-container-doctor {

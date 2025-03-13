@@ -53,11 +53,11 @@ h4 {
     margin-bottom: 40px;
 }
 
-button.prev, button.next {
+button.prev, button.next, button.standard-button {
     font-size: 16px;
     color: #ffffff;
     text-decoration: none;
-    background-color: #00847c; 
+    background-color: #3182ce; 
     padding: 12px 20px;
     border-radius: 8px;
     display: inline-block;
@@ -68,22 +68,14 @@ button.prev, button.next {
     cursor: pointer;
 }
 
-button.prev:hover, button.next:hover {
-    background-color: #006e68; 
+button.prev:hover, button.next:hover, button.standard-button:hover {
+    background-color: #2c5282; 
     transform: translateY(-2px);
 }
 
 /* Blauwe thema voor stappen 1, 4 en 6 */
 .blue-theme h1, .blue-theme h4 {
     color: #53a5da;
-}
-
-.blue-button {
-    background-color: #53a5da !important;
-}
-
-.blue-button:hover {
-    background-color: #4590c0 !important;
 }
 
 .highlight-link {
@@ -334,94 +326,82 @@ button.prev:hover, button.next:hover {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-button.go-example, button.go-home {
-    font-size: 16px;
-    color: #ffffff;
-    text-decoration: none;
-    background-color: #004B87;
-    padding: 12px 20px;
-    border-radius: 8px;
-    display: inline-block;
-    font-weight: bold;
-    transition: all 0.3s ease;
-    margin: 0 10px;
-    border: none;
-    cursor: pointer;
-}
-
-button.go-example:hover, button.go-home:hover {
-    background-color: #003D6F;
-    transform: translateY(-2px);
-}
-
-button.go-example i, button.go-home i {
-    margin-right: 8px;
-}
-
-/* Login stylingen voor nieuwe stap 2 */
+/* Nieuwe VGZ-stijl login styling */
 .login-container {
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
-    padding: 25px;
-    margin: 20px 0;
-    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px 0;
 }
 
-.login-container h2 {
-    color: #00847c;
+.login-title {
+    color: #333;
+    font-size: 32px;
+    margin-bottom: 20px;
+    font-weight: normal;
+}
+
+.login-intro {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 30px;
+    max-width: 800px;
+}
+
+.login-box {
+    background-color: #f4f8ff;
+    border-radius: 8px;
+    padding: 25px;
     margin-bottom: 20px;
 }
 
-.login-options {
-    margin: 30px 0;
+.login-section-title {
+    color: #333;
+    font-size: 22px;
+    margin-bottom: 20px;
+    font-weight: normal;
 }
 
 .login-option-wallet {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 20px;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    background-color: #f8fafa;
+}
+
+.wallet-login-button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #3182ce;
+    color: white;
+    border-radius: 5px;
+    padding: 12px 20px;
+    width: 300px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.wallet-login-button:hover {
+    background-color: #2c5282;
+}
+
+.wallet-login-button span {
+    font-weight: bold;
 }
 
 .login-icon {
-    margin-bottom: 10px;
+    background-color: white;
+    border-radius: 50%;
+    padding: 5px;
 }
 
 .login-instruction {
-    font-size: 14px;
     color: #666;
     margin-top: 15px;
-}
-
-.login-alternative {
-    margin-top: 30px;
-    border-top: 1px solid #e0e0e0;
-    padding-top: 20px;
-}
-
-.alt-login-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-top: 15px;
-}
-
-.alt-login-btn {
-    background-color: #f0f0f0;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 5px;
-    cursor: pointer;
     font-size: 14px;
-    display: flex;
-    align-items: center;
 }
 
-.alt-login-btn i {
-    margin-right: 8px;
-    color: #00847c;
+/* Overige styling voor login pagina */
+.login-container h2 {
+    color: #333;
 }

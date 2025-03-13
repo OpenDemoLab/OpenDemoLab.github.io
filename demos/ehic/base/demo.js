@@ -65,4 +65,22 @@ function toggleButtons() {
         prevButton.style.display = 'inline-block';
     }
 
-    // Verberg
+    // Verberg de 'Volgende'-knop bij de laatste stap
+    const nextButton = document.querySelector(`#step-${currentStep} .next`);
+    
+    if (currentStep === demoConfig.totalSteps) {
+        if (nextButton) {
+            nextButton.style.display = 'none'; // Verberg de 'Volgende'-knop
+        }
+    } else if (nextButton) {
+        nextButton.style.display = 'inline-block'; // Toon de 'Volgende'-knop indien niet op de laatste stap
+    }
+}
+
+// Controleer of de pagina via de terugknop van de browser is bezocht
+window.addEventListener('pageshow', function(event) {
+    if (event.persisted) {
+        // Als de pagina uit de cache is geladen, forceer dan een herlaad
+        window.location.reload();
+    }
+});

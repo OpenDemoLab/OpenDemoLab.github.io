@@ -1,5 +1,5 @@
 const demoConfig = {
-    totalSteps: 6 // Aangepast naar 6 stappen voor de EHIC demo
+    totalSteps: 6 // Aangepast naar 6 stappen voor de EHIC demo met login pagina
 };
 
 let currentStep = 1; // Houd de huidige stap bij

@@ -38,18 +38,18 @@
         </div>
     </section>
 
-    <section id="step-2" class="step">
-        <div class="subsection">
+    <section id="step-2" class="step login-page">
+        <div class="login-page-container">
             <!-- Header with logo -->
-            <div class="insurer-header">
+            <div class="top-header">
                 <div class="insurer-logo">
                     <img src="https://via.placeholder.com/40x40" alt="Zorgverzekeraar Logo">
                     <span class="insurer-title">Mijn Zorgverzekeraar</span>
                 </div>
             </div>
             
-            <!-- Login screen styled like VGZ example -->
-            <div class="login-container">
+            <!-- Login content styled like VGZ example -->
+            <div class="login-content">
                 <h2 class="login-title">Log in bij Mijn Zorgverzekeraar</h2>
                 <p class="login-intro">
                     Je gegevens aanpassen, zorgverbruik bekijken of supersnel declareren. Je regelt al je zorgzaken makkelijk én 
@@ -58,16 +58,19 @@
                 
                 <div class="login-box">
                     <h3 class="login-section-title">Inloggen met wallet</h3>
-                    <div class="login-option-wallet">
-                        <div class="wallet-login-button">
-                            <span>Inloggen met wallet</span>
-                            <img src="https://via.placeholder.com/30x30" alt="Wallet Logo" class="login-icon">
-                        </div>
+                    <div class="qr-container">
                         <div class="qr-code">
                             <img src="https://api.qrserver.com/v1/create-qr-code/?data=%7B%22login%22%3A%22true%22%2C%22service%22%3A%22Mijn%20zorgverzekeraar%22%2C%22id%22%3A%22NL_KVK_27378698%22%7D&size=200x200" alt="QR Code voor wallet login">
                         </div>
                         <p class="login-instruction">Scan de QR-code met uw handelingsomgeving om in te loggen</p>
                     </div>
+                </div>
+            </div>
+            
+            <!-- Footer -->
+            <div class="login-footer">
+                <div class="footer-links">
+                    <a href="#">Disclaimer</a> | <a href="#">Privacybeleid</a> | <a href="#">Cookieverklaring</a>
                 </div>
             </div>
         </div>

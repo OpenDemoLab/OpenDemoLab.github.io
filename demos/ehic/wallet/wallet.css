@@ -8,7 +8,6 @@
 
 body {
     background-color: #FFFFFF;
-    padding: 10px;
     color: #333;
     max-width: 400px;  /* Max breedte voor de mobiele weergave */
     margin: 0 auto;    /* Centreer de wallet op bredere schermen */
@@ -65,7 +64,7 @@ font-weight: bold; /* Maak de tekst vetgedrukt */
 
 /* *** Wallet screen *** */
 #wallet-screen {
-    padding: 5px;
+    padding: 15px;
     padding-bottom: 80px;
 }
 
@@ -439,87 +438,84 @@ font-weight: bold;
 }
 
 /* *** Welkomstscherm Stijlen *** */
+/* *** Welkomstscherm Stijlen *** */
 #welcome-screen {
+    width: 100%;
+    height: 100vh;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    height: 90vh;
-    justify-content: space-between;
-    box-sizing: border-box;
     position: relative;
+    margin: 0;
     padding: 0;
     overflow: hidden;
+
+    /* Eventueel een achtergrondafbeelding */
+    background: url("images/welcome-bg.png") center center no-repeat;
+    background-size: cover;
 }
 
+/* Donkere/blur overlay over de achtergrond */
+.welcome-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    background-color: rgb(117 108 54 / 40%);
+}
+
+/* De inhoud (tekst + knop) */
 .welcome-content {
+    /* Boven de overlay tonen */
+    position: relative;
+    z-index: 2;
+
+    /* Ruimte innemen in de verticale richting
+       en de items in een kolom plaatsen */
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%;
-
-}
-
-.welcome-text {
-    padding: 20px 0;
     text-align: center;
-    color: #152A62;
+
+    /* Zorg dat de content de beschikbare hoogte opvult */
+    flex: 1;
+
+    /* Extra marge bovenaan voor de titel */
+    padding-top: 40px;
+    padding-bottom: 20px;
+
+    color: #ffffff; /* Witte tekst */
 }
 
-.welcome-text h1 {
-    margin-bottom: 10px;
-    text-align: center;
-    color: #152A62;
+/* Titel helemaal bovenaan met wat marge */
+.welcome-content h1 {
+    margin: 0 0 1rem 0; 
+    font-size: 2rem;
+    /* Eventueel extra stylen naar wens */
 }
 
-.welcome-background {
-    
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    flex-grow: 0.5;
+/* Subtekst in het midden, wit van kleur */
+.welcome-subtext {
+    margin-bottom: auto; /* duwt de knop naar onderen */
+    font-size: 1.2rem;
+    line-height: 1.5;
+    color: #fff; 
 }
 
-.welcome-image {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/* .welcome-image img {
-    max-width: 80%;
-    height: auto;
-}
- */
- .responsive-svg {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin: 0 auto;
-}
-
- .welcome-image {
-    /* background-image: url('welcome.svg'); */
-    background-size: cover; /* Zorgt ervoor dat de afbeelding de hele div vult */
-    background-position: center; /* Centreert de afbeelding binnen de div */
-    width: 100%;   /* Vul de volledige breedte van de container */
-    height: 300px; /* Of pas de hoogte aan zoals gewenst */
-  }
-
-  #welcome-screen a {
-    display: block; /* Maak de knop een blok-element */
-    background-color: #389b55;
-    color: white;
-    padding: 15px;
+/* Knop helemaal onderaan door margin-top: auto bovenop de subtekst */
+#welcome-screen a {
+    margin-top: auto; 
+    display: inline-block;
+    background-color: #ffffff;
+    color: #685e0a;
+    padding: 15px 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    width: 300px; /* Bepaal de breedte van de knop */
-    margin: 0 auto; /* Centreer de knop */
     text-decoration: none;
-    font-size: medium;
-    font-weight: bolder;
-    text-align: center; /* Zorg ervoor dat de tekst in het midden van de knop staat */
+    font-size: 1rem;
+    font-weight: bold;
 }
 
 /* *** Pincode-inlogscherm Stijlen *** */

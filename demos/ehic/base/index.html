@@ -9,7 +9,7 @@
 </head>
 <body>
 
-    <section id="step-1" class="step">
+    <section id="step-1" class="step blue-theme">
         <div class="subsection">
             <h1>Intro demo</h1>
             <hr>
@@ -34,11 +34,49 @@
             <hr>
         </div>
         <div class="button-container">
+            <button class="next blue-button">Volgende stap <i class="fas fa-arrow-right"></i></button>
+        </div>
+    </section>
+
+    <section id="step-2" class="step">
+        <div class="subsection">
+            <!-- Simple header with just logo and title -->
+            <div class="insurer-header">
+                <div class="insurer-logo">
+                    <img src="https://via.placeholder.com/40x40" alt="Zorgverzekeraar Logo">
+                    <span class="insurer-title">Mijn zorgverzekeraar</span>
+                </div>
+            </div>
+            
+            <!-- Login screen -->
+            <div class="login-container">
+                <h2>Inloggen bij Mijn Zorgverzekeraar</h2>
+                <div class="login-options">
+                    <div class="login-option-wallet">
+                        <img src="https://via.placeholder.com/30x30" alt="Wallet Logo" class="login-icon">
+                        <span>Inloggen met uw wallet</span>
+                        <div class="qr-code">
+                            <img src="https://api.qrserver.com/v1/create-qr-code/?data=%7B%22login%22%3A%22true%22%2C%22service%22%3A%22Mijn%20zorgverzekeraar%22%2C%22id%22%3A%22NL_KVK_27378698%22%7D&size=200x200" alt="QR Code voor wallet login">
+                        </div>
+                        <p class="login-instruction">Scan de QR-code met uw handelingsomgeving om in te loggen</p>
+                    </div>
+                </div>
+                <div class="login-alternative">
+                    <p>U kunt ook inloggen met:</p>
+                    <div class="alt-login-buttons">
+                        <button class="alt-login-btn"><i class="fas fa-id-card"></i> DigiD</button>
+                        <button class="alt-login-btn"><i class="fas fa-user"></i> Gebruikersnaam en wachtwoord</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="button-container">
+            <button class="prev"><i class="fas fa-arrow-left"></i> Vorige stap</button>
             <button class="next">Volgende stap <i class="fas fa-arrow-right"></i></button>
         </div>
     </section>
 
-    <section id="step-2" class="step" data-show-vc-flow="true">
+    <section id="step-3" class="step" data-show-vc-flow="true">
         <div class="subsection">
             <!-- Simple header with just logo and title -->
             <div class="insurer-header">
@@ -105,7 +143,7 @@
         </div>
     </section>
 
-    <section id="step-3" class="step">
+    <section id="step-4" class="step blue-theme">
         <div class="subsection">
             <h1>Op reis in Europa</h1>
             <hr>
@@ -136,12 +174,12 @@
             <hr>
         </div>
         <div class="button-container">
-            <button class="prev"><i class="fas fa-arrow-left"></i> Vorige stap</button>
-            <button class="next">Volgende stap <i class="fas fa-arrow-right"></i></button>
+            <button class="prev blue-button"><i class="fas fa-arrow-left"></i> Vorige stap</button>
+            <button class="next blue-button">Volgende stap <i class="fas fa-arrow-right"></i></button>
         </div>
     </section>
 
-    <section id="step-4" class="step">
+    <section id="step-5" class="step">
         <div class="subsection">
             <div class="logo-container" id="logo-container-doctor">
                 <h1>Praxis Dr. Müller - Berlijn</h1>
@@ -171,7 +209,7 @@
         </div>
     </section>
 
-    <section id="step-5" class="step">
+    <section id="step-6" class="step blue-theme">
         <div class="subsection">
             <h1>Einde demo</h1>
             <hr>
@@ -187,8 +225,8 @@
             </p>
         </div>
         <div class="button-container">
-            <button class="prev"><i class="fas fa-arrow-left"></i> Vorige stap</button>
-            <button class="next">Volgende stap <i class="fas fa-arrow-right"></i></button>
+            <button class="prev blue-button"><i class="fas fa-arrow-left"></i> Vorige stap</button>
+            <button class="next blue-button">Volgende stap <i class="fas fa-arrow-right"></i></button>
         </div>
     </section>
 

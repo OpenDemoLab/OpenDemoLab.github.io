@@ -73,6 +73,19 @@ button.prev:hover, button.next:hover {
     transform: translateY(-2px);
 }
 
+/* Blauwe thema voor stappen 1, 4 en 6 */
+.blue-theme h1, .blue-theme h4 {
+    color: #53a5da;
+}
+
+.blue-button {
+    background-color: #53a5da !important;
+}
+
+.blue-button:hover {
+    background-color: #4590c0 !important;
+}
+
 .highlight-link {
     font-weight: bold;
     background-color: #D9F2FF;
@@ -245,9 +258,10 @@ button.prev:hover, button.next:hover {
     display: flex;
     align-items: center;
     margin-bottom: 20px;
-    background-color: #f8f8f8;
-    padding: 10px;
+    background-color: #e8f4ff;
+    padding: 15px;
     border-radius: 5px;
+    border-left: 5px solid #53a5da;
 }
 
 #logo-container-doctor h1 {
@@ -342,4 +356,72 @@ button.go-example:hover, button.go-home:hover {
 
 button.go-example i, button.go-home i {
     margin-right: 8px;
+}
+
+/* Login stylingen voor nieuwe stap 2 */
+.login-container {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    padding: 25px;
+    margin: 20px 0;
+    text-align: center;
+}
+
+.login-container h2 {
+    color: #00847c;
+    margin-bottom: 20px;
+}
+
+.login-options {
+    margin: 30px 0;
+}
+
+.login-option-wallet {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    background-color: #f8fafa;
+}
+
+.login-icon {
+    margin-bottom: 10px;
+}
+
+.login-instruction {
+    font-size: 14px;
+    color: #666;
+    margin-top: 15px;
+}
+
+.login-alternative {
+    margin-top: 30px;
+    border-top: 1px solid #e0e0e0;
+    padding-top: 20px;
+}
+
+.alt-login-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.alt-login-btn {
+    background-color: #f0f0f0;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+}
+
+.alt-login-btn i {
+    margin-right: 8px;
+    color: #00847c;
 }

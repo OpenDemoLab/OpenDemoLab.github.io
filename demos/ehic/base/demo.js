@@ -1,5 +1,5 @@
 const demoConfig = {
-    totalSteps: 5 // Aangepast naar 5 stappen voor de EHIC demo
+    totalSteps: 6 // Aangepast naar 6 stappen voor de EHIC demo
 };
 
 let currentStep = 1; // Houd de huidige stap bij
@@ -65,49 +65,4 @@ function toggleButtons() {
         prevButton.style.display = 'inline-block';
     }
 
-    // Verberg de 'Volgende'-knop bij de laatste stap en voeg extra knoppen toe
-    const nextButton = document.querySelector(`#step-${currentStep} .next`);
-    const buttonContainer = document.querySelector(`#step-${currentStep} .button-container`);
-
-    if (currentStep === demoConfig.totalSteps) {
-        if (nextButton) {
-            nextButton.style.display = 'none'; // Verberg de 'Volgende'-knop
-        }
-
-        // Controleer of de knoppen al bestaan voordat je ze toevoegt
-        if (!document.querySelector('.go-example') && !document.querySelector('.go-home')) {
-            // Voeg de 'Naar voorbeelden'-knop toe met Font Awesome icoon
-            const exampleButton = document.createElement('button');
-            exampleButton.innerHTML = '<i class="fas fa-lightbulb"></i> Naar voorbeelden';
-            exampleButton.className = 'go-example';
-            exampleButton.onclick = () => {
-                // Gebruik window.top om naar het hoogste niveau te gaan (buiten de iframe)
-                window.top.location.href = 'https://www.opendemolab.eu/demos';
-            };
-
-            // Voeg de 'Terug naar hoofdwebsite'-knop toe met Font Awesome icoon
-            const homeButton = document.createElement('button');
-            homeButton.innerHTML = '<i class="fas fa-home"></i> Terug naar hoofdwebsite';
-            homeButton.className = 'go-home';
-            homeButton.onclick = () => {
-                // Gebruik window.top om naar het hoogste niveau te gaan (buiten de iframe)
-                window.top.location.href = 'https://www.opendemolab.eu';
-            };
-
-            // Voeg de knoppen toe aan de button-container
-            buttonContainer.appendChild(exampleButton);
-            buttonContainer.appendChild(homeButton);
-        }
-
-    } else if (nextButton) {
-        nextButton.style.display = 'inline-block'; // Toon de 'Volgende'-knop indien niet op de laatste stap
-    }
-}
-
-// Controleer of de pagina via de terugknop van de browser is bezocht
-window.addEventListener('pageshow', function(event) {
-    if (event.persisted) {
-        // Als de pagina uit de cache is geladen, forceer dan een herlaad
-        window.location.reload();
-    }
-});
+    // Verberg

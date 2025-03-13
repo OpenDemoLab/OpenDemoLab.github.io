@@ -28,6 +28,15 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+      // Voeg eventlistener toe voor het flippen van de EHIC kaart
+      const ehicCardFlipper = document.getElementById('ehic-card-flipper');
+      if (ehicCardFlipper) {
+          ehicCardFlipper.addEventListener('click', () => {
+              ehicCardFlipper.classList.toggle('flipped');
+          });
+      }
+  
+
     // Iconen worden nu in HTML gedefinieerd
 });
 
@@ -71,6 +80,22 @@ function toggleButtons() {
     if (currentStep === demoConfig.totalSteps) {
         if (nextButton) {
             nextButton.style.display = 'none'; // Verberg de 'Volgende'-knop
+        }
+        
+        // Controleer of de 'Naar voorbeelden'-knop al bestaat voordat je hem toevoegt
+        const buttonContainer = document.querySelector(`#step-${currentStep} .button-container`);
+        if (!document.querySelector('.go-example')) {
+            // Voeg de 'Naar voorbeelden'-knop toe met Font Awesome icoon
+            const exampleButton = document.createElement('button');
+            exampleButton.innerHTML = '<i class="fas fa-lightbulb"></i> Naar voorbeelden';
+            exampleButton.className = 'go-example standard-button';
+            exampleButton.onclick = () => {
+                // Gebruik window.top om naar het hoogste niveau te gaan (buiten de iframe)
+                window.top.location.href = 'https://www.opendemolab.eu/demos';
+            };
+            
+            // Voeg de knop toe aan de button-container
+            buttonContainer.appendChild(exampleButton);
         }
     } else if (nextButton) {
         nextButton.style.display = 'inline-block'; // Toon de 'Volgende'-knop indien niet op de laatste stap

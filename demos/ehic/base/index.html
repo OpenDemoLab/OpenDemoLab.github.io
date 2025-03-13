@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Europese Zorgverzekeringskaart (EHIC) Demo</title>
+    <link rel="stylesheet" href="/fonts/inter.css"> 
     <link rel="stylesheet" href="styles.css"> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
@@ -43,12 +44,12 @@
             <!-- Header with logo -->
             <div class="top-header">
                 <div class="insurer-logo">
-                    <img src="https://via.placeholder.com/40x40" alt="Zorgverzekeraar Logo">
+                    <img src="logo.svg" alt="Zorgverzekeraar Logo">
                     <span class="insurer-title">Mijn Zorgverzekeraar</span>
                 </div>
             </div>
             
-            <!-- Login content styled like VGZ example -->
+            <!-- Login content styled -->
             <div class="login-content">
                 <h2 class="login-title">Log in bij Mijn Zorgverzekeraar</h2>
                 <p class="login-intro">
@@ -58,11 +59,12 @@
                 
                 <div class="login-box">
                     <h3 class="login-section-title">Inloggen met wallet</h3>
+                    <p class="login-instruction">Scan de QR-code met uw handelingsomgeving om in te loggen</p>
                     <div class="qr-container">
                         <div class="qr-code">
                             <img src="https://api.qrserver.com/v1/create-qr-code/?data=%7B%22login%22%3A%22true%22%2C%22service%22%3A%22Mijn%20zorgverzekeraar%22%2C%22id%22%3A%22NL_KVK_27378698%22%7D&size=200x200" alt="QR Code voor wallet login">
                         </div>
-                        <p class="login-instruction">Scan de QR-code met uw handelingsomgeving om in te loggen</p>
+                     
                     </div>
                 </div>
             </div>
@@ -80,64 +82,113 @@
         </div>
     </section>
 
-    <section id="step-3" class="step" data-show-vc-flow="true">
-        <div class="subsection">
-            <!-- Simple header with just logo and title -->
-            <div class="insurer-header">
-                <div class="insurer-logo">
-                    <img src="https://via.placeholder.com/40x40" alt="Zorgverzekeraar Logo">
-                    <span class="insurer-title">Mijn zorgverzekeraar</span>
-                </div>
-            </div>
-            
-            <!-- Main navigation with nice rounded style -->
-            <div class="main-nav">
-                <ul>
-                    <li><a href="#">Mijn overzicht</a></li>
-                    <li><a href="#" class="active">Mijn zorgverzekering</a></li>
-                    <li><a href="#">Mijn declaratieoverzicht</a></li>
-                    <li><a href="#">Mijn vergoedingen</a></li>
-                    <li><a href="#">Mijn facturen en betalen</a></li>
-                    <li><a href="#">Mijn gegevens</a></li>
-                    <li><a href="#">Mijn postvak</a></li>
-                </ul>
-            </div>
-            
-            <!-- User welcome section -->
-            <div class="user-welcome">
-                <h2>Goedendag Willeke</h2>
-                <div class="customer-number">
-                    <div>Klantnummer</div>
-                    <div style="font-weight: bold;">12345678</div>
-                </div>
-            </div>
-            
-            <!-- Breadcrumbs -->
-            <div class="breadcrumbs">
-                <a href="#">Mijn zorgverzekering</a> &gt; Europese zorgpas
-            </div>
-            
-            <h1>Europese Zorgpas (EHIC)</h1>
-             
-            <div class="content-section">
-                <div class="content-header">
-                    <i class="fas fa-id-card"></i>
-                    <h3>Europese Zorgpas aanvragen</h3>
-                </div>
-                <div class="content-body">
-                    <p>Hier kunt u uw zorgpas ophalen:</p>
-                    <p>
-                        U kunt het ophalen van uw Europese Zorgpas als volgt voltooien:<br><br>
-                        
-                        1. Open de handelingsomgeving op uw telefoon<br>
-                        2. Scan onderstaande QR-code <strong>met uw handelingsomgeving</strong> om een digitale versie van uw EHIC toe te voegen in uw wallet:
-                    </p>
-                    <div class="qr-code">
-                        <img src="https://api.qrserver.com/v1/create-qr-code/?data=%7B%20%22Issuer%22%3A%20true%2C%20%22name%22%3A%20%22EHIC%20pas%22%2C%20%22issuedBy%22%3A%20%22Mijn%20zorgverzekeraar%22%2C%20%22LEID%22%3A%20%22NL_KVK_27378698%22%2C%20%22Name%22%3A%20%22de%20Bruijn%22%2C%20%22Given%20name%22%3A%20%22Willeke%20Liselotte%22%2C%20%22Date%20of%20birth%22%3A%20%2210-03-1980%22%2C%20%22Personal%20identification%20number%22%3A%20%22999999990%22%2C%20%22Identification%20number%20of%20the%20institution%22%3A%20%22123456789NLZORG%22%2C%20%22Identification%20number%20of%20the%20card%22%3A%20%22EHIC-NL-20230784522%22%2C%20%22Expiry%20date%22%3A%20%2201-01-2026%22%2C%20%22Attestation%20Trust%20Type%22%3A%20%22PuB-EAA%22%2C%20%22rdfci%22%3A%20%5B%5D%20%7D&amp;size=300x300" alt="QR Code for EHIC pas">
+    <section id="step-3" class="step portal-page">
+        <div class="portal-page-container">
+            <!-- Header with navbar -->
+            <div class="top-header">
+                <div class="header-content">
+                    <div class="insurer-logo">
+                        <img src="logo.svg" alt="Zorgverzekeraar Logo">
+                        <span class="insurer-title">Mijn Zorgverzekeraar</span>
+                    </div>
+                    <div class="user-avatar">
+                        <div class="avatar-circle">
+                            <span>W</span>
+                        </div>
                     </div>
                 </div>
-                <div class="content-footer">
-                    <p>Heeft u vragen over uw Europese Zorgpas? <a href="#">Bekijk onze veelgestelde vragen</a></p>
+            </div>
+            
+            <div class="portal-content">
+
+                <!-- User welcome section -->
+                <div class="user-welcome">
+                    <h2>Goedendag Willeke</h2>
+                    <div class="customer-number">
+                        <div>Klantnummer</div>
+                        <div style="font-weight: bold;">12345678</div>
+                    </div>
+                </div>
+
+
+                <!-- Main navigation with nice rounded style -->
+                <div class="main-nav">
+                    <ul>
+                        <li><a href="#">Mijn overzicht</a></li>
+                        <li><a href="#" class="active">Mijn zorgverzekering</a></li>
+                        <li><a href="#">Mijn declaratieoverzicht</a></li>
+                        <li><a href="#">Mijn vergoedingen</a></li>
+                        <li><a href="#">Mijn facturen en betalen</a></li>
+                        <li><a href="#">Mijn gegevens</a></li>
+                        <li><a href="#">Mijn postvak</a></li>
+                    </ul>
+                </div>
+                
+                
+                
+                <!-- Breadcrumbs -->
+                <div class="breadcrumbs">
+                    <a href="#">Mijn zorgverzekering</a> &gt; Europese zorgpas
+                </div>
+                
+                <h1>Europese Zorgpas (EHIC)</h1>
+                 
+                <div class="content-section">
+                    <div class="content-header">
+                        <i class="fas fa-id-card"></i>
+                        <h3>Europese Zorgpas aanvragen</h3>
+                    </div>
+                    <div class="content-body">
+                        <p>Dit is jouw Europese zorgpas:</p>
+                        
+                        <div class="content-grid">
+                            <div class="content-col-center">
+                                <div class="ehic-card-container" id="ehic-card-flipper">
+                                    <div class="ehic-card-inner">
+                                        <div class="ehic-card-front">
+                                            <img src="ehic-front.png" alt="Voorkant Europese Zorgpas" class="ehic-image">
+                                        </div>
+                                        <div class="ehic-card-back">
+                                            <img src="ehic-back.png" alt="Achterkant Europese Zorgpas" class="ehic-image">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="content-col">
+                                <p class="ehic-card-instruction">Klik op de kaart om de voor- of achterkant te bekijken.</p>
+                                <p>Met deze pas krijgt u noodzakelijke medische zorg als u ziek wordt tijdens een vakantie in Europa.
+                                De zorgverlener kan direct zien dat u verzekerd bent en bij welke verzekeraar.</p>
+                            </div>
+                        </div>
+                        
+                        <p>Uw Europese Zorgpas kunt u ophalen door onderstaande QR code met uw wallet te scannen:</p>
+                        
+                        <div class="content-grid">
+                            <div class="content-col-center">
+                                <div class="qr-code">
+                                    <img src="https://api.qrserver.com/v1/create-qr-code/?data=%7B%20%22Issuer%22%3A%20true%2C%20%22name%22%3A%20%22EHIC%20pas%22%2C%20%22issuedBy%22%3A%20%22Mijn%20zorgverzekeraar%22%2C%20%22LEID%22%3A%20%22NL_KVK_27378698%22%2C%20%22Name%22%3A%20%22de%20Bruijn%22%2C%20%22Given%20name%22%3A%20%22Willeke%20Liselotte%22%2C%20%22Date%20of%20birth%22%3A%20%2210-03-1980%22%2C%20%22Personal%20identification%20number%22%3A%20%22999999990%22%2C%20%22Identification%20number%20of%20the%20institution%22%3A%20%22123456789NLZORG%22%2C%20%22Identification%20number%20of%20the%20card%22%3A%20%22EHIC-NL-20230784522%22%2C%20%22Expiry%20date%22%3A%20%2201-01-2026%22%2C%20%22Attestation%20Trust%20Type%22%3A%20%22PuB-EAA%22%2C%20%22rdfci%22%3A%20%5B%5D%20%7D&amp;size=200x200" alt="QR Code for EHIC pas">
+                                </div>
+                            </div>
+                            <div class="content-col">
+                                <div class="info-graphic">
+                                    <i class="fas fa-info-circle fa-2x" style="color: #00847c;"></i>
+                                    <div class="info-text">
+                                        <p><strong>Scan deze QR code met uw wallet</strong></p>
+                                        <p>Na het scannen wordt uw Europese Zorgpas automatisch opgeslagen in uw wallet en is deze altijd beschikbaar, ook zonder internetverbinding.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content-footer">
+                        <p>Heeft u vragen over uw Europese Zorgpas? <a href="#">Bekijk onze veelgestelde vragen</a></p>
+                    </div>
+                </div>
+            </div>
+              <!-- Footer -->
+              <div class="login-footer">
+                <div class="footer-links">
+                    <a href="#">Disclaimer</a> | <a href="#">Privacybeleid</a> | <a href="#">Cookieverklaring</a>
                 </div>
             </div>
         </div>
@@ -176,6 +227,7 @@
                 </div>
             </div>
             <hr>
+            
         </div>
         <div class="button-container">
             <button class="prev standard-button"><i class="fas fa-arrow-left"></i> Vorige stap</button>

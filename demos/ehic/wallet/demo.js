@@ -651,95 +651,39 @@ function displayCredentials() {
     //  console.warn(`Credential at index ${index} ontbreekt 'name' property:`, cred);
       return; // Sla deze credential over
     }
+     // Special case for EHIC card
+     if (cred.name.toLowerCase() === 'ehic pas') {
+      const card = document.createElement('div');
+      card.className = 'card';
+      card.style.padding = '15px';
+      card.style.position = 'relative';
+      card.style.overflow = 'hidden';
+      card.style.backgroundSize = 'cover';
+      card.style.backgroundPosition = 'center';
+      card.style.borderRadius = '15px';
+      
+      // Create a container for the card content
+      const cardContent = document.createElement('div');
+      cardContent.style.display = 'flex';
+      cardContent.style.flexDirection = 'column';
+      cardContent.style.height = '100%';
 
-      // Special case for EHIC card
-      if (cred.name.toLowerCase() === 'ehic pas') {
-        const card = document.createElement('div');
-        card.className = 'card';
-        card.style.padding = '15px';
-        card.style.position = 'relative';
-        card.style.overflow = 'hidden';
-        card.style.backgroundSize = 'cover';
-        card.style.backgroundPosition = 'center';
-        card.style.borderRadius = '15px';
-        
-        // Create a container for the card content
-        const cardContent = document.createElement('div');
-        cardContent.style.display = 'flex';
-        cardContent.style.flexDirection = 'column';
-        cardContent.style.height = '100%';
+      // Add the EHIC card image as background - display only the image without overlay text
+      card.style.backgroundImage = "url('../base/images/ehic-front.png')";
+      card.style.backgroundSize = 'cover';
+      card.style.backgroundPosition = 'center';
+      
+      // No overlay text, just the card image
 
-        // Add the EHIC card image as background
-        card.style.backgroundImage = "url('../base/images/ehic-front.png')";
-        card.style.backgroundSize = 'cover';
+      card.appendChild(cardContent);
 
-        // Add a semi-transparent overlay for better readability of text
-        const overlay = document.createElement('div');
-        overlay.style.position = 'absolute';
-        overlay.style.top = '0';
-        overlay.style.left = '0';
-        overlay.style.width = '100%';
-        overlay.style.height = '100%';
-        overlay.style.backgroundColor = 'rgba(255, 255, 255, 0.15)';
-        overlay.style.borderRadius = '15px';
-        card.appendChild(overlay);
+      // Add event listener for clicking on the card to show details
+      card.addEventListener('click', () => showEhicDetails(cred, index));
 
-        // Add card title
-        const titleDiv = document.createElement('div');
-        titleDiv.style.position = 'relative';
-        titleDiv.style.zIndex = '2';
-        titleDiv.style.padding = '10px';
-        titleDiv.style.textAlign = 'left';
-        titleDiv.style.marginBottom = 'auto';
-        
-        const title = document.createElement('h3');
-        title.textContent = 'EHIC pas';
-        title.style.color = '#00847c';
-        title.style.fontWeight = 'bold';
-        title.style.fontSize = '18px';
-        title.style.margin = '0';
-        title.style.textShadow = '1px 1px 2px rgba(255,255,255,0.8)';
-        
-        titleDiv.appendChild(title);
-        
-        // Add issuer info
-        const issuerInfo = document.createElement('p');
-        issuerInfo.textContent = cred.issuedBy || 'Uitgegeven door zorgverzekeraar';
-        issuerInfo.style.color = '#333';
-        issuerInfo.style.fontSize = '14px';
-        issuerInfo.style.margin = '5px 0 0 0';
-        issuerInfo.style.textShadow = '1px 1px 2px rgba(255,255,255,0.8)';
-        
-        titleDiv.appendChild(issuerInfo);
-        cardContent.appendChild(titleDiv);
-
-        // Add validity info at the bottom
-        const validityInfo = document.createElement('div');
-        validityInfo.style.position = 'relative';
-        validityInfo.style.zIndex = '2';
-        validityInfo.style.padding = '10px';
-        validityInfo.style.textAlign = 'left';
-        validityInfo.style.marginTop = 'auto';
-        
-        const validityText = document.createElement('p');
-        validityText.textContent = `Geldig tot: ${cred.data['Expiry date'] || '01-01-2026'}`;
-        validityText.style.color = '#333';
-        validityText.style.fontSize = '12px';
-        validityText.style.margin = '0';
-        validityText.style.textShadow = '1px 1px 2px rgba(255,255,255,0.8)';
-        
-        validityInfo.appendChild(validityText);
-        cardContent.appendChild(validityInfo);
-
-        card.appendChild(cardContent);
-
-        // Add event listener for clicking on the card to show details
-        card.addEventListener('click', () => showEhicDetails(cred, index));
-
-        // Add the card to the wallet grid
-        walletGrid.appendChild(card);
-        return; // Skip the normal card creation for this item
-    }
+      // Add the card to the wallet grid
+      walletGrid.appendChild(card);
+      return; // Skip the normal card creation for this item
+  }
     const card = document.createElement('div');
     card.className = 'card';
 
@@ -808,6 +752,7 @@ function displayCredentials() {
 }
 
 
+// function to show EHIC card details
 function showEhicDetails(credential, index) {
   // Hide the wallet screen and navbar
   document.getElementById('wallet-screen').style.display = 'none';
@@ -826,7 +771,7 @@ function showEhicDetails(credential, index) {
   detailsView.style.height = '100%';
   detailsView.style.backgroundColor = 'white';
   detailsView.style.zIndex = '1000';
-  detailsView.style.padding = '20px';
+  detailsView.style.padding = '0px 20px 0px 15px';
   detailsView.style.boxSizing = 'border-box';
   detailsView.style.overflowY = 'auto';
   detailsView.style.display = 'flex';
@@ -889,7 +834,7 @@ function showEhicDetails(credential, index) {
   const cardContainer = document.createElement('div');
   cardContainer.className = 'card-flip-container';
   cardContainer.style.width = '100%';
-  cardContainer.style.height = '200px';
+  cardContainer.style.minHeight = '200px';
   cardContainer.style.perspective = '1000px';
   cardContainer.style.marginBottom = '20px';
   cardContainer.style.cursor = 'pointer';
@@ -1027,39 +972,51 @@ function showEhicDetails(credential, index) {
   panel.style.transition = 'max-height 0.2s ease-out';
   panel.style.borderRadius = '0 0 5px 5px';
   panel.style.width = '100%';
+  panel.style.fontSize = 'small';
 
   // Add technical details content
   const details = document.createElement('div');
   details.style.padding = '10px 0';
 
-  // Exclude these keys from the display
-  const excludedKeys = ['name', 'issuedBy', 'rdfci', 'isShareAction', 'actionTimestamp'];
+  // Include all data fields, only exclude a few specific ones
+  const excludedKeys = ['rdfci', 'isShareAction', 'actionTimestamp'];
 
   // Add all data fields to the technical details
+  // First add the top-level properties (name, issuedBy, LEID)
+  const addDetailRow = (key, value) => {
+      const row = document.createElement('div');
+      row.style.display = 'flex';
+      row.style.marginBottom = '8px';
+      row.style.flexWrap = 'wrap';
+
+      const label = document.createElement('div');
+      label.style.fontWeight = 'bold';
+      label.style.width = '45%';
+      label.style.padding = '0 5px 0 0';
+      label.style.wordWrap = 'break-word';
+      label.style.overflowWrap = 'break-word';
+      label.textContent = key + ':';
+
+      const valueElement = document.createElement('div');
+      valueElement.style.width = '55%';
+      valueElement.style.wordWrap = 'break-word';
+      valueElement.style.overflowWrap = 'break-word';
+      valueElement.textContent = value;
+
+      row.appendChild(label);
+      row.appendChild(valueElement);
+      details.appendChild(row);
+  };
+
+  // Add top-level properties first
+  if (credential.name) addDetailRow('name', credential.name);
+  if (credential.issuedBy) addDetailRow('issuedBy', credential.issuedBy);
+  if (credential.LEID) addDetailRow('LEID', credential.LEID);
+  
+  // Then add all data properties
   for (let key in credential.data) {
       if (!excludedKeys.includes(key)) {
-          const row = document.createElement('div');
-          row.style.display = 'flex';
-          row.style.marginBottom = '8px';
-          row.style.flexWrap = 'wrap';
-
-          const label = document.createElement('div');
-          label.style.fontWeight = 'bold';
-          label.style.width = '45%';
-          label.style.padding = '0 5px 0 0';
-          label.style.wordWrap = 'break-word';
-          label.style.overflowWrap = 'break-word';
-          label.textContent = key + ':';
-
-          const value = document.createElement('div');
-          value.style.width = '55%';
-          value.style.wordWrap = 'break-word';
-          value.style.overflowWrap = 'break-word';
-          value.textContent = credential.data[key];
-
-          row.appendChild(label);
-          row.appendChild(value);
-          details.appendChild(row);
+          addDetailRow(key, credential.data[key]);
       }
   }
 
@@ -2172,6 +2129,7 @@ function populateEhicCardModal(data) {
     credentials.push({
       name: 'EHIC pas',
       issuedBy: data.issuedBy,
+      LEID: data.LEID, // Voeg LEID toe op het top-niveau
       actionTimestamp: timestamp,
       isShareAction: false,
       data: {
@@ -2181,7 +2139,8 @@ function populateEhicCardModal(data) {
         'Persoonlijk identificatienummer': data['Personal identification number'],
         'Identificatienummer instelling': data['Identification number of the institution'],
         'Kaartnummer': data['Identification number of the card'],
-        'Vervaldatum': data['Expiry date']
+        'Vervaldatum': data['Expiry date'],
+        'Attestation Trust Type': data['Attestation Trust Type'] // Voeg Attestation Trust Type toe
       }
     });
     

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IPA-3</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar">
+  <div class="navbar-container">
+    <img id="navbar-logo" alt="Logo" class="navbar-logo">
+    <button id="hamburger-menu">
+      <i class="fas fa-bars"></i>
+    </button>
+  </div>
+</nav>
+
+<!-- Menu -->
+<div id="fullscreen-menu" class="fullscreen-menu">
+  <div class="menu-header">
+    <button id="close-menu" class="close-menu">
+      <i class="fas fa-times"></i>
+    </button>
+  </div>
+  <div class="menu-container">
+    <div class="menu-body">
+      <ul id="menu-links" class="menu-links"></ul>
+    </div>
+  </div>
+</div>
+
+<!-- Main Container -->
+<div class="main-container">
+
+  <div id="breadcrumbs"></div>
+
+  <section class="sectie">
+
+    <h2>IPA-3 - In één stap vragen, ophalen, opslaan en delen</h2>
+
+    <p>
+      Om het aantal stappen te verkorten is een derde mogelijk interactie-patroon dat een vragende partij in één stap <br>
+      om (meerdere) gegevens kan vragen, <br>
+      deze via de handelingsomgeving direct kan laten ophalen bij de bron(nen), <br>
+      de attributen in de handelingsomgeving worden opgeslagen, <br>
+      en deze vervolgens gedeeld worden met de vragende partij. <br>
+      (Interactie Patroon Attributen 3 - IPA-3)
+    </p>
+
+    <p>
+      Bekijk een voorbeeld van dit interactiepatroon door onderstaande stappen te volgen:
+    </p>
+
+    <ol class="steps-list">
+      <li>Open de handelingsomgeving door op je mobiele telefoon naar <strong>www.tipdemo.nl/demo</strong> te gaan.</li>
+      <li>Klik op de knop "scan QR".</li>
+      <li>Scan onderstaande code</li>
+    </ol>
+
+    <div class="image-container">
+      <div class="qr-code">
+        <img src="https://api.qrserver.com/v1/create-qr-code/?data=%7B%22type%22%3A%22verifier%22%2C%22requester%22%3A%22Kredietverstrekker%22%2C%22reason%22%3A%22Financi%C3%ABle%20screening%22%2C%22csas%22%3A%5B%7B%22issuedBy%22%3A%22UWV%22%2C%22name%22%3A%22Verzekeringsgegevens%22%7D%2C%7B%22issuedBy%22%3A%22BKR%22%2C%22name%22%3A%22Kredietregistratie%22%7D%2C%7B%22issuedBy%22%3A%22BD%22%2C%22name%22%3A%22Inkomensverklaring%22%7D%2C%7B%22issuedBy%22%3A%22SVB%22%2C%22name%22%3A%22AOW-status%22%7D%5D%2C%22a%22%3A%2212t%22%7D&amp;size=300x300" alt="QR Code for Financiële screening">
+      </div>
+    </div>
+
+  </section>
+
+</div>
+
+<script src="/breadcrumbs.js"></script>
+<script src="/menu.js"></script>
+
+</body>
+</html>

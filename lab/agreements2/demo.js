@@ -1,5 +1,5 @@
 const demoConfig = {
-    totalSteps: 6 // Aangepast naar 6 stappen voor de EHIC demo met login pagina
+    totalSteps: 7 // Definieer hier het aantal stappen voor deze demo
 };
 
 let currentStep = 1; // Houd de huidige stap bij
@@ -21,23 +21,38 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Voeg eventlisteners toe aan de knoppen voor 'Volgende' en 'Terug'
     document.addEventListener('click', (e) => {
-        if (e.target.classList.contains('next') || e.target.parentElement.classList.contains('next')) {
+        if (e.target.classList.contains('next')) {
             goToStep(currentStep + 1);
-        } else if (e.target.classList.contains('prev') || e.target.parentElement.classList.contains('prev')) {
+        } else if (e.target.classList.contains('prev')) {
             goToStep(currentStep - 1);
         }
     });
 
-      // Voeg eventlistener toe voor het flippen van de EHIC kaart
-      const ehicCardFlipper = document.getElementById('ehic-card-flipper');
-      if (ehicCardFlipper) {
-          ehicCardFlipper.addEventListener('click', () => {
-              ehicCardFlipper.classList.toggle('flipped');
-          });
-      }
-  
+    // Voeg iconen en tekst aan de knoppen
+    document.querySelectorAll('.next').forEach(button => {
+        button.innerHTML = 'Volgende stap <i class="fas fa-arrow-right"></i>';
+    });
+    document.querySelectorAll('.prev').forEach(button => {
+        button.innerHTML = '<i class="fas fa-arrow-left"></i> Vorige stap';
+    });
 
-    // Iconen worden nu in HTML gedefinieerd
+    // Exclusief checkbox gedrag
+    const exclusiveCheckboxes = document.querySelectorAll('input.exclusive[type="checkbox"]');
+    
+    exclusiveCheckboxes.forEach((checkbox) => {
+        checkbox.addEventListener('change', () => {
+            if (checkbox.checked) {
+                // Vind alle andere checkboxes met dezelfde 'name'
+                const name = checkbox.getAttribute('name');
+                const checkboxes = document.querySelectorAll(`input.exclusive[name="${name}"]`);
+                checkboxes.forEach((cb) => {
+                    if (cb !== checkbox) {
+                        cb.checked = false; // Deselecteer andere checkboxes
+                    }
+                });
+            }
+        });
+    });
 });
 
 function goToStep(step) {
@@ -61,6 +76,9 @@ function showStep(step) {
         stepToShow.style.display = 'block'; // Toon alleen de actieve sectie
     }
 
+    // Scroll naar boven bij het tonen van een nieuwe stap
+    window.scrollTo(0, 0);
+
     // Pas de knoppenlogica aan
     toggleButtons();
 }
@@ -74,29 +92,34 @@ function toggleButtons() {
         prevButton.style.display = 'inline-block';
     }
 
-    // Verberg de 'Volgende'-knop bij de laatste stap
+    // Verberg de 'Volgende'-knop bij de laatste stap en voeg extra knoppen toe
     const nextButton = document.querySelector(`#step-${currentStep} .next`);
-    
+    const buttonContainer = document.querySelector(`#step-${currentStep} .button-container`);
+
     if (currentStep === demoConfig.totalSteps) {
         if (nextButton) {
             nextButton.style.display = 'none'; // Verberg de 'Volgende'-knop
         }
-        
-        // Controleer of de 'Naar voorbeelden'-knop al bestaat voordat je hem toevoegt
-        const buttonContainer = document.querySelector(`#step-${currentStep} .button-container`);
-        if (!document.querySelector('.go-example')) {
+
+        // Controleer of de knoppen al bestaan voordat je ze toevoegt
+        if (!document.querySelector('.go-example') && !document.querySelector('.go-home')) {
             // Voeg de 'Naar voorbeelden'-knop toe met Font Awesome icoon
             const exampleButton = document.createElement('button');
-            exampleButton.innerHTML = '<i class="fas fa-lightbulb"></i> Naar voorbeelden';
-            exampleButton.className = 'go-example standard-button';
-            exampleButton.onclick = () => {
-                // Gebruik window.top om naar het hoogste niveau te gaan (buiten de iframe)
-                window.top.location.href = 'https://www.opendemolab.eu/demos';
-            };
-            
-            // Voeg de knop toe aan de button-container
+            exampleButton.innerHTML = '<i class="fas fa-lightbulb"></i> Naar onderzoek';
+            exampleButton.className = 'go-example';
+            exampleButton.onclick = () => window.location.href = 'https://www.tipdemo.nl/research';
+
+            // Voeg de 'Terug naar hoofdwebsite'-knop toe met Font Awesome icoon
+            const homeButton = document.createElement('button');
+            homeButton.innerHTML = '<i class="fas fa-home"></i> Terug naar hoofdwebsite';
+            homeButton.className = 'go-home';
+            homeButton.onclick = () => window.location.href = 'https://www.tipdemo.nl';
+
+            // Voeg de knoppen toe aan de button-container
             buttonContainer.appendChild(exampleButton);
+            buttonContainer.appendChild(homeButton);
         }
+
     } else if (nextButton) {
         nextButton.style.display = 'inline-block'; // Toon de 'Volgende'-knop indien niet op de laatste stap
     }

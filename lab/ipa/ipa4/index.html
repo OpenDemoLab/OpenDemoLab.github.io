@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IPA-4</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar">
+  <div class="navbar-container">
+    <img id="navbar-logo" alt="Logo" class="navbar-logo">
+    <button id="hamburger-menu">
+      <i class="fas fa-bars"></i>
+    </button>
+  </div>
+</nav>
+
+<!-- Menu -->
+<div id="fullscreen-menu" class="fullscreen-menu">
+  <div class="menu-header">
+    <button id="close-menu" class="close-menu">
+      <i class="fas fa-times"></i>
+    </button>
+  </div>
+  <div class="menu-container">
+    <div class="menu-body">
+      <ul id="menu-links" class="menu-links"></ul>
+    </div>
+  </div>
+</div>
+
+<!-- Main Container -->
+<div class="main-container">
+
+  <div id="breadcrumbs"></div>
+
+  <section class="sectie">
+
+    <h2>IPA-4 - Autorisatie aan vragende partij om zelf gegevens op te halen</h2>
+
+    <p>
+      Een vragende partij kan met een eenmalige machtiging zelf gegevens ophalen bij een bron, namens de natuurlijk persoon. <br>
+      Deze machtiging is eenmalig.<br>
+      Met deze machtiging kan de vragende partij contact leggen met de bron/uitgever en zo aantonen dat de vragende partij toestemming heeft om de gegevens op te halen. <br>
+      (Interactie Patroon Attributen 4 - IPA-4)
+    </p>
+
+    <p>
+      Bekijk een voorbeeld van dit interactiepatroon door onderstaande stappen te volgen:
+    </p>
+
+    <ol class="steps-list">
+      <li>Open de handelingsomgeving door op je mobiele telefoon naar <strong>www.tipdemo.nl/demo</strong> te gaan.</li>
+      <li>Klik op de knop "scan QR".</li>
+      <li>Scan onderstaande code</li>
+    </ol>
+
+    <div class="image-container">
+      <p>Voorbeeld Woningcorporatie en Inkomensverklaring</p>
+      <div class="qr-code">
+        <img src="https://api.qrserver.com/v1/create-qr-code/?data=%7B%22type%22%3A%22mandate%22%2C%22requester%22%3A%22Woningcorporatie%20Leijendak%22%2C%22LEID%22%3A123456789%2C%22reason%22%3A%22financiële%20check%22%2C%22geldigheidsduur%22%3A%2230%20dagen%22%2C%22intrekbaar%22%3A%22Intrekbaar%22%2C%22mandate%22%3A%5B%7B%22issuedBy%22%3A%22BD%22%2C%22dienst%22%3A%22Inkomensverklaring%22%2C%22name%22%3A%22Inkomensverklaring%202024%22%7D%5D%2C%22a%22%3A%2212t%22%7D&size=300x300" alt="QR Code voor Mandaat">
+      </div>
+    </div>
+
+    <div class="image-container">
+      <p>Voorbeeld Intermediair en Belastingdienst</p>
+      <div class="qr-code">
+        <img src="https://api.qrserver.com/v1/create-qr-code/?data=%7B%22type%22%3A%22mandate%22%2C%22requester%22%3A%22Jansen%20%26%20Jansen%20belastingadvies%22%2C%22LEID%22%3A%22HRN%2030217488%22%2C%22reason%22%3A%22Gegevens%20VIA%202024%20ophalen%22%2C%22geldigheidsduur%22%3A%2230%20dagen%22%2C%22intrekbaar%22%3A%22Niet%20intrekbaar%22%2C%22a%22%3A%22w%22%2C%22mandate%22%3A%5B%7B%22issuedBy%22%3A%22BD%22%2C%22dienst%22%3A%22Inkomstenbelasting%22%2C%22name%22%3A%22VIA%202024%22%7D%5D%7D&size=300x300" alt="QR Code voor Mandaat aan Jansen & Jansen belastingadvies voor ophalen gegevens VIA 2024">
+      </div>
+    </div>
+
+  </section>
+
+</div>
+
+<script src="/breadcrumbs.js"></script>
+<script src="/menu.js"></script>
+
+</body>
+</html>

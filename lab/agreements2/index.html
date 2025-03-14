@@ -1,0 +1,1430 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo Europese Identiteitswallet</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- Stap 1: Inleiding -->
+<section id="step-1" class="step">
+    <div class="subsection">
+        <h2>Begrijpelijke data-deel verzoeken</h2>
+
+<section class="research-section">
+    <p>Gerelateerd aan</p>
+    <ul>
+        <li>Compliance</li>
+        <li>Veiligheid</li>
+        <li>Dienstverlening</li>
+        <li>Relying Party Register</li>
+        <li>Embedded disclosure policy</li>
+    </ul>
+    <hr>
+</section>
+<h3>Context</h3>
+        <p>
+            De invoering van Europese identiteitswallets staat gepland voor 2026.<br>
+            Vertrouwen in deze oplossing draait niet alleen om het veilig opslaan en delen van gegevens, maar ook om wat er daarna met die gegevens gebeurt.<br>
+            Welke afspraken zijn nodig om te garanderen dat de verwerking van jouw data na het delen veilig blijft en in lijn is met jouw toestemming?<br>
+            En hoe zorgen we ervoor dat gebruikers begrijpen waarvoor ze toestemming geven en dit op een duidelijke manier gebeurt? <br><br>
+        </p>
+        <p>
+            Deze vragenlijst is een conversation starter om te onderzoeken we hoe datadeling met een Europese identiteitswallet of handelingsomgeving eruit kan zien.<br>
+            Wanneer is het verzoek duidelijk, en wanneer ontstaan onduidelijkheden? Denk hierbij ook aan de huidige praktijk rondom cookies.<br>
+            Echter, dit gaat niet over cookies: het gaat om waardevolle, geverifieerde persoonlijke data.<br>
+            De belangen om deze waardevolle, geverifieerde persoonlijke data te verzamelen en combineren voor andere doeleinden kunnen enorm zijn, bijvoorbeeld voor statelijke actoren en commerciële doeleinden.<br>
+            De noodzaak om deze gegevens veilig en verantwoord te verwerken maakt een zorgvuldige aanpak daarom cruciaal om vertrouwen te creëren in het stelsel van de Europese digitale identiteit.
+        </p>
+
+        <p>Onderstaande tabel toont samengevat welke informatie nodig is voor een afweging.</p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Onderdeel</th>
+                    <th>Voorbeeld</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>WELKE data gevraagd wordt</td>
+                    <td>Naam, leeftijd, verzamelinkomen, etc.</td>
+                </tr>
+                <tr>
+                    <td>WAARVOOR de data gebruikt wordt</td>
+                    <td>Organisatie gebruikt mailadres voor het sturen van nieuwsbrieven.</td>
+                </tr>
+                <tr>
+                    <td>WAAROM de data gebruikt wordt</td>
+                    <td>Organisatie gebruikt gegevens voor fraudebestrijding, marketing, etc.</td>
+                </tr>
+                <tr>
+                    <td>HOE de data verwerkt wordt</td>
+                    <td>retentieperiode, combineren van gegevens, opslag buiten de EU, etc.</td>
+                </tr>
+            </tbody>
+        </table>
+
+
+    </div>
+    <div class="button-container">
+        <button class="next">Volgende</button>
+    </div>
+</section>
+
+<!-- Stap 2: Transparantie over datadeling -->
+<section id="step-2" class="step">
+    <div class="subsection">
+        <h1>Transparantie over datadeling</h1>
+        <p>Bekijk onderstaand scherm van een wallet dat een datadeel-verzoek toont van een fictief bedrijf:</p>
+        <div class="phone">
+            <div class="phone-screen">
+                <div class="wallet-screen">
+                    <p><strong>Wil je de volgende data delen met Hypotheek kiezer?</strong></p>
+                    <hr>
+                    <ul>
+                        <li>Voornaam</li>
+                        <li>Achternaam</li>
+                        <li>Straat</li>
+                        <li>Postcode</li>
+                        <li>Woonplaats</li>
+                        <li>Geboortedatum</li>
+                        <li>Telefoonnummer</li>
+                        <li>Verzamelinkomen</li>
+                    </ul>
+                    <p><strong>Overeenkomst:</strong></p>
+                    <p>Volgens onze <a href="privacyverklaring.html" target="_blank">privacyvoorwaarden.</a></p>
+                    <div class="button-container-wallet">
+                        <button class="cancel-button">Stoppen</button>
+                        <button class="accept-button">Akkoord</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <form>
+            <div class="question-block">
+                <div>
+                    <p class="question">Voor welk doel wordt je data verwerkt door akkoord te geven?</p>
+                    <div class="divider-below-question"></div>
+                </div>
+                <label class="custom-checkbox">
+                    <input type="checkbox" name="data-purpose" value="hypotheekadvies" class="exclusive">
+                    <span class="checkbox-box"></span>
+                    <div class="checkbox-text">Alleen voor hypotheekadvies</div>
+                </label>
+                <label class="custom-checkbox">
+                    <input type="checkbox" name="data-purpose" value="hypotheek-en-marketing" class="exclusive">
+                    <span class="checkbox-box"></span>
+                    <div class="checkbox-text">Voor hypotheekadvies én marketing</div>
+                </label>
+                <label class="custom-checkbox">
+                    <input type="checkbox" name="data-purpose" value="privacyvoorwaarden" class="exclusive">
+                    <span class="checkbox-box"></span>
+                    <div class="checkbox-text">Voor alles wat in de privacyvoorwaarden staat</div>
+                </label>
+                <label class="custom-checkbox">
+                    <input type="checkbox" name="data-purpose" value="ik-weet-het-niet" class="exclusive">
+                    <span class="checkbox-box"></span>
+                    <div class="checkbox-text">Ik weet het niet</div>
+                </label>
+            </div>
+            <div class="question-block">
+                <div>
+                    <p class="question">Heb je de privacy-voorwaarden doorgelezen?</p>
+                    <div class="divider-below-question"></div>
+                </div>
+                <label class="custom-checkbox">
+                    <input type="checkbox" name="read-terms" value="niet-gekeken" class="exclusive">
+                    <span class="checkbox-box"></span>
+                    <div class="checkbox-text">Nee, niet gekeken</div>
+                </label>
+                <label class="custom-checkbox">
+                    <input type="checkbox" name="read-terms" value="te-lang-en-complex" class="exclusive">
+                    <span class="checkbox-box"></span>
+                    <div class="checkbox-text">Nee, deze waren te lang en complex</div>
+                </label>
+                <label class="custom-checkbox">
+                    <input type="checkbox" name="read-terms" value="gestopt-met-lezen" class="exclusive">
+                    <span class="checkbox-box"></span>
+                    <div class="checkbox-text">Ja, maar ik ben gestopt met lezen</div>
+                </label>
+                <label class="custom-checkbox">
+                    <input type="checkbox" name="read-terms" value="begrijp-niet-helemaal" class="exclusive">
+                    <span class="checkbox-box"></span>
+                    <div class="checkbox-text">Ja, maar ik begrijp ze niet helemaal</div>
+                </label>
+                <label class="custom-checkbox">
+                    <input type="checkbox" name="read-terms" value="volledig-begrijpen" class="exclusive">
+                    <span class="checkbox-box"></span>
+                    <div class="checkbox-text">Ja, en ik begrijp ze volledig en kan de implicaties overzien</div>
+                </label>
+            </div>
+        </form>
+    </div>
+    <div class="button-container">
+        <button class="prev">Terug</button>
+        <button class="next">Volgende</button>
+    </div>
+</section>
+
+<!-- Stap 3: Transparantie over datadeling : doelen -->
+<section id="step-3" class="step">
+    <div class="subsection">
+        <h1>Transparantie over datadeling : doelen</h1>
+        <p>Bekijk onderstaand scherm:</p>
+
+        <div class="phone">
+            <div class="phone-screen">
+                <div class="wallet-screen" id="smaller-wallet-p">
+                    <p><strong>Wil je de volgende data delen met Hypotheek kiezer?</strong></p>
+                    <hr>
+                    <ul>
+                        <li>Voornaam</li>
+                        <li>Achternaam</li>
+                        <li>Straat</li>
+                        <li>Postcode</li>
+                        <li>Woonplaats</li>
+                        <li>Geboortedatum</li>
+                        <li>Telefoonnummer</li>
+                        <li>Verzamelinkomen</li>
+                    </ul>
+                    <p><strong>Overeenkomst:</strong></p>
+                    <p>Uw data wordt gebruikt voor de volgende doelen</p>
+                    <ul>
+                        <li>Personalisatie</li>
+                        <li>Marketing</li>
+                        <li>Begrijpen van publiek</li>
+                    </ul>
+                    <p>Volgens onze <a href="privacyverklaring.html" target="_blank">privacyvoorwaarden.</a></p>
+                    <div class="button-container-wallet">
+                        <button class="cancel-button">Stoppen</button>
+                        <button class="accept-button">Akkoord</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <form>
+            <div class="question-block">
+                <div>
+                    <p class="question">Wordt het op deze manier duidelijker wat de doelen zijn?</p>
+                    <div class="divider-below-question"></div>
+                </div>
+                <label class="custom-checkbox">
+                    <input type="checkbox" name="clear-goals" value="ja" class="exclusive">
+                    <span class="checkbox-box"></span>
+                    <div class="checkbox-text">Ja</div>
+                </label>
+                <label class="custom-checkbox">
+                    <input type="checkbox" name="clear-goals" value="nee" class="exclusive">
+                    <span class="checkbox-box"></span>
+                    <div class="checkbox-text">Nee</div>
+                </label>
+            </div>
+
+            <div class="question-block">
+                <div>
+                    <p class="question">Is voor jou duidelijk wat "personalisatie", "marketing" en "begrijpen van publiek" inhoudt?</p>
+                    <div class="divider-below-question"></div>
+                </div>
+                <label class="custom-checkbox">
+                    <input type="checkbox" name="personalisation-marketing" value="ja-volledig" class="exclusive">
+                    <span class="checkbox-box"></span>
+                    <div class="checkbox-text">Ja, volledig</div>
+                </label>
+                <label class="custom-checkbox">
+                    <input type="checkbox" name="personalisation-marketing" value="nee-niet-echt" class="exclusive">
+                    <span class="checkbox-box"></span>
+                    <div class="checkbox-text">Nee, niet echt</div>
+                </label>
+            </div>
+
+            <div class="question-block">
+                <div>
+                    <p class="question">Is duidelijk welke impact dit akkoord heeft op je privacy?</p>
+                    <div class="divider-below-question"></div>
+                </div>
+                <label class="custom-checkbox">
+                    <input type="checkbox" name="privacy-impact" value="ja-volledig" class="exclusive">
+                    <span class="checkbox-box"></span>
+                    <div class="checkbox-text">Ja, volledig</div>
+                </label>
+                <label class="custom-checkbox">
+                    <input type="checkbox" name="privacy-impact" value="nee" class="exclusive">
+                    <span class="checkbox-box"></span>
+                    <div class="checkbox-text">Nee</div>
+                </label>
+            </div>
+
+            <!-- <div class="question-block">
+                <div>
+                    <p class="question">Is duidelijk of je data wordt gedeeld met derden, wie dit zijn, wat ze ermee doen en wat de implicaties zijn?</p>
+                    <div class="divider-below-question"></div>
+                </div>
+                <label class="custom-checkbox">
+                    <input type="checkbox" name="data-sharing" value="ja-duidelijk" class="exclusive">
+                    <span class="checkbox-box"></span>
+                    <div class="checkbox-text">Ja, duidelijk</div>
+                </label>
+                <label class="custom-checkbox">
+                    <input type="checkbox" name="data-sharing" value="nee-onduidelijk" class="exclusive">
+                    <span class="checkbox-box"></span>
+                    <div class="checkbox-text">Nee, onduidelijk</div>
+                </label>
+                <label class="custom-checkbox">
+                    <input type="checkbox" name="data-sharing" value="ik-weet-het-niet" class="exclusive">
+                    <span class="checkbox-box"></span>
+                    <div class="checkbox-text">Ik weet het niet</div>
+                </label>
+            </div>
+ -->
+           
+        </form>
+    </div>
+    <div class="button-container">
+        <button class="prev">Terug</button>
+        <button class="next">Volgende</button>
+    </div>
+</section>
+
+<!-- Stap 4: Weergave van verzoeken -->
+<section id="step-4" class="step">
+    <div class="subsection">
+        <h1>Weergave van verzoeken</h1>
+        <p>Bekijk onderstaand scherm:</p>
+
+
+<div class="phone">
+    <div class="phone-screen">
+        <div class="wallet-screen" id="scrollable-wallet">
+            <p><strong>Wil je de volgende data delen met onze dienst?</strong></p>
+            <hr>
+            <!-- Dataonderdelen -->
+            <div class="data-list">
+                <div>
+                    <label>
+                        <input type="checkbox" name="data-firstname"> Voornaam
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <input type="checkbox" name="data-lastname"> Achternaam
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <input type="checkbox" name="data-street"> Straat
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <input type="checkbox" name="data-postcode"> Postcode
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <input type="checkbox" name="data-city"> Woonplaats
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <input type="checkbox" name="data-birthdate"> Geboortedatum
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <input type="checkbox" name="data-phone"> Telefoonnummer
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <input type="checkbox" name="data-income"> Verzamelinkomen
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <input type="checkbox" name="data-nationality"> Nationaliteit
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <input type="checkbox" name="data-marital-status"> Burgerlijke staat
+                    </label>
+                </div>
+            </div>
+            <p><br></p>
+            <p><strong>Overeenkomst:</strong></p>
+            <hr>
+            <p>Selecteer per dataonderdeel voor welke verwerkingen je toestemming geeft:</p>
+            <!-- Verwerkingen per dataonderdeel -->
+            <div class="data-processing">
+                <!-- Voornaam -->
+                <div class="data-item">
+                    <div class="data-item">
+                        <p><strong>Voornaam</strong></p>
+                        <div>
+                            <label>
+                                <input type="checkbox" name="process-firstname-approval">
+                                Uw aanvraag beoordelen en goedkeuren
+                            </label>
+                        </div>
+                        <div>
+                            <label>
+                                <input type="checkbox" name="process-firstname-account">
+                                Aanmaken en beheren van uw account
+                            </label>
+                        </div>
+                        <div>
+                            <label>
+                                <input type="checkbox" name="process-firstname-financial-overview">
+                                Overzicht financiële situatie bieden
+                            </label>
+                        </div>
+                        <div>
+                            <label>
+                                <input type="checkbox" name="process-firstname-preferences">
+                                Aanpassen abonnementen aan voorkeuren
+                            </label>
+                        </div>
+                        <div>
+                            <label>
+                                <input type="checkbox" name="process-firstname-delivery">
+                                Producten/diensten leveren
+                            </label>
+                        </div>
+                        <div>
+                            <label>
+                                <input type="checkbox" name="process-firstname-billing">
+                                Verwerken gegevens voor facturering
+                            </label>
+                        </div>
+                        <div>
+                            <label>
+                                <input type="checkbox" name="process-firstname-online-services">
+                                Registreren voor online diensten
+                            </label>
+                        </div>
+                        <div>
+                            <label>
+                                <input type="checkbox" name="process-firstname-support">
+                                Beantwoorden van vragen
+                            </label>
+                        </div>
+                        <div>
+                            <label>
+                                <input type="checkbox" name="process-firstname-inform">
+                                Informeren over wijzigingen
+                            </label>
+                        </div>
+                        <div>
+                            <label>
+                                <input type="checkbox" name="process-firstname-complaints">
+                                Behandelen van klachten
+                            </label>
+                        </div>
+                        <div>
+                            <label>
+                                <input type="checkbox" name="process-firstname-quality-training">
+                                Kwaliteits- en trainingsdoeleinden
+                            </label>
+                        </div>
+                        <div>
+                            <label>
+                                <input type="checkbox" name="process-firstname-credit-check">
+                                Kredietwaardigheid controleren
+                            </label>
+                        </div>
+                        <div>
+                            <label>
+                                <input type="checkbox" name="process-firstname-marketing">
+                                Versturen van marketingberichten
+                            </label>
+                        </div>
+                        <div>
+                            <label>
+                                <input type="checkbox" name="process-firstname-discounts">
+                                Bepalen van kortingen en aanbiedingen
+                            </label>
+                        </div>
+                        <div>
+                            <label>
+                                <input type="checkbox" name="process-firstname-reengage">
+                                Benaderen om opnieuw klant te worden
+                            </label>
+                        </div>
+                        <div>
+                            <label>
+                                <input type="checkbox" name="process-firstname-surveys">
+                                Klanttevredenheidsonderzoeken
+                            </label>
+                        </div>
+                        <div>
+                            <label>
+                                <input type="checkbox" name="process-firstname-internal-analysis">
+                                Interne analyses ter verbetering
+                            </label>
+                        </div>
+                        <div>
+                            <label>
+                                <input type="checkbox" name="process-firstname-improve-services">
+                                Diensten en producten verbeteren
+                            </label>
+                        </div>
+                        <div>
+                            <label>
+                                <input type="checkbox" name="process-firstname-ad-analysis">
+                                Analyseren voor advertentiecampagnes
+                            </label>
+                        </div>
+                        <div>
+                            <label>
+                                <input type="checkbox" name="process-firstname-personal-offers">
+                                Persoonlijke aanbiedingen doen
+                            </label>
+                        </div>
+                        <div>
+                            <label>
+                                <input type="checkbox" name="process-firstname-apps">
+                                Aanbieden via apps
+                            </label>
+                        </div>
+                        <div>
+                            <label>
+                                <input type="checkbox" name="process-firstname-cookies">
+                                Gebruik van cookies
+                            </label>
+                        </div>
+                        <div>
+                            <label>
+                                <input type="checkbox" name="process-firstname-it-security">
+                                Veilige IT-omgeving waarborgen
+                            </label>
+                        </div>
+                        <div>
+                            <label>
+                                <input type="checkbox" name="process-firstname-fraud-prevention">
+                                Fraude voorkomen en opsporen
+                            </label>
+                        </div>
+                        <div>
+                            <label>
+                                <input type="checkbox" name="process-firstname-legal-compliance">
+                                Voldoen aan wettelijke verplichtingen
+                            </label>
+                        </div>
+                        <div>
+                            <label>
+                                <input type="checkbox" name="process-firstname-admin-processing">
+                                Administratief verwerken aanmelding/opzegging
+                            </label>
+                        </div>
+                        <div>
+                            <label>
+                                <input type="checkbox" name="process-firstname-debt-assistance">
+                                Schuldhulpverlening regelen
+                            </label>
+                        </div>
+                        <div>
+                            <label>
+                                <input type="checkbox" name="process-firstname-audit">
+                                Accountantscontroles uitvoeren
+                            </label>
+                        </div>
+                        <div>
+                            <label>
+                                <input type="checkbox" name="process-firstname-merger">
+                                Verwerken bij fusie/overname
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <!-- Achternaam -->
+                <div class="data-item">
+                    <p><strong>Achternaam</strong></p>
+                    <div>
+                        <label>
+                            <input type="checkbox" name="process-firstname-approval">
+                            Uw aanvraag beoordelen en goedkeuren
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            <input type="checkbox" name="process-firstname-account">
+                            Aanmaken en beheren van uw account
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            <input type="checkbox" name="process-firstname-financial-overview">
+                            Overzicht financiële situatie bieden
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            <input type="checkbox" name="process-firstname-preferences">
+                            Aanpassen abonnementen aan voorkeuren
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            <input type="checkbox" name="process-firstname-delivery">
+                            Producten/diensten leveren
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            <input type="checkbox" name="process-firstname-billing">
+                            Verwerken gegevens voor facturering
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            <input type="checkbox" name="process-firstname-online-services">
+                            Registreren voor online diensten
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            <input type="checkbox" name="process-firstname-support">
+                            Beantwoorden van vragen
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            <input type="checkbox" name="process-firstname-inform">
+                            Informeren over wijzigingen
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            <input type="checkbox" name="process-firstname-complaints">
+                            Behandelen van klachten
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            <input type="checkbox" name="process-firstname-quality-training">
+                            Kwaliteits- en trainingsdoeleinden
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            <input type="checkbox" name="process-firstname-credit-check">
+                            Kredietwaardigheid controleren
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            <input type="checkbox" name="process-firstname-marketing">
+                            Versturen van marketingberichten
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            <input type="checkbox" name="process-firstname-discounts">
+                            Bepalen van kortingen en aanbiedingen
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            <input type="checkbox" name="process-firstname-reengage">
+                            Benaderen om opnieuw klant te worden
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            <input type="checkbox" name="process-firstname-surveys">
+                            Klanttevredenheidsonderzoeken
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            <input type="checkbox" name="process-firstname-internal-analysis">
+                            Interne analyses ter verbetering
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            <input type="checkbox" name="process-firstname-improve-services">
+                            Diensten en producten verbeteren
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            <input type="checkbox" name="process-firstname-ad-analysis">
+                            Analyseren voor advertentiecampagnes
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            <input type="checkbox" name="process-firstname-personal-offers">
+                            Persoonlijke aanbiedingen doen
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            <input type="checkbox" name="process-firstname-apps">
+                            Aanbieden via apps
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            <input type="checkbox" name="process-firstname-cookies">
+                            Gebruik van cookies
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            <input type="checkbox" name="process-firstname-it-security">
+                            Veilige IT-omgeving waarborgen
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            <input type="checkbox" name="process-firstname-fraud-prevention">
+                            Fraude voorkomen en opsporen
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            <input type="checkbox" name="process-firstname-legal-compliance">
+                            Voldoen aan wettelijke verplichtingen
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            <input type="checkbox" name="process-firstname-admin-processing">
+                            Administratief verwerken aanmelding/opzegging
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            <input type="checkbox" name="process-firstname-debt-assistance">
+                            Schuldhulpverlening regelen
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            <input type="checkbox" name="process-firstname-audit">
+                            Accountantscontroles uitvoeren
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            <input type="checkbox" name="process-firstname-merger">
+                            Verwerken bij fusie/overname
+                        </label>
+                    </div>
+                </div>
+            </div>
+                
+                <!-- Straat -->
+                <div class="data-item">
+                    <p><strong>Straat</strong></p>
+                    <!-- Verwerkingen voor Straat -->
+                    <div>
+                        <label>
+                            <input type="checkbox" name="process-street-delivery">
+                            Producten/diensten leveren
+                        </label>
+                    </div>
+                    <!-- ... -->
+                </div>
+                <!-- Postcode -->
+                <div class="data-item">
+                    <p><strong>Postcode</strong></p>
+                    <!-- Verwerkingen voor Postcode -->
+                    <div>
+                        <label>
+                            <input type="checkbox" name="process-postcode-delivery">
+                            Producten/diensten leveren
+                        </label>
+                    </div>
+                    <!-- ... -->
+                </div>
+                <!-- Woonplaats -->
+                <div class="data-item">
+                    <p><strong>Woonplaats</strong></p>
+                    <!-- Verwerkingen voor Woonplaats -->
+                    <div>
+                        <label>
+                            <input type="checkbox" name="process-city-delivery">
+                            Producten/diensten leveren
+                        </label>
+                    </div>
+                    <!-- ... -->
+                </div>
+                <!-- Geboortedatum -->
+                <div class="data-item">
+                    <p><strong>Geboortedatum</strong></p>
+                    <!-- Verwerkingen voor Geboortedatum -->
+                    <div>
+                        <label>
+                            <input type="checkbox" name="process-birthdate-approval">
+                            Uw aanvraag beoordelen en goedkeuren
+                        </label>
+                    </div>
+                    <!-- ... -->
+                </div>
+                <!-- Telefoonnummer -->
+                <div class="data-item">
+                    <p><strong>Telefoonnummer</strong></p>
+                    <div>
+                        <label>
+                            <input type="checkbox" name="process-phone-support">
+                            Beantwoorden van vragen
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            <input type="checkbox" name="process-phone-marketing">
+                            Versturen van marketingberichten
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            <input type="checkbox" name="process-phone-reengage">
+                            Benaderen om opnieuw klant te worden
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            <input type="checkbox" name="process-phone-quality-training">
+                            Kwaliteits- en trainingsdoeleinden
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            <input type="checkbox" name="process-phone-fraud-prevention">
+                            Fraude voorkomen en opsporen
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            <input type="checkbox" name="process-phone-legal-compliance">
+                            Voldoen aan wettelijke verplichtingen
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            <input type="checkbox" name="process-phone-audit">
+                            Accountantscontroles uitvoeren
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            <input type="checkbox" name="process-phone-admin-processing">
+                            Administratief verwerken aanmelding/opzegging
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            <input type="checkbox" name="process-phone-surveys">
+                            Klanttevredenheidsonderzoeken uitvoeren
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            <input type="checkbox" name="process-phone-complaints">
+                            Behandelen van klachten
+                        </label>
+                    </div>
+                </div>
+                
+                <!-- Verzamelinkomen -->
+                <div class="data-item">
+                    <p><strong>Verzamelinkomen</strong></p>
+                    <div>
+                        <label>
+                            <input type="checkbox" name="process-income-approval">
+                            Uw aanvraag beoordelen en goedkeuren
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            <input type="checkbox" name="process-income-credit-check">
+                            Kredietwaardigheid controleren
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            <input type="checkbox" name="process-income-discounts">
+                            Bepalen van kortingen en aanbiedingen
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            <input type="checkbox" name="process-income-personal-offers">
+                            Persoonlijke aanbiedingen doen
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            <input type="checkbox" name="process-income-internal-analysis">
+                            Interne analyses ter verbetering
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            <input type="checkbox" name="process-income-improve-services">
+                            Diensten en producten verbeteren
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            <input type="checkbox" name="process-income-ad-analysis">
+                            Analyseren voor advertentiecampagnes
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            <input type="checkbox" name="process-income-marketing">
+                            Versturen van marketingberichten
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            <input type="checkbox" name="process-income-legal-compliance">
+                            Voldoen aan wettelijke verplichtingen
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            <input type="checkbox" name="process-income-fraud-prevention">
+                            Fraude voorkomen en opsporen
+                        </label>
+                    </div>
+                </div>
+                <!-- Nationaliteit -->
+                <div class="data-item">
+                    <p><strong>Nationaliteit</strong></p>
+                    <!-- Verwerkingen voor Nationaliteit -->
+                    <div>
+                        <label>
+                            <input type="checkbox" name="process-nationality-legal-compliance">
+                            Voldoen aan wettelijke verplichtingen
+                        </label>
+                    </div>
+                    <!-- ... -->
+                </div>
+                <!-- Burgerlijke staat -->
+                <div class="data-item">
+                    <p><strong>Burgerlijke staat</strong></p>
+                    <!-- Verwerkingen voor Burgerlijke staat -->
+                    <div>
+                        <label>
+                            <input type="checkbox" name="process-marital-status-personal-offers">
+                            Persoonlijke aanbiedingen doen
+                        </label>
+                    </div>
+                    <!-- ... -->
+                </div>
+            
+
+
+            <p><br></p>
+            <!-- Toestemming voor combineren van gegevens per doel -->
+            <p><strong>Combineren van gegevens:</strong></p>
+            <p>Selecteer voor welke doeleinden je toestemming geeft om je gegevens te combineren:</p>
+            <div>
+                <div>
+                    <label>
+                        <input type="checkbox" name="combine-personal-offers">
+                        Persoonlijke aanbiedingen doen
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <input type="checkbox" name="combine-ad-analysis">
+                        Analyseren voor advertentiecampagnes
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <input type="checkbox" name="combine-internal-analysis">
+                        Interne analyses ter verbetering
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <input type="checkbox" name="combine-marketing">
+                        Versturen van marketingberichten
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <input type="checkbox" name="combine-discounts">
+                        Bepalen van kortingen en aanbiedingen
+                    </label>
+                </div>
+            </div>
+            <p><br></p>
+            <!-- Retentie en opslaginformatie -->
+            <p><strong>Retentie en opslag:</strong></p>
+            <div>
+                <p>Gepersonaliseerde aanbiedingen: Retentie 1 jaar, Opslag in EU en VS</p>
+                <p>Analyseren voor advertentiecampagnes: Retentie 1 jaar, Opslag in EU en VS</p>
+                <p>Interne analyses ter verbetering: Retentie 5 jaar, Opslag in EU</p>
+            </div>
+            <p><br></p>
+            <!-- Link naar privacyvoorwaarden -->
+            <p>Uw data wordt gedeeld volgens onze <a href="privacyverklaring.html" target="_blank">privacyvoorwaarden</a>.</p>
+            <!-- Buttons voor accepteren of annuleren -->
+            <div class="button-container-wallet">
+                <button class="cancel-button">Stoppen</button>
+                <button class="accept-button">Akkoord</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+        
+        
+        
+        
+
+
+        <form>
+            <div class="question-block">
+                <div>
+                    <p class="question">Denk je dat dit een praktische manier is om datadeelverzoeken weer te geven?</p>
+                    <div class="divider-below-question"></div>
+                </div>
+                <label class="custom-checkbox">
+                    <input type="checkbox" name="practical-display" value="ja" class="exclusive">
+                    <span class="checkbox-box"></span>
+                    <div class="checkbox-text">Ja</div>
+                </label>
+                <label class="custom-checkbox">
+                    <input type="checkbox" name="practical-display" value="nee" class="exclusive">
+                    <span class="checkbox-box"></span>
+                    <div class="checkbox-text">Nee</div>
+                </label>
+            </div>
+
+
+            <div class="question-block">
+                <div>
+                    <p class="question">Denk je dat mensen de implicaties kunnen overzien?</p>
+                    <div class="divider-below-question"></div>
+                </div>
+                <label class="custom-checkbox">
+                    <input type="checkbox" name="oversee-implications" value="ja" class="exclusive">
+                    <span class="checkbox-box"></span>
+                    <div class="checkbox-text">Ja</div>
+                </label>
+                <label class="custom-checkbox">
+                    <input type="checkbox" name="oversee-implications" value="nee" class="exclusive">
+                    <span class="checkbox-box"></span>
+                    <div class="checkbox-text">Nee</div>
+                </label>
+            </div>
+        </form>
+    </div>
+    <div class="button-container">
+        <button class="prev">Terug</button>
+        <button class="next">Volgende</button>
+    </div>
+</section>
+
+<!-- Stap 5: Beïnvloeding -->
+<section id="step-5" class="step">
+    <div class="subsection">
+        <h1>Beïnvloeding</h1>
+        <p>Bekijk onderstaand schermen:</p>
+
+        <div class="layout-wrapper">
+
+            <div class="discount-screen">
+                <h2>Black Friday!<br>Deel nu je gegevens voor alle doelen en ontvang 40% korting!</h2>
+                <!-- QR-code SVG -->
+                <div class="qr-code">
+                    <!-- Echte QR-code SVG -->
+                    <svg width="200" height="200" viewBox="0 0 200 200">
+                        <!-- Vervang dit met de SVG-code van je QR-code -->
+                        <!-- Hier is een voorbeeld QR-code die 'https://www.example.com' encodeert -->
+                        <rect width="200" height="200" fill="#FFFFFF"/>
+                        <path d="M0,0h50v50h-50z M150,0h50v50h-50z M0,150h50v50h-50z M50,50h50v50h-50z M100,100h50v50h-50z" fill="#000000"/>
+                        <!-- Voeg hier meer paden toe om de volledige QR-code te vormen -->
+                    </svg>
+                </div>
+            </div>
+
+
+            <div class="phone">
+                <div class="phone-screen">
+                    <div class="wallet-screen" id="scrollable-wallet">
+                        <!-- Bestaande telefooninhoud -->
+                        <p><strong>Wil je de volgende data delen met Hypotheek kiezer?</strong></p>
+                        <hr>
+                        <ul>
+                            <li>Voornaam</li>
+                            <li>Achternaam</li>
+                            <li>Straat</li>
+                            <li>Postcode</li>
+                            <li>Woonplaats</li>
+                            <li>Geboortedatum</li>
+                            <li>Telefoonnummer</li>
+                            <li>Verzamelinkomen</li>
+                            <li>Nationaliteit</li>
+                            <li>Burgerlijke staat</li>
+                        </ul>
+                        <p><br></p>
+                        <p><strong>Overeenkomst:</strong></p>
+                        <hr>
+                        <p>Uw data wordt gebruikt voor de volgende doelen:</p>
+                        <hr>
+                        <!-- Doel 1 -->
+                        <ul>
+                            <div>
+                                <label>
+                                    <input type="checkbox" name="offers-firstname"> Aanbiedingen
+                                </label>
+                            </div>
+                            <div>
+                                <label>
+                                    <input type="checkbox" name="offers-lastname"> Personalisatie
+                                </label>
+                            </div>
+                            <div>
+                                <label>
+                                    <input type="checkbox" name="offers-location"> Gebruiker beter bedienen
+                                </label>
+                            </div>
+                        </ul>
+                        <hr>
+                        <p>Uw data wordt gedeeld volgens onze <a href="privacyverklaring.html" target="_blank">privacyvoorwaarden</a>.</p>
+                        <div class="button-container-wallet">
+                            <button class="cancel-button">Stoppen</button>
+                            <button class="accept-button">Akkoord</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        
+
+        <form>
+
+            <div class="question-block">
+                <div>
+                    <p class="question">Denk je dat het aanbieden van korting ervoor zorgt dat mensen sneller genegen zijn om data te delen?</p>
+                    <div class="divider-below-question"></div>
+                </div>
+                <!-- Opties: Ja en Nee -->
+                <label class="custom-checkbox">
+                    <input type="checkbox" name="discount-influence" value="ja" class="exclusive">
+                    <span class="checkbox-box"></span>
+                    <div class="checkbox-text">Ja</div>
+                </label>
+                <label class="custom-checkbox">
+                    <input type="checkbox" name="discount-influence" value="nee" class="exclusive">
+                    <span class="checkbox-box"></span>
+                    <div class="checkbox-text">Nee</div>
+                </label>
+            </div>
+
+
+
+            <div class="question-block">
+                <div>
+                    <p class="question">Is het duidelijk welke data je verplicht moet delen en welke data optioneel is?</p>
+                    <div class="divider-below-question"></div>
+                </div>
+                <label class="custom-checkbox">
+                    <input type="checkbox" name="loyalty-data-clear" value="ja" class="exclusive">
+                    <span class="checkbox-box"></span>
+                    <div class="checkbox-text">Ja</div>
+                </label>
+                <label class="custom-checkbox">
+                    <input type="checkbox" name="loyalty-data-clear" value="nee" class="exclusive">
+                    <span class="checkbox-box"></span>
+                    <div class="checkbox-text">Nee</div>
+                </label>
+            </div>
+
+          
+
+            <div class="question-block">
+                <div>
+                    <p class="question">Waar gaat verplichte data over?</p>
+                    <div class="divider-below-question"></div>
+                </div>
+                <label class="custom-checkbox">
+                    <input type="checkbox" name="implications-weight" value="minder" >
+                    <span class="checkbox-box"></span>
+                    <div class="checkbox-text">Data die volgens de wet moet worden gedeeld</div>
+                </label>
+                <label class="custom-checkbox">
+                    <input type="checkbox" name="implications-weight" value="meer" class="exclusive">
+                    <span class="checkbox-box"></span>
+                    <div class="checkbox-text">Data die volgens de doelen die door de organisatie worden vermeld verplicht is</div>
+                </label>
+                <label class="custom-checkbox">
+                    <input type="checkbox" name="implications-weight" value="gelijk" class="exclusive">
+                    <span class="checkbox-box"></span>
+                    <div class="checkbox-text">Data die je moet delen anders kun je de dienst niet gebruiken</div>
+                </label>
+            </div>
+
+          
+        </form>
+    </div>
+    <div class="button-container">
+        <button class="prev">Terug</button>
+        <button class="next">Volgende</button>
+    </div>
+</section>
+
+
+<!-- Stap 6: Expliciete toestemming door gebruiker-->
+<section id="step-6" class="step">
+    <div class="subsection">
+        <h1>Expliciete toestemming door de gebruiker: Praktische implicaties en gedragspsychologie</h1>
+
+
+        <p>De Algemene Verordening Gegevensbescherming (AVG) biedt organisaties de mogelijkheid om persoonsgegevens te verwerken, 
+            mits zij zich kunnen beroepen op een wettelijke grondslag. Eén van deze grondslagen is het gerechtvaardigd belang.</p>
+        
+        
+        
+        <div class="question-block">
+            <div>
+                <p class="question">Is een commercieel belang volgens de AVG een gerechtvaardigd belang?</p>
+                <div class="divider-below-question"></div>
+            </div>
+            <!-- Yes/No options -->
+            <label class="custom-checkbox">
+                <input type="checkbox" name="commercial-legitimate" value="ja" class="exclusive" onchange="showAvgExplanation()">
+                <span class="checkbox-box"></span>
+                <div class="checkbox-text">Ja</div>
+            </label>
+            <label class="custom-checkbox">
+                <input type="checkbox" name="commercial-legitimate" value="nee" class="exclusive" onchange="showAvgExplanation()">
+                <span class="checkbox-box"></span>
+                <div class="checkbox-text">Nee</div>
+            </label>
+        </div>
+
+        <div id="avg-explanation" style="display: none;">
+            <p>
+                Het Europese Hof heeft bevestigd dat commerciële belangen, zoals marketingactiviteiten, onder bepaalde omstandigheden kunnen worden aangemerkt als een gerechtvaardigd belang. 
+                Dit stelt organisaties in staat om persoonsgegevens te verwerken voor dergelijke doeleinden, mits de verwerking strikt noodzakelijk is en de rechten en vrijheden van betrokkenen niet zwaarder wegen dan het commerciële belang. 
+                Daarnaast moeten betrokkenen redelijkerwijs kunnen verwachten dat hun gegevens op deze manier worden gebruikt.
+            </p>
+        </div>
+        <div class="divider-below-question"></div>
+
+
+        <p>Definitie van toestemming (Artikel 4, lid 11): <br><br>
+
+            "‘toestemming’ van de betrokkene: elke vrije, specifieke, geïnformeerde en ondubbelzinnige wilsuiting waarmee de betrokkene door middel van een verklaring of een ondubbelzinnige actieve handeling aanvaardt dat hem betreffende persoonsgegevens worden verwerkt."
+            <br>
+            <br>
+            De AVG schrijft dus voor dat toestemming:
+            <br>
+            Vrijwillig moet zijn (zonder dwang of afhankelijkheid van een andere dienst). <br>
+            Specifiek moet zijn voor een duidelijk omschreven doel. <br>
+            Geïnformeerd moet zijn (met volledige en begrijpelijke uitleg over wat er met de gegevens gebeurt). <br>
+            Ondubbelzinnig moet blijken uit een actieve keuze van de gebruiker. <br>
+        </p>
+
+        <form>
+
+        <div class="question-block">
+            <div>
+                <p class="question">Hoe vaak lees je privacyvoorwaarden voordat je akkoord geeft?</p>
+                <div class="divider-below-question"></div>
+            </div>
+            <label class="custom-checkbox">
+                <input type="checkbox" name="read-privacy-terms" value="altijd" class="exclusive">
+                <span class="checkbox-box"></span>
+                <div class="checkbox-text">Altijd</div>
+            </label>
+            <label class="custom-checkbox">
+                <input type="checkbox" name="read-privacy-terms" value="soms" class="exclusive">
+                <span class="checkbox-box"></span>
+                <div class="checkbox-text">Soms</div>
+            </label>
+            <label class="custom-checkbox">
+                <input type="checkbox" name="read-privacy-terms" value="zelden" class="exclusive">
+                <span class="checkbox-box"></span>
+                <div class="checkbox-text">Zelden</div>
+            </label>
+            <label class="custom-checkbox">
+                <input type="checkbox" name="read-privacy-terms" value="nooit" class="exclusive">
+                <span class="checkbox-box"></span>
+                <div class="checkbox-text">Nooit</div>
+            </label>
+        </div>
+
+        <div class="question-block">
+            <div>
+                <p class="question">Denk je dat mensen die een overeenkomst voor het delen en verwerken van data beoordelen altijd de tijd en aandacht hebben om deze door te lezen?</p>
+                <div class="divider-below-question"></div>
+            </div>
+            <label class="custom-checkbox">
+                <input type="checkbox" name="read-time" value="ja" class="exclusive">
+                <span class="checkbox-box"></span>
+                <div class="checkbox-text">Ja</div>
+            </label>
+            <label class="custom-checkbox">
+                <input type="checkbox" name="read-time" value="nee" class="exclusive">
+                <span class="checkbox-box"></span>
+                <div class="checkbox-text">Nee</div>
+            </label>
+        </div>
+
+        <div class="question-block">
+            <div>
+                <p class="question">Denk je dat mensen die een overeenkomst voor het delen en verwerken van data beoordelen de voorwaardes en doelen begrijpen?</p>
+                <div class="divider-below-question"></div>
+            </div>
+            <label class="custom-checkbox">
+                <input type="checkbox" name="understand-terms" value="ja" class="exclusive">
+                <span class="checkbox-box"></span>
+                <div class="checkbox-text">Ja</div>
+            </label>
+            <label class="custom-checkbox">
+                <input type="checkbox" name="understand-terms" value="nee" class="exclusive">
+                <span class="checkbox-box"></span>
+                <div class="checkbox-text">Nee</div>
+            </label>
+        </div>
+
+        <div class="question-block">
+            <div>
+                <p class="question">Denk je dat mensen altijd de implicaties begrijpen die bij deze doelen horen?</p>
+                <div class="divider-below-question"></div>
+            </div>
+            <label class="custom-checkbox">
+                <input type="checkbox" name="understand-implications" value="ja-volledig" class="exclusive">
+                <span class="checkbox-box"></span>
+                <div class="checkbox-text">Ja, volledig</div>
+            </label>
+            <label class="custom-checkbox">
+                <input type="checkbox" name="understand-implications" value="nee" class="exclusive">
+                <span class="checkbox-box"></span>
+                <div class="checkbox-text">Nee</div>
+            </label>
+        </div>
+
+      <!--   <div class="question-block">
+            <div>
+                <p class="question">Denk je dat het specificeren van de doelen ervoor zorgt dat dan ook de implicaties volledig duidelijk zijn?</p>
+                <div class="divider-below-question"></div>
+            </div>
+            <label class="custom-checkbox">
+                <input type="checkbox" name="specifying-goals" value="ja-volledig" class="exclusive">
+                <span class="checkbox-box"></span>
+                <div class="checkbox-text">Ja, volledig</div>
+            </label>
+            <label class="custom-checkbox">
+                <input type="checkbox" name="specifying-goals" value="nee" class="exclusive">
+                <span class="checkbox-box"></span>
+                <div class="checkbox-text">Nee</div>
+            </label>
+        </div> -->
+
+        <div class="question-block">
+            <div>
+                <p class="question" id="behavioral-barriers-question">
+                    Welke gedragspsychologische belemmeringen kunnen het geven van expliciete toestemming beïnvloeden?
+                </p>
+                <div class="divider-below-question"></div>
+            </div>
+            <label class="custom-checkbox">
+                <input type="checkbox" name="behavioral-barriers" value="cognitive-load">
+                <span class="checkbox-box"></span>
+                <div class="checkbox-text">
+                    Cognitieve belasting: Bij digitale interacties worden gebruikers vaak overweldigd door de hoeveelheid keuzes en verplichtingen, wat leidt tot automatische of ondoordachte beslissingen (bijvoorbeeld snel klikken op "akkoord").
+                </div>
+            </label>
+            <label class="custom-checkbox">
+                <input type="checkbox" name="behavioral-barriers" value="information-asymmetry">
+                <span class="checkbox-box"></span>
+                <div class="checkbox-text">
+                    Informatie-asymmetrie: Gebruikers hebben doorgaans beperkte kennis van hoe gegevens daadwerkelijk worden verwerkt en welke risico's eraan verbonden zijn. Abstracte begrippen zoals "data-analyse", "profilering" of "gegevensdeling" zijn vaak moeilijk te begrijpen zonder aanvullende uitleg.
+                </div>
+            </label>
+            <label class="custom-checkbox">
+                <input type="checkbox" name="behavioral-barriers" value="nudging" >
+                <span class="checkbox-box"></span>
+                <div class="checkbox-text">
+                    Beïnvloeding: Gebruikers kunnen gevoelig zijn voor dark patterns en nudging. Websites en applicaties kunnen psychologische nudging-technieken toepassen om gebruikers naar een bepaalde keuze te sturen, wat de vrijwilligheid kan beïnvloeden.
+                </div>
+            </label>
+            <label class="custom-checkbox">
+                <input type="checkbox" name="behavioral-barriers" value="implication-understanding" >
+                <span class="checkbox-box"></span>
+                <div class="checkbox-text">
+                    Begrip van implicaties: Het combineren van gegevens, delen met derden, en opslag buiten de EU zijn concepten die moeilijk te doorgronden zijn voor de gemiddelde gebruiker.
+                </div>
+            </label>
+            <label class="custom-checkbox">
+                <input type="checkbox" name="behavioral-barriers" value="access-requirement" >
+                <span class="checkbox-box"></span>
+                <div class="checkbox-text">
+                    Als toestemming een vereiste is om toegang te krijgen tot een dienst, kan het moeilijk worden geacht vrijwillig te zijn.
+                </div>
+            </label>
+        </div>
+        
+
+        
+        <div class="question-block">
+            <div>
+                <p class="question" id="user-support-question">
+                    Denk je dat het nuttig is om de gebruiker te ondersteunen bij het maken van keuzes en overzien van de implicaties?
+                </p>
+                <div class="divider-below-question"></div>
+            </div>
+           
+            <label class="custom-checkbox">
+                <input type="checkbox" name="user-support" value="user-friendly-interfaces" class="exclusive">
+                <span class="checkbox-box"></span>
+                <div class="checkbox-text">Ja</div>
+            </label>
+            <label class="custom-checkbox">
+                <input type="checkbox" name="user-support" value="transparency-rules" class="exclusive">
+                <span class="checkbox-box"></span>
+                <div class="checkbox-text">Nee</div>
+            </label>
+        </div>
+      
+          
+        </form>
+    </div>
+    <div class="button-container">
+        <button class="prev">Terug</button>
+        <button class="next">Volgende</button>
+    </div>
+</section>
+
+
+
+<!-- Stap 7: Einde demo -->
+<section id="step-7" class="step">
+    <div class="subsection">
+        <h1>Einde demo</h1>
+        <hr>
+        <h3>Eind vragenlijst</h3>
+        <p>Welke oplossingen denk jij dat er mogelijk zijn?</p>
+    </div>
+    <div class="button-container">
+        <button class="prev">Terug</button>
+    </div>
+</section>
+
+<script src="demo.js"></script>
+<script>
+    function showAvgExplanation() {
+        document.getElementById('avg-explanation').style.display = 'block';
+    }
+</script>
+</body>
+</html>

@@ -12,15 +12,16 @@
 
     <section id="step-1" class="step blue-theme">
         <div class="subsection">
+            <div class="content-section">
             <h1>Intro demo</h1>
             <hr>
             <h4><strong>Europese Zorgverzekeringskaart ophalen en delen</strong></h4>
             <p>
-                Wanneer Willeke op vakantie gaat binnen de Europese Unie, is het belangrijk om haar Europese Zorgverzekeringskaart 
+                Wanneer Willeke op vakantie gaat binnen Europa, is het belangrijk om haar Europese Zorgverzekeringskaart 
                 (European Health Insurance Card – EHIC) bij zich te hebben. Met deze kaart kan zij tegen dezelfde voorwaarden 
                 als de inwoners van het land waar zij verblijft, medische zorg ontvangen.
                 <br><br>
-                Door gebruik te maken van geverifieerde digitale bewijzen zoals de EHIC in combinatie met een handelingsomgeving, 
+                Door gebruik te maken van geverifieerde digitale bewijzen zoals de EHIC in combinatie met een wallet, 
                 kan Willeke gemakkelijk haar zorgverzekeringskaart ophalen en deze veilig delen met zorgaanbieders in het buitenland.
                 <br><br>
                 In deze demo tonen we hoe het ophalen van Willeke's EHIC bij haar zorgverzekeraar en het delen met een zorgaanbieder
@@ -32,8 +33,10 @@
                 De stappen in de demo kunt u bedienen met onderstaande knoppen.
             </p>
                
-            <hr>
+          
+            </div>
         </div>
+        <hr>
         <div class="button-container">
             <button class="next standard-button">Volgende stap <i class="fas fa-arrow-right"></i></button>
         </div>
@@ -59,10 +62,12 @@
                 
                 <div class="login-box">
                     <h3 class="login-section-title">Inloggen met wallet</h3>
-                    <p class="login-instruction">Scan de QR-code met uw handelingsomgeving om in te loggen</p>
+                    <p class="login-instruction">Scan de QR-code met uw wallet om in te loggen</p>
                     <div class="qr-container">
                         <div class="qr-code">
-                            <img src="https://api.qrserver.com/v1/create-qr-code/?data=%7B%22login%22%3A%22true%22%2C%22service%22%3A%22Mijn%20zorgverzekeraar%22%2C%22id%22%3A%22NL_KVK_27378698%22%7D&size=200x200" alt="QR Code voor wallet login">
+                            <img 
+                                src="https://api.qrserver.com/v1/create-qr-code/?data=%7B%22type%22%3A%22verifier%22%2C%22requester%22%3A%22Mijn%20Zorgverzekeraar%22%2C%22reason%22%3A%22Inloggen%20website%22%2C%22rdfcv%22%3A%5B%22bsn%22%5D%2C%22a%22%3A%22w%22%7D&size=300x300"
+                                alt="QR Code voor Inloggen Mijn Zorgverzekeraar">
                         </div>
                      
                     </div>
@@ -182,8 +187,9 @@
                             </div>
                             <div class="content-col">
                                 <div class="qr-code">
-                                    <img src="https://api.qrserver.com/v1/create-qr-code/?data=%7B%20%22Issuer%22%3A%20true%2C%20%22name%22%3A%20%22EHIC%20pas%22%2C%20%22issuedBy%22%3A%20%22Mijn%20zorgverzekeraar%22%2C%20%22LEID%22%3A%20%22NL_KVK_27378698%22%2C%20%22Name%22%3A%20%22de%20Bruijn%22%2C%20%22Given%20name%22%3A%20%22Willeke%20Liselotte%22%2C%20%22Date%20of%20birth%22%3A%20%2210-03-1980%22%2C%20%22Personal%20identification%20number%22%3A%20%22999999990%22%2C%20%22Identification%20number%20of%20the%20institution%22%3A%20%22123456789NLZORG%22%2C%20%22Identification%20number%20of%20the%20card%22%3A%20%22EHIC-NL-20230784522%22%2C%20%22Expiry%20date%22%3A%20%2201-01-2026%22%2C%20%22Attestation%20Trust%20Type%22%3A%20%22PuB-EAA%22%2C%20%22rdfci%22%3A%20%5B%5D%20%7D&amp;size=280x280" alt="QR Code for EHIC pas">
-                                </div>
+                                    <img src="https://api.qrserver.com/v1/create-qr-code/?data=%7B%22Issuer%22%3Atrue%2C%22name%22%3A%22EHIC%20pas%22%2C%22issuedBy%22%3A%22Mijn%20Zorgverzekeraar%22%2C%22LEID%22%3A%22NL_KVK_27378698%22%2C%22Name%22%3A%22de%20Bruijn%22%2C%22Given%20name%22%3A%22Willeke%20Liselotte%22%2C%22Date%20of%20birth%22%3A%2210-03-1980%22%2C%22Personal%20identification%20number%22%3A%22999999990%22%2C%22Identification%20number%20of%20the%20institution%22%3A%221234-VWS%22%2C%22Identification%20number%20of%20the%20card%22%3A%22808080808080808080%22%2C%22Expiry%20date%22%3A%2201-01-2026%22%2C%22Attestation%20Trust%20Type%22%3A%22PuB-EAA%22%2C%22rdfci%22%3A%5B%5D%7D&size=280x280" alt="QR Code for EHIC pas">
+                                  </div>
+                                  
                                 <p class="image-caption">Scan de QR-code met je wallet app</p>
                             </div>
                         </div>
@@ -209,48 +215,38 @@
 
     <section id="step-4" class="step blue-theme">
         <div class="subsection">
+            <div class="content-section">
             <h1>Op reis in Europa</h1>
             <hr>
-            <h4><strong>Willeke's EHIC is opgeslagen in haar wallet</strong></h4>
+            <h4><strong></strong></h4>
             <p>
-                Willeke is nu op vakantie in Duitsland en heeft haar Europese Zorgverzekeringskaart bij de hand in haar digitale wallet.
+                Willeke's Europese zorgpas is opgeslagen in haar wallet. Ze gaat op vakantie naar Berlijn en heeft haar Europese Zorgpas bij de hand in haar digitale wallet.
+                <br>
+                Wanneer zij medische zorg nodig heeft, kan Willeke haar zorgpas snel en veilig delen met zorgaanbieders.
                 <br><br>
-                Wanneer zij medische zorg nodig heeft, kan Willeke haar EHIC snel en veilig delen met zorgaanbieders.
-                <br><br>
-                In haar wallet ziet Willeke de volgende informatie:
+                
             </p>
 
-            <div class="ehic-card">
-                <div class="ehic-header">
-                    <img src="https://api.qrserver.com/v1/create-qr-code/?data=placeholder&size=50x50" alt="Small QR">
-                    <div>
-                        <h3>Europese Zorgverzekeringskaart</h3>
-                        <p>Zorgverzekeraar Nederland</p>
-                    </div>
-                </div>
-                <div class="ehic-details">
-                    <p><strong>Naam:</strong> Willeke Liselotte de Bruijn</p>
-                    <p><strong>Geboortedatum:</strong> 23-05-1990</p>
-                    <p><strong>Kaartnummer:</strong> NL 3691284751</p>
-                    <p><strong>Geldig tot:</strong> 15-10-2025</p>
-                </div>
+            <div class="info-image">
+                <img src="images/van-germany.png" alt="Reis naar Duitsland" class="illustration">
             </div>
-            <hr>
-            
+ 
+         
         </div>
+        </div>
+        <hr>
         <div class="button-container">
             <button class="prev standard-button"><i class="fas fa-arrow-left"></i> Vorige stap</button>
             <button class="next standard-button">Volgende stap <i class="fas fa-arrow-right"></i></button>
         </div>
     </section>
 
-    <section id="step-5" class="step">
+    <section id="step-5" class="step blue-theme">
         <div class="subsection">
-            <div class="logo-container" id="logo-container-doctor">
-                <h1>Praxis Dr. Müller - Berlijn</h1>
-            </div>
+            <div class="content-section">
+            <h1>Naar de dokter in Berlijn</h1>
             <hr>
-            <h4><strong>Willeke deelt haar EHIC met de zorgaanbieder</strong></h4>
+            <h4><strong>Willeke deelt haar zorgpas met de zorgaanbieder</strong></h4>
             <p>
                 Willeke is bij een arts in Duitsland en moet haar verzekeringsbewijs tonen. In plaats van een papieren kaart kan zij
                 haar digitale EHIC delen.
@@ -258,14 +254,23 @@
                 De receptionist vraagt Willeke om haar verzekeringsbewijs te tonen en biedt haar een QR-code aan die ze kan scannen
                 om haar gegevens te delen:
             </p>
-            <div class="doctor-container">
-                <div class="qr-code">
-                    <img src="https://api.qrserver.com/v1/create-qr-code/?data=%7B%22type%22%3A%22verifier%22%2C%22requestedCard%22%3A%22EHIC%20pas%22%2C%22requester%22%3A%22Praxis%20Dr.%20M%C3%BCller%20-%20Berlijn%22%2C%22org-id%22%3A%22DE-123456789%22%2C%22reason%22%3A%22EHIC%22%2C%22rdfcv%22%3A%5B%22EHIC%20pas%22%5D%2C%22a%22%3A%22w%22%7D&amp;size=300x300" alt="QR Code for EHIC pas Verifier">
+            
+            
+                <div class="content-grid">
+                    <div class="content-col-center">
+                        <div class="info-image">
+                            <img src="images/doctor.jpg" alt="Dokter" class="illustration">
+                        </div>
+                    </div>
+                    <div class="content-col-center">
+                        <div class="qr-code">
+                            <img src="https://api.qrserver.com/v1/create-qr-code/?data=%7B%20%22type%22%3A%20%22verifier%22%2C%20%22requestedCard%22%3A%20%22EHIC%20pas%22%2C%20%22requester%22%3A%20%22Praxis%20Dr.%20M%C3%BCller%20-%20Berlijn%22%2C%20%22org-id%22%3A%20%22DE-123456789%22%2C%20%22reason%22%3A%20%22EHIC%20check%22%2C%20%22rdfcv%22%3A%20%5B%22EHIC%20pas%22%5D%2C%20%22a%22%3A%20%22w%22%20%7D&size=300x300" alt="QR Code for EHIC pas Verifier">
+                        </div>
+                    </div>
                 </div>
             </div>
-            <p>
-                Willeke scant bovenstaande QR-code <strong>met haar handelingsomgeving</strong> om haar EHIC-gegevens te delen met de zorgaanbieder.
-            </p>
+           
+            
             <hr>
         </div>
         <div class="button-container">
@@ -276,23 +281,38 @@
 
     <section id="step-6" class="step blue-theme">
         <div class="subsection">
-            <h1>Einde demo</h1>
+            <h1>Einde Demo</h1>
             <hr>
-            <h4><strong>Ophalen en delen van EHIC met wallet afgerond</strong></h4>
+            <h4><strong>Ophalen en delen van EHIC met wallet afgerond</strong></h4><br>
             <p>
                 Het proces rondom het ophalen en delen van Willeke's Europese Zorgverzekeringskaart is afgerond.
                 <br><br>
-                De Duitse zorgaanbieder heeft Willeke's verzekeringsinformatie ontvangen en kan automatisch valideren of de EHIC echt is en daadwerkelijk is uitgegeven door haar zorgverzekeraar.
-                <br><br>
-                Willeke's EHIC blijft beschikbaar in haar wallet onder 'Mijn digitale bewijzen'. De acties van ophalen en delen zijn zichtbaar onder 'Mijn activiteiten'.
-                <br><br>
+    
+                <i class="fas fa-check-circle success-icon"></i> Willeke's EHIC is succesvol opgehaald en gedeeld<br>
+                <i class="fas fa-check-circle success-icon"></i> De Duitse zorgaanbieder kan automatisch valideren of de EHIC echt is<br>
+                <i class="fas fa-check-circle success-icon"></i> Willeke's EHIC blijft beschikbaar in haar wallet onder 'Mijn digitale bewijzen'<br>
+                <i class="fas fa-check-circle success-icon"></i> De acties van ophalen en delen staan onder 'Mijn activiteiten'<br><br>
+    
                 Willeke kan nu verder met haar medische behandeling, wetende dat de administratieve zaken eenvoudig en veilig zijn afgehandeld.
+                <br><br>
+    
+                <div class="benefits-box">
+                    <h4>Voordelen van de EHIC Wallet:</h4>
+                    <ul>
+                        <li>Veilige opslag van je zorgpas</li>
+                        <li>Controle over gegevens blijft bij jou als verzekerde</li>
+                        <li>Internationaal eenvoudig delen van je verzekeringsbewijs</li>
+                        <li>Alleen geverifieerde zorgverleners krijgen toegang</li>
+                        <li>Minder papierwerk en sneller geholpen</li>
+                    </ul>
+                </div>
             </p>
         </div>
         <div class="button-container">
             <button class="prev standard-button"><i class="fas fa-arrow-left"></i> Vorige stap</button>
         </div>
     </section>
+    
 
     <!-- Voeg het script hier toe zodat de DOM volledig is geladen -->
     <script src="demo.js"></script>

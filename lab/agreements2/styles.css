@@ -1,0 +1,478 @@
+body {
+    font-family: 'Helvetica', sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+a {
+    color: #555;
+  }
+
+h1, h2, h3, h4 {
+  color: #152A62;
+}
+
+h1 {
+    font-size: 28px;
+    color: #152A62;
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background: #ccc;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 10px;
+    margin-top: 0px; /* Dit verkleint de witruimte tussen h4 en p */
+}
+
+h4 {
+    margin-bottom: 0px;
+}
+
+.step {
+    display: none; /* Standaard zijn alle secties verborgen */
+}
+
+.active {
+    display: block; /* Alleen de actieve sectie wordt getoond */
+}
+
+.button-container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center; /* Zorgt ervoor dat de knoppen horizontaal gecentreerd zijn */
+    margin-bottom: 40px;
+}
+
+button.prev, button.next {
+    font-size: 16px;
+    color: #385168; /* Donkerblauwe tekstkleur */
+    text-decoration: none;
+    background-color: #F0F4F8; /* Achtergrondkleur van de knoppen */
+    padding: 12px 20px; /* Ruimte voor meer klikoppervlak */
+    border-radius: 8px; /* Afgeronde hoeken voor een moderne look */
+    display: inline-block;
+    font-weight: bold; /* Vetgedrukte tekst */
+    transition: all 0.3s ease;
+    margin: 0 10px; /* Ruimte tussen de knoppen behouden */
+    border: none; /* Verwijder standaard button rand */
+    cursor: pointer;
+}
+
+button.prev:hover, button.next:hover {
+    background-color: #e0e7ed; /* Iets donkerdere tint bij hover */
+    transform: translateY(-2px);
+   
+}
+
+.highlight-link {
+    font-weight: bold;
+    background-color: #D9F2FF;
+    padding: 5px;
+    color: #152A62;
+  }
+
+
+.qr-code {
+    display: flex;
+    justify-content: center; /* Horizontale centrering */
+    align-items: center; /* Verticale centrering */
+    height: 100%; /* Zorg ervoor dat de container de volledige hoogte inneemt */
+    margin-top: 20px; /* Eventueel ruimte boven de QR-code */
+    margin-bottom: 40px;
+  }
+
+
+
+#logo-container-innovatiemakers {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+#logo-container-innovatiemakers i {
+  font-size: 48px; /* Grootte van het icoon */
+  color: #d35400; /* Kleur van het icoon passend bij de tekstkleur */
+}
+
+#logo-container-innovatiemakers h1 {
+  font-size: 28px;
+  color: #d35400; /* Donkeroranje kleur voor de titel */
+  
+}
+
+#step-2 #logo-container-innovatiemakers  h1 {
+    font-size: 28px;
+    color: #d35400; /* Donkeroranje kleur voor de titel */
+    margin-left: 20px;
+  }
+
+  #step-2 .subsection h4 {
+    margin-bottom: 10px;
+    font-size: 20px;
+    color: #333;
+}
+
+button.go-example, button.go-home {
+    font-size: 16px;
+    color: #385168;
+    background-color: #F0F4F8;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    margin: 0 10px;
+    border: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+button.go-example:hover, button.go-home:hover {
+    background-color: #e0e7ed;
+    transform: translateY(-2px);
+}
+
+button.close-tab i, button.go-home i {
+    margin-right: 8px; /* Voeg wat ruimte toe tussen het icoon en de tekst */
+}
+
+
+/* image containers for research/IPA/index.html */
+.image-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .image-container img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px; /* Voegt ruimte toe tussen de afbeeldingen */
+  }
+  
+/* Algemene styling voor het formulier */
+form {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Ruimte tussen de rijen */
+}
+
+/* Telefoonframe */
+.phone {
+  width: 308px;
+  height: 638px;
+  background-color: #000; /* Zwarte rand zoals een telefoon */
+  border-radius: 40px; /* Afgeronde hoeken */
+  position: relative;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Schaduw voor diepte-effect */
+  padding: 20px; /* Ruimte tussen het scherm en het omhulsel */
+  box-sizing: border-box;
+  margin: auto; /* Centreer de telefoon op de pagina */
+  margin-bottom: 80px;
+}
+
+/* Scherm van de telefoon */
+.phone-screen {
+  width: 100%;
+  height: 100%;
+  background-color: #fff; /* Wit scherm binnen het frame */
+  border-radius: 30px; /* Afgeronde hoeken van het scherm */
+  overflow: hidden; /* Zorg dat inhoud binnen het scherm blijft */
+  padding: 10px;
+  box-sizing: border-box;
+  padding-top: 20px;
+}
+
+#scrollable-wallet {
+  max-height: 100%; /* Zorgt dat de hoogte beperkt blijft tot de container */
+  overflow-y: auto; /* Alleen verticale scrolling toestaan */
+  box-sizing: border-box; /* Houd padding en borders binnen de breedte/hoogte */
+  font-size: 10px;
+}
+
+#scrollable-wallet p {
+  font-size: 10px; /* Stel de lettergrootte in voor de lijst */
+  line-height: 1.4; /* Optioneel: Zorg voor een goede leesbaarheid */
+  margin: 0; /* Optioneel: Verminder standaardmarges */
+  padding: 0; /* Optioneel: Verwijder standaardpadding */
+}
+
+
+#scrollable-wallet ul {
+  font-size: 10px; /* Stel de lettergrootte in voor de lijst */
+  line-height: 1.4; /* Optioneel: Zorg voor een goede leesbaarheid */
+  margin: 0; /* Optioneel: Verminder standaardmarges */
+  padding: 0; /* Optioneel: Verwijder standaardpadding */
+  list-style-position: inside; /* Optioneel: Zorg dat lijstpunten binnen de lijst staan */
+}
+
+#scrollable-wallet li {
+  font-size: 10px; /* Zorg ervoor dat de lijstitems dezelfde grootte hebben */
+  margin-bottom: 5px; /* Optioneel: Voeg wat ruimte toe tussen lijstitems */
+}
+
+.wallet-screen ul {
+  padding-left: 0; /* Verwijdert de standaard inspringing */
+  margin-left: 0;  /* Verwijdert eventuele marge */
+  list-style-position: inside; /* Zorgt dat de bullets binnen de lijstinhoud vallen */
+}
+
+/* Styling voor de vragen */
+.question {
+  font-weight: bold;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+/* Divider onder de vraag */
+.divider-below-question {
+  width: 100%;
+  height: 2px;
+  background-color: #007bff; /* Blauwe lijn */
+  margin-bottom: 15px;
+}
+
+/* Wrapper voor elke vraag en zijn opties */
+.question-block {
+  background-color: #f9f9f9;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+/* Verberg standaard checkbox */
+.custom-checkbox input[type="checkbox"] {
+  display: none; /* Verberg standaard browser-checkbox */
+}
+
+/* Styling voor de aangepaste checkbox container */
+.custom-checkbox {
+  display: flex;
+  align-items: flex-start; /* Flexibele uitlijning voor meerdere regels */
+  gap: 10px; /* Ruimte tussen checkbox en tekst */
+  margin-bottom: 10px; /* Ruimte onder elke optie */
+}
+
+/* Checkbox vierkantje (via span) */
+.checkbox-box {
+  display: inline-block;
+  width: 25px; /* Grootte van de checkbox */
+  height: 25px;
+  border: 2px solid #007bff; /* Blauwe rand */
+  border-radius: 0px; /* Ronde hoeken */
+  background-color: #fff; /* Witte achtergrond */
+  transition: all 0.3s; /* Soepele overgangseffecten */
+  position: relative; /* Voor het plaatsen van het vinkje */
+  flex-shrink: 0;
+}
+
+/* Vinkje en blauwe achtergrond bij selectie */
+.custom-checkbox input[type="checkbox"]:checked + .checkbox-box {
+  background-color: #007bff; /* Blauwe achtergrond */
+  border-color: #007bff; /* Blauwe rand */
+}
+
+.custom-checkbox input[type="checkbox"]:checked + .checkbox-box::after {
+  content: "✓"; /* Vinkje */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff; /* Witte kleur voor het vinkje */
+  font-size: 18px; /* Grootte van het vinkje */
+  font-weight: bold;
+}
+
+/* Styling voor de tekst */
+.checkbox-text {
+  font-size: 16px; /* Tekstgrootte */
+  color: #333; /* Tekstkleur */
+  flex-grow: 1; /* Laat de tekst uitbreiden indien nodig */
+}
+
+/* Styling voor lange tekst en dubbele regels */
+.checkbox-text input {
+  margin-top: 5px; /* Ruimte tussen tekst en invoerveld */
+  font-size: 14px; /* Kleinere tekstgrootte voor invoerveld */
+}
+
+textarea {
+  width: 100%; /* Zorgt ervoor dat het veld net zo breed is als de container */
+  resize: vertical; /* Staat verticaal uitschuiven toe */
+  min-height: 2em; /* Zorgt dat het minimaal twee regels hoog is */
+  padding: 5px; /* Voor een prettige afstand van tekst tot rand */
+  font-family: inherit; /* Gebruik dezelfde lettertype als de rest */
+  font-size: 1rem; /* Zorg voor consistente tekstgrootte */
+  box-sizing: border-box; /* Inclusief padding in breedte */
+  border: 1px solid #ccc; /* Optioneel, voor een duidelijke rand */
+  border-radius: 4px; /* Optioneel, voor afgeronde hoeken */
+}
+
+#text-area{
+  justify-content: flex-start;
+  display: flex;
+}
+
+
+/* Algemene styling voor de knoppen-container */
+.button-container-wallet {
+  display: flex;
+  justify-content: space-evenly;
+ padding-top: 20px;
+  border-top: 1px solid #ccc;
+}
+
+/* Styling voor beide knoppen */
+.button-container-wallet button {
+  flex: 1;
+  margin: 0 10px;
+  padding: 10px 15px;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+}
+
+/* Specifieke styling voor de Stoppen-knop */
+.cancel-button {
+  background-color: #ffffff; /* Rood */
+  color: #474d53;
+  border: 2px solid #7d90a4; /* Blauwe rand */
+  
+}
+
+
+
+/* Specifieke styling voor de Akkoord-knop */
+.accept-button {
+  background-color: #7d90a4; /* Groen */
+  color: #fff;
+  border: none;
+}
+
+
+#smaller-wallet-p p{
+  font-size: 14px;
+}
+
+#smaller-wallet-p li {
+  font-size: 14px;
+}
+
+#smallest-wallet-p p{
+  font-size: 10px;
+}
+
+#smallest-wallet-p li {
+  font-size: 10px;
+}
+
+.layout-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+
+.discount-screen {
+  width: 300px;
+  padding: 20px;
+  background-color: #fefbe7; /* Gouden kleur voor koopjes */
+  border: 2px solid #5e5e5e; /* Oranje-rode rand */
+  border-radius: 10px;
+  text-align: center;
+}
+
+.discount-screen h2 {
+  font-size: 20px;
+  color: #0c3011; /* Rode kleur voor nadruk */
+  margin-bottom: 20px;
+}
+
+.qr-code svg {
+  width: 200px;
+  height: 200px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #f4f4f4;
+}
+
+tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+
+/* Responsieve aanpassingen */
+@media (max-width: 768px) {
+  .phone {
+    width: 300px;
+    height: 600px;
+  }
+
+  .checkbox-box {
+    width: 20px; /* Kleinere checkbox voor kleinere schermen */
+    height: 20px;
+  }
+  .checkbox-text {
+    font-size: 14px; /* Kleinere tekst */
+  }
+  .question {
+    font-size: 16px;
+  }
+}
+
+
+.research-section {
+   color: #333;
+font-size: 11px;
+
+}
+
+.research-section p {
+  color: #424242;
+  margin-bottom: 0;
+  font-size: 11px;
+  margin-bottom: 0;
+}
+
+.research-section ul {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 0px;
+}
+
+.research-section li {
+  color: #767676;
+}

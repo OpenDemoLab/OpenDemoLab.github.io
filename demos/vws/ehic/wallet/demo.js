@@ -2134,8 +2134,10 @@ function populateEhicCardModal(data) {
     // Create a new credential for the EHIC card
     credentials.push({
       name: 'EHIC pas',
-      issuedBy: data.issuedBy,
-      LEID: data.LEID, // Voeg LEID toe op het top-niveau
+      issuedBy: data.issuedBy,              // VECOZO
+      LEIDissuer: data.LEIDissuer,          // VECOZO's ID
+      issuedOnBehalfOf: data.issuedOnBehalfOf, // Zorgverzekeraar 
+      LEIDonBehalf: data.LEIDonBehalf,      // Zorgverzekeraar's ID
       actionTimestamp: timestamp,
       isShareAction: false,
       data: {
@@ -2146,7 +2148,11 @@ function populateEhicCardModal(data) {
         'Identificatienummer instelling': data['Identification number of the institution'],
         'Kaartnummer': data['Identification number of the card'],
         'Vervaldatum': data['Expiry date'],
-        'Attestation Trust Type': data['Attestation Trust Type'] // Voeg Attestation Trust Type toe
+        'Attestation Trust Type': data['Attestation Trust Type'],
+        'Uitgegeven door': data.issuedBy,
+        'Organisatie nummer uitgever': data.LEIDissuer,
+        'Uitgegeven namens': data.issuedOnBehalfOf,
+        'Organisatie nummer namens': data.LEIDonBehalf
       }
     });
     

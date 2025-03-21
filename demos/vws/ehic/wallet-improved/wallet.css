@@ -1,0 +1,734 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #FFFFFF;
+    color: #333;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+p {
+    font-weight: normal;
+}
+
+h2, h3 {
+    color: #152A62;
+}
+
+.divider {
+    width: 100%;
+    height: 1px;
+    background-color: lightgrey;
+    margin: 20px 0;
+}
+
+/* Welcome Screen Styles */
+#welcome-screen {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    background: url("images/welcome-bg.png") center center no-repeat;
+    background-size: cover;
+}
+
+.welcome-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    background-color: rgba(117, 108, 54, 0.4);
+}
+
+.welcome-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    flex: 1;
+    height: 100vh; /* Zorg voor volledige hoogte van het scherm */
+    padding-top: 40px;
+    padding-bottom: 20px;
+    color: #ffffff;
+    justify-content: space-between; /* Verdeel inhoud over de beschikbare ruimte */
+}
+.welcome-content h1 {
+    margin: 0 0 1rem 0; 
+    font-size: 2rem;
+}
+
+.welcome-subtext {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    color: #fff;
+    /* margin-bottom: auto; verwijderd om de ruimteverdeling te laten werken */
+}
+
+#welcome-screen a {
+    /* margin-top: auto; verwijderd omdat we justify-content gebruiken */
+    display: inline-block;
+    background-color: #ffffff;
+    color: #685e0a;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 40px; /* Extra ruimte onderaan toevoegen */
+}
+
+/* PIN Login Screen Styles */
+#pin-inlog-screen {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100%;
+    padding: 10px;
+    width: 100%;
+    background-color: white;
+    z-index: 1000;
+}
+
+#pin-inlog-screen h2 {
+    text-align: center;
+    max-width: 100%;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+#pin-inlog-screen p {
+    text-align: center;
+    max-width: 100%;
+    margin-bottom: 20px;
+    font-weight: normal;
+}
+
+.pin-input {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    justify-content: center;
+}
+
+.pin-input input {
+    text-align: center;
+    font-size: 24px;
+    padding: 10px;
+    width: 45px;
+    height: 50px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#submit-pin, .confirm-pin {
+    background-color: #2681cc;
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    min-width: 250px;
+    text-align: center;
+    margin: 0 auto;
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* Main Wallet Screen Styles */
+#wallet-screen {
+    padding: 15px;
+    padding-bottom: 80px;
+}
+
+.header-screen {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.header-screen h3 {
+    font-size: 20px;
+    color: #152A62;
+    margin: 0;
+    padding: 20px 0;
+    font-weight: bold;
+}
+
+.title-divider {
+    width: 100%;
+    height: 1px;
+    background-color: #152A62;
+    margin-bottom: 25px;
+}
+
+/* Top Buttons Container */
+.top-button-container-start-screen {
+    display: flex;
+    justify-content: flex-start;
+    gap: 35px;
+    margin-top: 20px;
+}
+
+.catalogue-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: #fff;
+    cursor: pointer;
+}
+
+.circle-btn {
+    background-color: #4a90e2;
+    color: #fff;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 5px;
+    font-size: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.catalogue-text, .qr-scan-button-text {
+    font-size: 14px;
+    color: #494949;
+    text-align: center;
+}
+
+/* Hover effects */
+#open-card-catalogue .circle-btn {
+    background-color: #01089F;
+}
+
+#open-card-catalogue:hover .circle-btn {
+    background-color: #000ac5;
+}
+
+#qr-scan-button:hover .circle-btn {
+    background-color: #508fee;
+}
+
+/* Clickable Sections */
+.background-clickable-sections {
+    margin-top: 40px;
+}
+
+.clickable-section {
+    padding: 15px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 10px;
+    border: 1px solid lightgray;
+}
+
+.clickable-section i {
+    font-size: 20px;
+    color: #545557;
+    margin-right: 20px;
+}
+
+.clickable-section h3 {
+    color: #545557;
+    font-size: 16px;
+    padding: 20px 0;
+}
+
+/* QR Scan Section Styles */
+.scan-section {
+    text-align: center;
+    margin-bottom: 40px;
+    width: 100%;
+}
+
+.scan-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    cursor: pointer;
+    padding: 20px;
+}
+
+.scan-btn-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.scan-btn {
+    background-color: #2681cc;
+    border-radius: 35px;
+    width: 120px;
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    border: none;
+    cursor: pointer;
+}
+
+.qr-logo {
+    font-size: 50px;
+    color: #ffffff;
+}
+
+.scan-text {
+    font-size: 16px;
+    color: #4e4e4e;
+    margin-top: 10px;
+    font-weight: bold;
+    color: #2681cc;
+}
+
+.close-scan-btn {
+    background-color: #2681cc;
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+    max-width: 300px;
+    margin: 20px auto;
+    display: none;
+    text-align: center;
+}
+
+/* Card Styles */
+.card-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.card, .default-card {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: -16px 20px 30px #bebebe, -15px -15px 30px #ffffff;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: calc(100% - 30px);
+    height: 180px;
+    margin: 10px auto;
+    cursor: pointer;
+}
+
+.card:hover, .default-card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+    transition: all 0.2s ease;
+}
+
+.card i, .default-card i {
+    font-size: 30px;
+    margin-right: 20px;
+    margin-bottom: 10px;
+}
+
+.card-text h3 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: normal;
+}
+
+.card-text p {
+    margin: 5px 0 0 0;
+    font-size: 14px;
+    color: #555;
+}
+
+.wallet-grid {
+    /* padding: 20px; */
+}
+
+.card-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+/* Details Section Styles */
+#details, #current-cards {
+    display: none;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    max-width: 400px;
+    height: 100%;
+    background-color: white;
+    z-index: 100;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-y: auto;
+    margin: 0 auto;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#current-cards {
+    flex-direction: column;
+}
+
+#current-cards-title {
+    margin-top: 30px;
+}
+
+#details h3 {
+    margin-top: 40px;
+    color: #152A62;
+    margin-top: 60px;
+    margin-right: 15px;
+}
+
+.details-header {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #4a90e2;
+    cursor: pointer;
+}
+
+.close-btn i {
+    font-size: 24px;
+    color: #4a90e2;
+}
+
+.delete-btn {
+    background: none;
+    border: none;
+    font-size: 18px;
+    color: #fd875c;
+    cursor: pointer;
+}
+
+.delete-btn i {
+    font-size: 18px;
+    color: #ff7b4b;
+}
+
+.details-row {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 10px;
+}
+
+.details-label {
+    flex: 0 0 auto;
+    min-width: 180px;
+    max-width: 180px;
+    font-weight: bold;
+    color: #333;
+    padding-right: 10px;
+    text-align: left;
+    word-wrap: break-word;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 14px;
+}
+
+.details-value {
+    flex: 1;
+    color: #555;
+    text-align: left;
+    word-wrap: break-word;
+}
+
+/* Activities Section Styles */
+#activities-section {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    z-index: 900;
+    padding: 5px;
+    box-sizing: border-box;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    margin-bottom: 80px;
+}
+
+#activities-section h3 {
+    margin-top: 60px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    color: #152A62;
+}
+
+#activities-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.activity-divider {
+    width: 100%;
+    height: 1px;
+    background-color: lightgrey;
+    margin: 10px 0;
+}
+
+#activities-section li {
+    padding: 10px;
+    color: #152A62;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    z-index: 1000;
+    box-sizing: border-box;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto;
+    margin-bottom: 20px;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 5px;
+    border-radius: 10px;
+    text-align: left;
+    height: auto;
+    box-sizing: border-box;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+.modal-content h2 {
+    margin-bottom: 20px;
+    text-align: center;
+    color: #152A62;
+}
+
+.modal .button-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    position: relative;
+    left: auto;
+    transform: none;
+    width: auto;
+    margin-top: 40px;
+}
+
+.stop-button {
+    background-color: white;
+    border: 2px solid #2681cc;
+    color: #2681cc;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.share-button {
+    background-color: #2681cc;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.share-button:hover {
+    background-color: #1e3a82;
+}
+
+/* RDFCV Modal Styles */
+#rdfcv-modal {
+    margin-bottom: 40px;
+}
+
+#rdfcv-question-text {
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.modal-header p {
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+/* Card Container in Modals */
+.card-container {
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 16px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.card-header {
+    height: 40px;
+    width: 100%;
+    background-color: #B5DEF4;
+    color: #152A62;
+    font-weight: bold;
+    padding: 10px;
+    text-align: center;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.card-content {
+    padding: 56px 16px 16px 16px;
+}
+
+.card-title {
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.detail-row {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    grid-gap: 10px;
+    margin-bottom: 10px;
+    font-size: small;
+}
+
+.label {
+    font-weight: bold;
+    text-align: left;
+    padding-right: 10px;
+}
+
+.value {
+    text-align: left;
+}
+
+/* Bottom Navigation Bar */
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 400px;
+    height: 60px;
+    background-color: #FFFFFF;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    border-top: 1px solid #e0e0e0;
+    z-index: 1000;
+}
+
+.nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #888;
+    text-decoration: none;
+    font-size: 12px;
+    transition: color 0.3s ease;
+    flex: 1;
+}
+
+.nav-item i {
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.nav-item.active {
+    color: #5f5f5f;
+}
+
+.nav-item.active i {
+    color: #4A90E2;
+}
+
+.nav-item.active span {
+    color: #4A90E2;
+}
+
+.nav-item:hover {
+    color: #646464;
+}
+
+/* Media Queries */
+@media (max-width: 370px) {
+    .card, .default-card {
+        aspect-ratio: 16 / 9;
+        width: auto;
+        height: auto;
+        padding: 15px;
+    }
+
+    .card img {
+        width: 25px;
+        height: 25px;
+        margin-bottom: 8px;
+    }
+
+    .card .card-text h3 {
+        font-size: 16px;
+    }
+
+    .card .card-text p {
+        font-size: 12px;
+    }
+}

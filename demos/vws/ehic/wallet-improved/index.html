@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wallet App</title>
+  <link rel="stylesheet" href="wallet.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+<!-- Welcome Screen -->
+<section id="welcome-screen">
+  <div class="welcome-overlay"></div>
+  <div class="welcome-content">
+    <h1>Jouw digitale portemonnee</h1>
+    <p class="welcome-subtext">makkelijk,<br>bij de hand,<br>veilig</p>
+    <a id="next-welcome" class="welcome-button">Volgende</a>
+  </div>
+</section>
+
+<!-- PIN Login Screen -->
+<section id="pin-inlog-screen" style="display: none;">
+  <h2>Voer je toegangscode in</h2>
+  <form>
+  <div class="pin-input">
+    <input type="password" maxlength="1" class="pin-box" inputmode="numeric" pattern="[0-9]*">
+    <input type="password" maxlength="1" class="pin-box" inputmode="numeric" pattern="[0-9]*">
+    <input type="password" maxlength="1" class="pin-box" inputmode="numeric" pattern="[0-9]*">
+    <input type="password" maxlength="1" class="pin-box" inputmode="numeric" pattern="[0-9]*">
+    <input type="password" maxlength="1" class="pin-box" inputmode="numeric" pattern="[0-9]*">
+    <input type="password" maxlength="1" class="pin-box" inputmode="numeric" pattern="[0-9]*">
+  </div>
+</form>
+  <p>Vanwege demonstratiedoeleinden is 6 maal een 0 of ontgrendelen zonder invoer ook mogelijk</p>
+  <button id="submit-pin">Ontgrendelen</button>
+</section>
+
+<!-- Main Wallet Screen -->
+<section id="wallet-screen" style="display: none;">
+  <section id="wallet-header" class="header-screen">
+    <h3>Mijn overzicht</h3>
+    <div class="title-divider"></div>
+
+    <!-- Top Button Container -->
+    <div class="top-button-container-start-screen">
+      <!-- Catalog Button -->
+      <a id="open-card-catalogue" class="catalogue-btn">
+        <div class="circle-btn">
+          <i class="far fa-folder-open"></i>
+        </div>
+        <span class="catalogue-text">Catalogus</span>
+      </a>
+      
+      <!-- QR Scan Button -->
+      <a id="qr-scan-button" class="catalogue-btn">
+        <div class="circle-btn">
+          <i class="fa fa-qrcode"></i>
+        </div>
+        <span class="qr-scan-button-text">QR-scan</span>
+      </a>
+    </div>
+
+    <div class="background-clickable-sections">
+      <!-- My Digital Proofs Button -->
+      <div id="open-current-cards" class="clickable-section">
+        <i class="fa-regular fa-credit-card"></i>
+        <h3>Mijn digitale bewijzen</h3>
+      </div>
+    </div>
+  </section>
+</section>
+
+<!-- QR Scan Screen -->
+<section class="add-card-screen" id="add-card-screen" style="display: none;">
+  <div class="scan-section" id="scan-section">
+    <div class="scan-container">
+      <div class="scan-btn-container">
+        <button class="scan-btn" id="scan-button">
+          <i class="fas fa-qrcode qr-logo"></i>
+        </button>
+      </div>
+      <div class="scan-text">Scan QR code</div>
+    </div>
+    <div id="reader" style="display: none;"></div>
+    <button class="close-scan-btn" id="close-scan-button" style="display: none;">Scannen afsluiten</button>
+  </div>
+</section>
+
+<!-- My Digital Proofs Screen -->
+<section id="current-cards" style="display: none;">
+  <div class="details-header">
+    <button class="close-btn" id="close-current-cards"> 
+      <i class="fas fa-arrow-left"></i>
+    </button>
+  </div>
+  <div id="current-cards-title" class="header-screen"> 
+    <h3>Mijn digitale bewijzen</h3> 
+    <div class="title-divider"></div>
+  </div>
+  
+  <!-- Dynamic Cards -->
+  <section class="wallet-grid" id="wallet-grid">
+    <!-- Cards will be added here dynamically -->
+  </section>
+</section>
+
+<!-- Card Details View -->
+<div id="details">
+  <div class="details-header">
+    <button class="close-btn" id="close-details">
+      <i class="fas fa-arrow-left"></i>
+    </button>
+    <button class="delete-btn" id="delete-details">
+      <i class="fas fa-trash"></i>
+    </button>
+  </div>
+  <h3 id="details-title"></h3>
+  <div class="divider"></div>
+  <div id="details-content"></div>
+</div>
+
+<!-- Activities Section -->
+<section id="activities-section" style="display: none;">
+  <div class="details-header">
+    <button class="close-btn" id="back-activities-btn">
+      <i class="fas fa-arrow-left"></i>
+    </button>
+  </div>
+  <h3>Activiteiten</h3>
+  <div class="title-divider"></div>
+  <ul id="activities-list">
+    <!-- Activities will be added here dynamically -->
+  </ul>
+</section>
+
+<!-- RDFCV Modal (QR Verifier) -->
+<section id="rdfcv-modal" class="modal" style="display: none;">
+  <div class="modal-content">
+    <div class="modal-header">
+      <p id="rdfcv-question-text"><strong>Wilt u onderstaande gegevens delen?</strong></p>
+    </div>
+    <div class="divider"></div>
+    
+    <!-- Reason section -->
+    <p><strong>Reden</strong></p>
+    <p id="rdfcv-reason"></p>
+    <div class="divider"></div>
+    
+    <!-- Data section -->
+    <p><strong>Gegevens</strong></p>
+    <div id="rdfcv-details-container"></div>
+    <div class="divider"></div>
+    
+    <!-- Agreement section -->
+    <p><strong>Overeenkomst</strong></p>
+    <p id="rdfcv-agreement"></p>
+    <div class="divider"></div>
+    
+    <!-- Buttons -->
+    <div class="button-container">
+      <button id="rdfcv-stop-button" class="stop-button">Stoppen</button>
+      <button id="rdfcv-accept-button" class="share-button">Akkoord</button>
+    </div>
+  </div>
+</section>
+
+<!-- Pin Confirmation Screen (Verifier) -->
+<section id="pin-confirmation-screen-verifier" class="modal" style="display: none;">
+  <div class="modal-content">
+    <h2>Voer je pincode in om gegevens te delen</h2>
+    <div class="pin-input">
+      <input type="password" maxlength="1" class="pin-box" inputmode="numeric">
+      <input type="password" maxlength="1" class="pin-box" inputmode="numeric">
+      <input type="password" maxlength="1" class="pin-box" inputmode="numeric">
+      <input type="password" maxlength="1" class="pin-box" inputmode="numeric">
+      <input type="password" maxlength="1" class="pin-box" inputmode="numeric">
+      <input type="password" maxlength="1" class="pin-box" inputmode="numeric">
+    </div>
+    <button class="confirm-pin" id="confirm-pin-verifier">Bevestig</button>
+  </div>
+</section>
+
+<!-- Success Screen after Sharing Data (Verifier) -->
+<section id="verifier-success-screen" class="modal" style="display: none;">
+  <div class="modal-content">
+    <h2 id="success-message">Succes!</h2>
+    <div class="divider"></div>
+    <p>Je hebt de gegevens gedeeld met</p>
+    <p><strong><span id="verifier-name"></span></strong></p>
+    <div class="button-container">
+      <button id="see-activity-btn" class="stop-button">Zie Activiteit</button>
+      <button id="close-success-btn" class="share-button">Sluiten</button>
+    </div>
+  </div>
+</section>
+
+<!-- Bottom Navigation Bar -->
+<nav class="bottom-nav" style="display: none;">
+  <a href="#overview" class="nav-item active" id="overview-navbar-item">
+    <i class="fas fa-home"></i>
+    <span>Overzicht</span>
+  </a>
+  <a href="#activities" class="nav-item" id="activities-navbar-item">
+    <i class="fas fa-exchange-alt"></i>
+    <span>Activiteiten</span>
+  </a>
+</nav>
+
+<!-- Scripts: HTML5 QR lib en jouw ES-modules -->
+<script src="https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js"></script>
+<!-- Let op: 'type="module"' en het pad naar jouw JS-map. -->
+<script type="module" src="js/main.js"></script>
+</body>
+</html>

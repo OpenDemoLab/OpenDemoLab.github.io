@@ -90,7 +90,7 @@ function toggleButtons() {
             exampleButton.className = 'go-example standard-button';
             exampleButton.onclick = () => {
                 // Gebruik window.top om naar het hoogste niveau te gaan (buiten de iframe)
-                window.top.location.href = 'https://www.opendemolab.eu/demos';
+                window.top.location.href = 'https://www.opendemolab.eu';
             };
             
             // Voeg de knop toe aan de button-container

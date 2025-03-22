@@ -1,0 +1,24 @@
+situation 22 maart 2025
+
+/demos/vws/ehic/wallet-improved/
+├── index.html                        # Hoofdpagina HTML
+├── wallet.css                        # Globale CSS stylesheets
+└── js/                               # JavaScript hoofdmap
+    ├── main.js                       # App startup en initialisatie
+    ├── navigation.js                 # Schermnavigatie manager
+    ├── credentials.js                # Beheer van kaarten/credentials
+    ├── activities.js                 # Activiteiten functionaliteit
+    ├── qr-scanner.js                 # QR code scanner functionaliteit
+    ├── utils.js                      # Algemene hulpfuncties
+    ├── wallet-screens/               # UI schermen voor de wallet
+    │   ├── welcome-screen.js         # Welkomstscherm
+    │   ├── pin-login.js              # PIN inlog scherm
+    │   ├── wallet-screen.js          # Hoofdwallet overzichtsscherm
+    │   ├── current-cards-screen.js   # Mijn digitale bewijzen scherm
+    │   ├── details-screen.js         # Kaart details scherm
+    │   └── activities-screen.js      # Activiteiten overzicht scherm
+    └── modals/                       # Modale dialogen voor interacties
+        ├── ehic-collect.js           # EHIC kaart ophalen
+        ├── ehic-share.js             # EHIC kaart delen
+        ├── inlog.js                  # Inlog functionaliteit
+        └── rdfcv.js                  # Verifier en Issuer modals

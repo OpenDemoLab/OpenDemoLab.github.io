@@ -88,94 +88,136 @@ export function loadDefaultCredentials() {
  * Toont credentials in de wallet interface
  */
 export function displayCredentials() {
-  const walletGrid = document.getElementById('wallet-grid');
-  walletGrid.innerHTML = '';
-
-  credentials.forEach((cred, index) => {
-    // Sla deelacties en activiteiten over
-    if (cred.isShareAction || cred.isActivity) {
-      return;
+  // Probeer verschillende pogingen om de wallet grid te vinden
+  let retryCount = 0;
+  const maxRetries = 5;
+  
+  function findAndPopulateWalletGrid() {
+    // Find the wallet grid element - works with both modal and original approach
+    let walletGrid;
+    
+    // Try to find in modal first
+    const currentCardsModal = document.getElementById('current-cards-modal');
+    if (currentCardsModal) {
+      walletGrid = currentCardsModal.querySelector('#wallet-grid');
     }
-
-    if (typeof cred.name !== 'string') {
-      return;
+    
+    // If not found in modal, try original HTML
+    if (!walletGrid) {
+      walletGrid = document.getElementById('wallet-grid');
     }
+    
+    // If still not found, log error and retry if under max retries
+    if (!walletGrid) {
+      console.error('Wallet grid element not found, retry attempt: ' + (retryCount + 1));
+      
+      if (retryCount < maxRetries) {
+        retryCount++;
+        // Wacht een korte tijd en probeer opnieuw
+        setTimeout(findAndPopulateWalletGrid, 100);
+        return;
+      } else {
+        console.error('Max retries reached, giving up on finding wallet grid');
+        return;
+      }
+    }
+    
+    // Clear the grid
+    walletGrid.innerHTML = '';
 
-    // Speciale afhandeling voor EHIC pas
-    if (cred.name.toLowerCase() === 'ehic pas') {
+    credentials.forEach((cred, index) => {
+      // Sla deelacties en activiteiten over
+      if (cred.isShareAction || cred.isActivity) {
+        return;
+      }
+
+      if (typeof cred.name !== 'string') {
+        return;
+      }
+
+      // Speciale afhandeling voor EHIC pas
+      if (cred.name.toLowerCase() === 'ehic pas') {
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.style.backgroundImage = "url('../base/images/ehic-front.png')";
+        card.style.backgroundSize = 'cover';
+        card.style.backgroundPosition = 'center';
+
+        card.addEventListener('click', () => {
+          // Import EHIC modal module via dynamische import
+          import('./wallet-screens/details-screen.js').then(module => {
+            module.showDetailsScreen(cred, index);
+          });
+        });
+        
+        walletGrid.appendChild(card);
+        return;
+      }
+
+      // Standaard kaarten
       const card = document.createElement('div');
       card.className = 'card';
-      card.style.backgroundImage = "url('../base/images/ehic-front.png')";
-      card.style.backgroundSize = 'cover';
-      card.style.backgroundPosition = 'center';
 
+      // Haal stijlen op basis van kaartnaam
+      const nameLower = cred.name.toLowerCase();
+      const styles = cardStyles[nameLower] || {
+        iconClass: 'far fa-id-badge',
+        iconColor: '#333',
+        textColor: '#333'
+      };
+
+      // Definieer grootte en marges
+      const iconSize = '30px';
+      const textSize = '18px';
+      const issuerTextSize = '14px';
+      const iconMarginBottom = '10px';
+
+      // Controleer of een afbeeldingspad is opgegeven
+      let iconHtml = '';
+      if (styles.imagePath) {
+        iconHtml = `<img src="${styles.imagePath}" alt="${cred.name} logo" style="width: ${iconSize}; height: ${iconSize}; margin-bottom: ${iconMarginBottom};">`;
+      } else {
+        iconHtml = `<i class="${styles.iconClass}" style="color: ${styles.iconColor}; font-size: ${iconSize}; margin-bottom: ${iconMarginBottom};"></i>`;
+      }
+
+      // Voeg uitgever-informatie toe
+      let issuerText = '';
+      const issuedByOnBehalf = cred.data?.["Uitgegeven namens"] || null;
+      const issuedByDirect = cred.issuedBy || cred.data?.["Uitgegeven door"] || null;
+
+      if (issuedByOnBehalf) {
+        issuerText = `<p style="font-size: ${issuerTextSize}; color: #555; margin: 5px 0 0 0;">
+          ${issuedByOnBehalf}
+        </p>`;
+      } else if (issuedByDirect) {
+        issuerText = `<p style="font-size: ${issuerTextSize}; color: #555; margin: 5px 0 0 0;">
+          ${issuedByDirect}
+        </p>`;
+      }
+
+      // Voeg HTML toe voor de kaart
+      card.innerHTML = `
+        ${iconHtml}
+        <div class="card-text" style="font-size: ${textSize};">
+          <h3 style="color: ${styles.textColor}; margin: 0;">${cred.name}</h3>
+          ${issuerText}
+        </div>
+      `;
+
+      // Voeg event listener toe om kaartdetails te bekijken via nieuwe modal approach
       card.addEventListener('click', () => {
-        // Import EHIC modal module via dynamische import
-        import('./modals/ehic-collect.js').then(module => {
-          module.showEhicDetails(cred, index);
+        import('./wallet-screens/details-screen.js').then(module => {
+          module.showDetailsScreen(cred, index);
         });
       });
-      
+
+      // Voeg de kaart toe aan het wallet grid
       walletGrid.appendChild(card);
-      return;
-    }
-
-    // Standaard kaarten
-    const card = document.createElement('div');
-    card.className = 'card';
-
-    // Haal stijlen op basis van kaartnaam
-    const nameLower = cred.name.toLowerCase();
-    const styles = cardStyles[nameLower] || {
-      iconClass: 'far fa-id-badge',
-      iconColor: '#333',
-      textColor: '#333'
-    };
-
-    // Definieer grootte en marges
-    const iconSize = '30px';
-    const textSize = '18px';
-    const issuerTextSize = '14px';
-    const iconMarginBottom = '10px';
-
-    // Controleer of een afbeeldingspad is opgegeven
-    let iconHtml = '';
-    if (styles.imagePath) {
-      iconHtml = `<img src="${styles.imagePath}" alt="${cred.name} logo" style="width: ${iconSize}; height: ${iconSize}; margin-bottom: ${iconMarginBottom};">`;
-    } else {
-      iconHtml = `<i class="${styles.iconClass}" style="color: ${styles.iconColor}; font-size: ${iconSize}; margin-bottom: ${iconMarginBottom};"></i>`;
-    }
-
-    // Voeg uitgever-informatie toe
-    let issuerText = '';
-    const issuedByOnBehalf = cred.data?.["Uitgegeven namens"] || null;
-    const issuedByDirect = cred.issuedBy || cred.data?.["Uitgegeven door"] || null;
-
-    if (issuedByOnBehalf) {
-      issuerText = `<p style="font-size: ${issuerTextSize}; color: #555; margin: 5px 0 0 0;">
-        ${issuedByOnBehalf}
-      </p>`;
-    } else if (issuedByDirect) {
-      issuerText = `<p style="font-size: ${issuerTextSize}; color: #555; margin: 5px 0 0 0;">
-        ${issuedByDirect}
-      </p>`;
-    }
-
-    // Voeg HTML toe voor de kaart
-    card.innerHTML = `
-      ${iconHtml}
-      <div class="card-text" style="font-size: ${textSize};">
-        <h3 style="color: ${styles.textColor}; margin: 0;">${cred.name}</h3>
-        ${issuerText}
-      </div>
-    `;
-
-    // Voeg event listener toe om kaartdetails te bekijken
-    card.addEventListener('click', () => screenManager.showDetails(cred, index));
-
-    // Voeg de kaart toe aan het wallet grid
-    walletGrid.appendChild(card);
-  });
+    });
+  }
+  
+  // Start de eerste poging
+  findAndPopulateWalletGrid();
 }
 
 /**

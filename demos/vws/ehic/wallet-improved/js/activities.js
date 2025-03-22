@@ -6,7 +6,28 @@ import { convertToStandardDate } from './utils.js';
  * Toont de activiteiten in de activiteitenlijst
  */
 export function showActivities() {
-  const activitiesList = document.getElementById('activities-list');
+  // Choose the correct list element based on the current DOM structure
+  // This supports both the original HTML and new modal approach
+  let activitiesList;
+  
+  // Try to find the activities list in the new modal first
+  const activitiesModal = document.getElementById('activities-modal');
+  if (activitiesModal) {
+    activitiesList = activitiesModal.querySelector('#activities-list');
+  } 
+  
+  // If not found, try to find it in the original HTML structure
+  if (!activitiesList) {
+    activitiesList = document.getElementById('activities-list');
+  }
+  
+  // If we still don't have a list element, return early
+  if (!activitiesList) {
+    console.error('Activities list element not found');
+    return;
+  }
+  
+  // Clear the list
   activitiesList.innerHTML = '';
 
   // Filter credentials voor activiteiten (alleen deelacties en specifieke activiteiten)
@@ -48,7 +69,7 @@ export function showActivities() {
     activitiesList.appendChild(activityItem);
     activitiesList.appendChild(divider);
   });
-} // <-- Deze sluitende accolade ontbrak in je code
+}
 
 /**
  * Log een activiteit naar de activiteitenlijst

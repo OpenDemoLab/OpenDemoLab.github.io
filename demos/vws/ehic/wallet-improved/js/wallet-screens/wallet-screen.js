@@ -154,6 +154,5 @@ export function showWalletScreen(showNavBar = true) {
   // Show the wallet screen
   screenManager.showScreen('wallet', showNavBar);
   
-  // Display credentials
-  displayCredentials();
+
 }

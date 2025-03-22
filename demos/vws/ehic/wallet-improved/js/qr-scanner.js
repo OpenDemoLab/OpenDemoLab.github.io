@@ -7,6 +7,9 @@ import { showLoginConfirmationModal } from './modals/inlog.js';
 // Globale html5QrCode instantie
 let html5QrCode = null;
 
+// Detecteer of we in een iframe draaien (presentatiemodus)
+const isInIframe = window.self !== window.top;
+
 /**
  * Initialiseert de QR-scanner
  */
@@ -32,7 +35,15 @@ export function initQrScanner() {
  * Start de QR-scanner
  */
 export function startQrScan() {
-  // Toon het juiste scannerscherm
+  // Als we in een iframe draaien (presentatiemodus), vragen we het parent window om QR codes
+  if (isInIframe) {
+    // Vraag de parent om een QR code te scannen
+    window.parent.postMessage({ action: "requestQRScan" }, "*");
+    // We laten de camera niet starten, omdat de parent verantwoordelijk is voor het simuleren van de scan
+    return;
+  }
+  
+  // Normale werking als we niet in een iframe zijn
   document.querySelector('.scan-container').style.display = 'none';
   document.getElementById('close-scan-button').style.display = 'block';
   document.getElementById('reader').style.display = 'block';

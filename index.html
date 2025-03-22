@@ -30,7 +30,7 @@
         <div class="menu-links">
             <a href="/">Home</a>
             <!-- <a href="/demos/">Demos</a> -->
-            <a href="/demos/login">Inloggen voor organisaties</a>
+            <!-- <a href="/demos/login">Inloggen voor organisaties</a> -->
             <a href="/why/">Over</a>
         </div>
     </div>
@@ -51,17 +51,26 @@
         </div>
     </section>
     
-    <!-- Mission section -->
-    <section class="mission" id="mission">
-        <div class="container mission-container">
-            <p class="mission-text">
-                We laten je ervaren hoe <strong>Europese wallets en persoonlijke omgevingen</strong> jouw dienstverlening <strong>beter, efficiënter en betrouwbaarder</strong> kunnen maken.
-            </p>
-            <p class="mission-text">
-                Geen dikke rapporten of eindeloze PowerPoints – maar direct zien hoe het werkt.<br> <strong>Snel. Lichtgewicht. Concreet. Tastbaar.</strong>
-            </p>
-        </div>
-    </section>
+<!-- Mission section -->
+<section class="mission" id="mission">
+    <div class="container mission-container">
+        <p class="mission-text">
+            Laat jouw
+        </p>
+        <p class="highlighted-term-container">
+            <span class="term-bracket">&gt;</span> <span id="rotating-term">organisatie</span> <span class="term-bracket">&lt;</span>
+        </p>
+        <p class="mission-text">
+            ervaren hoe Europese wallets en persoonlijke omgevingen jouw dienstverlening beter, efficiënter en betrouwbaarder kunnen maken.
+        </p>
+        <p class="mission-text">
+            Geen dikke rapporten of eindeloze PowerPoints – maar direct zien hoe het werkt.
+        </p>
+        <p class="mission-tagline">
+            Snel. Lichtgewicht. Concreet. Tastbaar.
+        </p>
+    </div>
+</section>
     
     <!-- Why section -->
     <section class="why" id="why">
@@ -233,48 +242,27 @@
                 Klaar om te ervaren hoe Europese wallets jouw dienstverlening kunnen verbeteren? Neem contact op voor een vrijblijvend gesprek.
             </p>
             
-            <div class="contact-buttons">
-                <a href="mailto:gijs@gijsvandenbeucken.nl?subject=Vrijblijvend%20gesprek" class="contact-btn">
+         <!--    <div class="contact-buttons">
+                <a href="mailto:info@opendemolab.eu?subject=Vrijblijvend%20gesprek" class="contact-btn">
                     <i class="fas fa-comment-dots"></i> Vrijblijvend gesprek
                 </a>
-                <a href="mailto:gijs@gijsvandenbeucken.nl?subject=Demo%20aanvragen" class="contact-btn">
+                <a href="mailto:info@opendemolab.eu?subject=Demo%20aanvragen" class="contact-btn">
                     <i class="fas fa-laptop"></i> Vraag een demo aan
                 </a>
-                <a href="mailto:gijs@gijsvandenbeucken.nl?subject=Sessie%20plannen" class="contact-btn">
+                <a href="mailto:info@opendemolab.eu?subject=Sessie%20plannen" class="contact-btn">
                     <i class="fas fa-calendar-alt"></i> Plan een sessie
                 </a>
             </div>
+ -->
+ <p class="mail-container">
+    <a id="emailAddress" class="email-address" href=""></a>
+    <!-- Zorg voor een consistente id: gebruik "copyButton" -->
+    <button id="copyButton" class="contact-btn">Kopieer</button>
+  </p>
 
-            <p style="margin-top: 40px; font-size: 1.2rem;">
-                Of mail ons direct via:
-                <script>
-                    // E-mailadres in stukjes
-                    const deel1 = "gijs";
-                    const deel2 = "@";
-                    const deel3 = "gijsvandenbeucken.nl";
-                    const mailadres = deel1 + deel2 + deel3;
-            
-                    // Kopieerfunctie zonder alert
-                    function copyMailToClipboard(address) {
-                      navigator.clipboard.writeText(address)
-                        .then(() => {
-                          console.log("E-mailadres gekopieerd: " + address);
-                        })
-                        .catch(err => console.error("Fout bij kopiëren:", err));
-                    }
-            
-                    // Schrijf de link en de knop in één keer
-                    document.write(
-                      '<a href="mailto:' + mailadres + '" ' +
-                        'style="color: white; text-decoration: none; margin-left: 10px; margin-right: 10px;">' +
-                          mailadres +
-                      '</a>' +
-                      '<button onclick="copyMailToClipboard(\'' + mailadres + '\')" ' +
-                        'class="contact-btn">Kopieer</button>'
-                    );
-                </script>
-            </p>
-            
+  <script>
+    
+  </script>
 
         </div>
     </section>
@@ -289,6 +277,8 @@
     <!-- JavaScript voor menu en panorama effect -->
     <script src="menu.js"></script>
     <script src="smooth-scroll.js"></script>
+    <script src="rotate.js"></script>
+    <script src="copy.js"></script>
     
 </body>
 </html>

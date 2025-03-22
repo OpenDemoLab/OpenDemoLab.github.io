@@ -274,13 +274,36 @@ nav.menu-open .logo span {
 }
 
 .mission-text {
-    font-size: 2.25rem;
-    line-height: 1.8;
-    margin-bottom: 30px;
+    font-size: 1.75rem;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    color: var(--secondary-color);
 }
 
-.mission-text strong {
+.highlighted-term-container {
+    margin: 15px 0 25px;
+    text-align: center;
+}
+
+#rotating-term {
+    font-size: 2.5rem;
     color: var(--primary-color);
+    font-weight: 700;
+    transition: opacity 0.5s ease;
+    display: inline-block;
+}
+
+.term-bracket {
+    font-size: 2rem;
+    color: rgba(77, 166, 224, 0.5);
+    margin: 0 5px;
+}
+
+.mission-tagline {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-top: 40px;
 }
 
 /* ===== WAAROM SECTIE ===== */
@@ -496,6 +519,28 @@ nav.menu-open .logo span {
     background-color: rgba(255, 255, 255, 0.9);
     transform: translateY(-5px);
 }
+
+
+
+.email-address {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 2rem; /* Grotere weergave van het e-mailadres */
+  }
+
+  /* Optioneel: algemene opmaak voor de paragraaf */
+  .mail-container {
+    margin-top: 40px;
+    font-size: 1.2rem;
+  }
+
+
+  .copyButton {
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
 
 /* ===== FOOTER ===== */
 footer {

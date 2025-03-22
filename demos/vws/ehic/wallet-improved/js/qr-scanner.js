@@ -2,6 +2,7 @@
 import { screenManager } from './navigation.js';
 import { showEhicCardModal } from './modals/ehic-collect.js';
 import { showEhicShareModal } from './modals/ehic-share.js';
+import { showLoginConfirmationModal } from './modals/inlog.js';
 
 // Globale html5QrCode instantie
 let html5QrCode = null;
@@ -135,8 +136,21 @@ function fetchQrScandata(apiUrl) {
 function processScannedData(data, timestamp) {
   console.log("Processing scanned data: ", data, "Timestamp: ", timestamp);
 
-  // Verwerk verifier QR-code (delen van gegevens)
-  if (data.type === "verifier" && data.rdfcv) {
+  // Detecteer inlogverzoek op basis van reason
+  const isLoginRequest = data.type === "verifier" && 
+                         data.reason && 
+                         data.reason.toLowerCase().includes('inloggen');
+
+  // Verwerk inlogverzoek
+  if (isLoginRequest) {
+    console.log("Login verzoek gedetecteerd.");
+    // Importeer de inlogmodule en toon het inlogbevestigingsscherm
+    import('./modals/inlog.js').then(module => {
+      module.showLoginConfirmationModal(data);
+    });
+  }
+  // Verwerk regulier verifier QR-code (delen van gegevens)
+  else if (data.type === "verifier" && data.rdfcv) {
     console.log("RDFCV QR-code herkend.");
     
     // Bewaar de data als een globaal object voor later gebruik

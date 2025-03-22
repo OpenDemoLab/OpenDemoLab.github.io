@@ -134,12 +134,21 @@ function setupWalletEventListeners() {
       qrScanBtn.parentNode.replaceChild(newQrScanBtn, qrScanBtn);
     }
     
-    // Add new listener
+    // Add new listener - Aangepast om direct de scan te starten
     newQrScanBtn.addEventListener('click', () => {
-      screenManager.showScreen('add-card', false);
-      import('../qr-scanner.js').then(module => {
-        module.startQrScan();
-      });
+      // Detecteer of app in iframe draait
+      const isInIframe = window.self !== window.top;
+      
+      if (isInIframe) {
+        // In presentatiemodus: vraag direct om QR code van parent
+        window.parent.postMessage({ action: "requestQRScan" }, "*");
+      } else {
+        // Normale modus: toon scan scherm en start QR scanner
+        screenManager.showScreen('add-card', false);
+        import('../qr-scanner.js').then(module => {
+          module.startQrScan();
+        });
+      }
     });
   }
 }
@@ -153,6 +162,4 @@ export function showWalletScreen(showNavBar = true) {
   
   // Show the wallet screen
   screenManager.showScreen('wallet', showNavBar);
-  
-
 }

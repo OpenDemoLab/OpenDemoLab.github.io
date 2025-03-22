@@ -15,15 +15,23 @@ const isInIframe = window.self !== window.top;
  */
 export function initQrScanner() {
   // Event listeners voor scanner scherm
-  document.getElementById('scan-button').addEventListener('click', () => {
-    startQrScan();
-  });
+  const scanButton = document.getElementById('scan-button');
+  if (scanButton) {
+    scanButton.addEventListener('click', () => {
+      startQrScan();
+    });
+  }
 
-  document.getElementById('close-scan-button').addEventListener('click', () => {
-    stopQrScan();
-  });
+  const closeButton = document.getElementById('close-scan-button');
+  if (closeButton) {
+    closeButton.addEventListener('click', () => {
+      stopQrScan();
+      // Ga terug naar het wallet scherm in plaats van scan-container te tonen
+      screenManager.showScreen('wallet', true);
+    });
+  }
   
-  // Luister naar berichten voor simulatie-modus (alleen voor testen)
+  // Luister naar berichten voor simulatie-modus
   window.addEventListener("message", function(event) {
     if (event.data.action === "simulateScan" && event.data.qrData) {
       simulateQrScan(event.data.qrData);
@@ -44,9 +52,20 @@ export function startQrScan() {
   }
   
   // Normale werking als we niet in een iframe zijn
-  document.querySelector('.scan-container').style.display = 'none';
-  document.getElementById('close-scan-button').style.display = 'block';
-  document.getElementById('reader').style.display = 'block';
+  const scanContainer = document.querySelector('.scan-container');
+  if (scanContainer) {
+    scanContainer.style.display = 'none';
+  }
+  
+  const closeButton = document.getElementById('close-scan-button');
+  if (closeButton) {
+    closeButton.style.display = 'block';
+  }
+  
+  const reader = document.getElementById('reader');
+  if (reader) {
+    reader.style.display = 'block';
+  }
 
   // Maak een nieuwe scanner instantie als die er nog niet is
   if (!html5QrCode) {
@@ -68,12 +87,24 @@ export function startQrScan() {
 export function stopQrScan() {
   if (html5QrCode) {
     html5QrCode.stop().then(() => {
-      document.getElementById('reader').style.display = 'none';
-      document.getElementById('close-scan-button').style.display = 'none';
-      document.querySelector('.scan-container').style.display = 'flex';
+      const reader = document.getElementById('reader');
+      if (reader) {
+        reader.style.display = 'none';
+      }
+      
+      const closeButton = document.getElementById('close-scan-button');
+      if (closeButton) {
+        closeButton.style.display = 'none';
+      }
+      
+      // Ga terug naar het wallet scherm
+      screenManager.showScreen('wallet', true);
     }).catch(err => {
       console.error("Failed to stop scanning: ", err);
     });
+  } else {
+    // Als er geen html5QrCode is, ga direct terug naar het wallet scherm
+    screenManager.showScreen('wallet', true);
   }
 }
 
